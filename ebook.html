@@ -3,506 +3,328 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Masterclass | 3 Bolos Caseiros Perfeitos — Chef Paula Bravo</title>
+  <title>Mini Curso | Chef Paula Bravo</title>
+  <meta name="description" content="Aprenda os segredos dos bolos artesanais com o Mini Curso da Chef Paula Bravo." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
   <style>
-    :root {
-      --vinho:        #6B2737;
-      --vinho-dark:   #4A1825;
-      --dourado:      #C9A96E;
-      --dourado-light:#E8D5B0;
-      --bege:         #F5EFE6;
-      --creme:        #FAF6F0;
-      --nude:         #E8D5C4;
-      --terracota:    #C4714A;
-      --text-dark:    #2C1810;
-      --text-mid:     #5C3D2E;
-      --text-light:   #9B7B6B;
-      --white:        #FFFFFF;
-      --font-title:   'Cormorant Garamond', serif;
-      --font-body:    'Lato', sans-serif;
-      --nav-h:        80px;
-      --radius:       12px;
-      --radius-lg:    24px;
-    }
-
-    /* ════════════════════════════
-       HERO
-    ════════════════════════════ */
-    .lp-hero {
+    /* ── HERO ── */
+    .eb-hero {
       min-height: 100vh;
       padding-top: var(--nav-h);
-      background: linear-gradient(135deg, #4A1825 0%, #6B2737 55%, #8B3A4A 100%);
+      background: linear-gradient(135deg, #2C1810 0%, #4A1825 40%, #6B2737 75%, #C4714A 100%);
       display: flex;
-      flex-direction: column;
+      align-items: center;
       position: relative;
       overflow: hidden;
     }
-    .lp-hero::before {
+    .eb-hero::before {
       content: '';
       position: absolute; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3Ccircle cx='80' cy='0' r='5'/%3E%3Ccircle cx='0' cy='80' r='5'/%3E%3Ccircle cx='80' cy='80' r='5'/%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0;
-    }
-    .lp-hero::after {
-      content: '';
-      position: absolute;
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
-      right: -180px; top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none; z-index: 0;
-    }
-    .lp-hero-main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      position: relative; z-index: 1;
-      padding: 60px 0 120px;
-    }
-    .lp-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Badge */
-    .lp-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(201,169,110,0.18);
-      border: 1px solid rgba(201,169,110,0.35);
-      color: #E8D5B0;
-      font-family: var(--font-body);
-      font-size: .7rem; font-weight: 700;
-      letter-spacing: .18em; text-transform: uppercase;
-      padding: .45rem 1.1rem; border-radius: 50px;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Título hero */
-    .lp-hero-text h1 {
-      font-family: var(--font-title);
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      font-weight: 700; color: #FFFFFF;
-      line-height: 1.06; margin: 0 0 1rem;
-    }
-    .lp-hero-text h1 em { font-style: italic; color: #E8D5B0; }
-    .lp-hero-sub {
-      font-family: var(--font-body);
-      font-size: 1rem; color: rgba(255,255,255,0.78);
-      line-height: 1.75; margin-bottom: 2rem;
-    }
-
-    /* Bolos inclusos */
-    .bolos-lista {
-      display: flex; flex-direction: column; gap: .6rem;
-      margin-bottom: 2rem;
-    }
-    .bolo-item {
-      display: flex; align-items: center; gap: .8rem;
-      font-family: var(--font-body);
-      font-size: .92rem; color: rgba(255,255,255,0.9);
-    }
-    .bolo-check {
-      min-width: 24px; height: 24px;
-      background: rgba(201,169,110,0.25);
-      border: 1.5px solid #C9A96E;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: #E8D5B0; font-size: .72rem; font-weight: 700;
-    }
-    .bolo-item strong { color: #E8D5B0; }
-
-    /* Preço */
-    .lp-price-row {
-      display: flex; align-items: flex-end; gap: 1.2rem;
-      margin-bottom: 1.8rem; flex-wrap: wrap;
-    }
-    .price-por {
-      font-family: var(--font-title);
-      font-size: 4.2rem; font-weight: 700;
-      color: #E8D5B0; line-height: 1; display: block;
-    }
-    .price-desc {
-      font-family: var(--font-body);
-      font-size: .82rem; color: rgba(255,255,255,.5);
-      line-height: 1.65;
-    }
-
-    /* Botão de compra */
-    .btn-comprar {
-      display: block; width: 100%;
-      padding: 1.2rem 2rem;
-      background: linear-gradient(135deg, #C9A96E 0%, #B8935A 100%);
-      color: #FFFFFF !important;
-      font-family: var(--font-body);
-      font-size: 1.08rem; font-weight: 700;
-      letter-spacing: .04em; text-align: center;
-      text-decoration: none; border-radius: 50px; border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 30px rgba(201,169,110,.45);
-      position: relative; overflow: hidden;
-      transition: all .4s ease; margin-bottom: .8rem;
-    }
-    .btn-comprar::before {
-      content: '';
-      position: absolute; top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-      transition: left .55s;
-    }
-    .btn-comprar:hover::before { left: 100%; }
-    .btn-comprar:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 42px rgba(201,169,110,.6);
-    }
-    .lp-garantia {
-      display: flex; align-items: center; justify-content: center; gap: .5rem;
-      font-family: var(--font-body); font-size: .76rem;
-      color: rgba(255,255,255,.42); margin-top: .3rem;
-    }
-    .lp-garantia svg { width: 15px; height: 15px; fill: rgba(255,255,255,.35); flex-shrink: 0; }
-
-    /* ── Mockup ── */
-    .ebook-mockup {
-      display: flex; justify-content: center; align-items: center;
-    }
-    .mockup-book {
-      width: 270px;
-      background: linear-gradient(145deg, #F5EFE6, #E8D5C4);
-      border-radius: 6px 18px 18px 6px;
-      padding: 2.8rem 2.2rem;
-      box-shadow:
-        -10px 0 0 rgba(0,0,0,.22),
-        -5px 5px 25px rgba(0,0,0,.28),
-        0 25px 65px rgba(0,0,0,.4),
-        inset 10px 0 20px rgba(107,39,55,.06);
-      position: relative;
-      transform: rotate(-3deg);
-      transition: transform .45s ease, box-shadow .45s ease;
-    }
-    .mockup-book:hover {
-      transform: rotate(0deg) scale(1.03);
-      box-shadow: -10px 0 0 rgba(0,0,0,.22), -5px 5px 25px rgba(0,0,0,.28), 0 40px 80px rgba(0,0,0,.45), inset 10px 0 20px rgba(107,39,55,.06);
-    }
-    .mockup-book::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0; width: 14px;
-      background: linear-gradient(to right, rgba(0,0,0,.28), rgba(0,0,0,.04));
-      border-radius: 6px 0 0 6px;
-    }
-    .mockup-inner {
-      border: 1.5px solid rgba(107,39,55,.18);
-      border-radius: 4px 12px 12px 4px;
-      padding: 1.8rem 1.4rem;
-      text-align: center;
-      background: rgba(255,255,255,.55);
-    }
-    .mockup-emoji { font-size: 3rem; margin-bottom: .7rem; }
-    .mockup-sub {
-      font-family: var(--font-body); font-size: .63rem; font-weight: 700;
-      letter-spacing: .15em; text-transform: uppercase; color: #C9A96E; margin-bottom: .5rem;
-    }
-    .mockup-title {
-      font-family: var(--font-title); font-size: 1.2rem; font-weight: 700;
-      color: #6B2737; line-height: 1.2; margin-bottom: .6rem;
-    }
-    .mockup-bolos {
-      font-family: var(--font-body); font-size: .7rem; color: #9B7B6B;
-      line-height: 1.8; margin-bottom: .8rem; text-align: left;
-    }
-    .mockup-bolos span { display: block; }
-    .mockup-divider { height: 1px; background: linear-gradient(90deg, transparent, #C9A96E, transparent); margin: .7rem 0; }
-    .mockup-author { font-family: var(--font-title); font-style: italic; font-size: .95rem; color: #5C3D2E; }
-    .mockup-cargo { font-family: var(--font-body); font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #9B7B6B; margin-top: .2rem; }
-    .mockup-ribbon {
-      position: absolute; top: -14px; right: -14px;
-      width: 66px; height: 66px;
-      background: #6B2737; color: #FFFFFF; border-radius: 50%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      font-family: var(--font-body); font-size: .58rem; font-weight: 700;
-      text-align: center; line-height: 1.3; text-transform: uppercase; letter-spacing: .04em;
-      box-shadow: 0 4px 16px rgba(107,39,55,.45); transform: rotate(12deg);
-    }
-
-    /* ── Social Proof ── */
-    .lp-sp {
-      position: relative; z-index: 1;
-      background: rgba(0,0,0,.22);
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding: 20px 0;
-    }
-    .sp-list {
-      display: flex; align-items: center; justify-content: center;
-      gap: 3rem; flex-wrap: wrap;
-      width: 90%; max-width: 1200px; margin: 0 auto;
-    }
-    .sp-item {
-      display: flex; align-items: center; gap: .5rem;
-      font-family: var(--font-body); font-size: .84rem;
-      color: rgba(255,255,255,.7);
-    }
-    .sp-item strong { color: #FFFFFF; }
-
-    /* ════════════════════════════
-       SEÇÕES INTERNAS
-    ════════════════════════════ */
-    .lp-sec   { padding: 100px 0; }
-    .lp-sec-alt { padding: 100px 0; background: #F5EFE6; }
-    .lp-wrap  { width: 90%; max-width: 1200px; margin: 0 auto; }
-    .lp-ey {
-      display: block; font-family: var(--font-body);
-      font-size: .72rem; font-weight: 700; letter-spacing: .2em;
-      text-transform: uppercase; color: #C9A96E; margin-bottom: .5rem;
-    }
-    .lp-h2 {
-      font-family: var(--font-title);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 700; color: #2C1810; line-height: 1.15; margin-bottom: .5rem;
-    }
-    .lp-div {
-      width: 56px; height: 2px;
-      background: linear-gradient(90deg, #6B2737, #C9A96E);
-      margin: 1rem auto 2.8rem;
-    }
-    .lp-div.left { margin-left: 0; }
-
-    /* ── OS 3 BOLOS ── */
-    .bolos-cards {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 2rem; margin-top: 3rem;
-    }
-    .bolo-card {
-      background: #FFFFFF;
-      border-radius: 24px; overflow: hidden;
-      box-shadow: 0 8px 40px rgba(107,39,55,.1);
-      transition: all .4s ease;
-      display: flex; flex-direction: column;
-    }
-    .bolo-card:hover { transform: translateY(-8px); box-shadow: 0 22px 65px rgba(107,39,55,.18); }
-    .bolo-card-header {
-      background: linear-gradient(135deg, #6B2737, #4A1825);
-      padding: 2.5rem 2rem; text-align: center;
-    }
-    .bolo-card-num {
-      display: inline-block;
-      background: rgba(201,169,110,.25);
-      border: 1px solid rgba(201,169,110,.4);
-      color: #E8D5B0;
-      font-family: var(--font-body); font-size: .68rem; font-weight: 700;
-      letter-spacing: .15em; text-transform: uppercase;
-      padding: .3rem .9rem; border-radius: 50px; margin-bottom: 1rem;
-    }
-    .bolo-card-icon { font-size: 3.5rem; margin-bottom: .8rem; display: block; }
-    .bolo-card-header h3 {
-      font-family: var(--font-title);
-      font-size: 1.5rem; font-weight: 700;
-      color: #FFFFFF; line-height: 1.2; margin: 0;
-    }
-    .bolo-card-header h3 em { font-style: italic; color: #E8D5B0; }
-    .bolo-card-body { padding: 2rem; flex: 1; }
-    .bolo-card-body p {
-      font-family: var(--font-body); font-size: .88rem;
-      color: #9B7B6B; line-height: 1.7; margin-bottom: 1.2rem;
-    }
-    .bolo-tag-list { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .bolo-tag {
-      background: #F5EFE6;
-      color: #6B2737;
-      font-family: var(--font-body); font-size: .72rem; font-weight: 700;
-      padding: .3rem .8rem; border-radius: 50px;
-      letter-spacing: .05em;
-    }
-
-    /* ── Diferenciais ── */
-    .diferenciais-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 2rem; margin-top: 3rem;
-    }
-    .dif-card {
-      background: #FFFFFF; border-radius: 24px; padding: 2.5rem 2rem;
-      box-shadow: 0 8px 40px rgba(107,39,55,.1);
-      position: relative; overflow: hidden; transition: all .4s ease;
-    }
-    .dif-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, #6B2737, #C9A96E);
-      transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
-    }
-    .dif-card:hover { transform: translateY(-7px); box-shadow: 0 22px 65px rgba(107,39,55,.16); }
-    .dif-card:hover::after { transform: scaleX(1); }
-    .dif-icon { font-size: 2.4rem; margin-bottom: 1.2rem; }
-    .dif-card h3 { font-family: var(--font-title); font-size: 1.2rem; color: #6B2737; margin-bottom: .5rem; }
-    .dif-card p  { font-family: var(--font-body); font-size: .87rem; color: #9B7B6B; line-height: 1.7; }
-
-    /* ── Para quem é ── */
-    .pq-box {
-      background: linear-gradient(135deg, #6B2737, #4A1825);
-      border-radius: 24px; padding: 4.5rem 3rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
-    }
-    .pq-box h2 { font-family: var(--font-title); font-size: clamp(1.8rem,3vw,2.8rem); color: #FFFFFF; line-height: 1.15; }
-    .pq-box .lp-ey { color: #E8D5B0; }
-    .pq-list { margin-top: 1.8rem; }
-    .pq-item {
-      display: flex; align-items: center; gap: 1rem;
-      padding: .9rem 0; border-bottom: 1px solid rgba(255,255,255,.1);
-      font-family: var(--font-body); font-size: .92rem; color: rgba(255,255,255,.85);
-    }
-    .pq-item:last-child { border-bottom: none; }
-    .pq-ck {
-      min-width: 28px; height: 28px;
-      background: rgba(201,169,110,.2); border: 1.5px solid #C9A96E;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: #E8D5B0; font-size: .75rem; font-weight: 700;
-    }
-    .pq-cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-    .pq-cta p { font-family: var(--font-body); font-size: .95rem; color: rgba(255,255,255,.7); line-height: 1.75; }
-    .btn-gold-lp {
-      display: inline-block; padding: 1.1rem 2.5rem;
-      background: linear-gradient(135deg, #C9A96E, #B8935A);
-      color: #FFFFFF !important; font-family: var(--font-body);
-      font-size: 1rem; font-weight: 700; border-radius: 50px;
-      text-decoration: none; box-shadow: 0 6px 25px rgba(201,169,110,.45);
-      transition: all .4s ease;
-    }
-    .btn-gold-lp:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(201,169,110,.6); color: #FFFFFF !important; }
-    .pq-note { font-family: var(--font-body); font-size: .76rem; color: rgba(255,255,255,.38); }
-
-    /* ── Depoimentos ── */
-    .dep-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
-    .dep-card {
-      background: #FFFFFF; border-radius: 24px; padding: 2.2rem;
-      box-shadow: 0 8px 35px rgba(107,39,55,.1);
-      position: relative; overflow: hidden; transition: all .4s ease;
-    }
-    .dep-card:hover { transform: translateY(-5px); box-shadow: 0 20px 55px rgba(107,39,55,.16); }
-    .dep-card::before {
-      content: '\201C'; position: absolute; top: -8px; left: 18px;
-      font-family: var(--font-title); font-size: 6rem; color: #E8D5C4;
-      line-height: 1; pointer-events: none;
-    }
-    .dep-stars { color: #C9A96E; font-size: .88rem; letter-spacing: 2px; margin-bottom: 1rem; }
-    .dep-text { font-family: var(--font-title); font-style: italic; font-size: 1rem; color: #2C1810; line-height: 1.7; margin-bottom: 1.4rem; }
-    .dep-autor { font-family: var(--font-body); font-size: .76rem; font-weight: 700; color: #6B2737; text-transform: uppercase; letter-spacing: .1em; }
-    .dep-cargo { font-family: var(--font-body); font-size: .75rem; color: #9B7B6B; margin-top: .1rem; }
-
-    /* ── FAQ ── */
-    .faq-list { margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; }
-    .faq-item {
-      background: #FFFFFF; border-radius: 16px;
-      box-shadow: 0 3px 18px rgba(107,39,55,.07);
-      margin-bottom: 1rem; overflow: hidden;
-    }
-    .faq-q {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 1.8rem; cursor: pointer;
-      font-family: var(--font-title); font-size: 1.05rem; font-weight: 600;
-      color: #2C1810; user-select: none;
-      transition: color .3s;
-    }
-    .faq-q:hover { color: #6B2737; }
-    .faq-icon {
-      min-width: 28px; height: 28px;
-      background: #F5EFE6; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .85rem; color: #6B2737; font-weight: 700;
-      transition: transform .35s ease, background .3s;
-    }
-    .faq-item.open .faq-icon { transform: rotate(45deg); background: #6B2737; color: #FFFFFF; }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height .4s ease, padding .3s;
-      font-family: var(--font-body); font-size: .9rem;
-      color: #9B7B6B; line-height: 1.75;
-      padding: 0 1.8rem;
-    }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 1.8rem 1.4rem; }
-
-    /* ── CTA FINAL ── */
-    .lp-cta {
-      background: linear-gradient(135deg, #4A1825 0%, #6B2737 45%, #C4714A 100%);
-      padding: 120px 0; text-align: center; position: relative; overflow: hidden;
-    }
-    .lp-cta::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Ccircle cx='0' cy='0' r='4'/%3E%3Ccircle cx='60' cy='0' r='4'/%3E%3Ccircle cx='0' cy='60' r='4'/%3E%3Ccircle cx='60' cy='60' r='4'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .lp-cta-inner { position: relative; z-index: 1; }
-    .lp-cta h2 {
-      font-family: var(--font-title); font-size: clamp(2.2rem,4.5vw,4rem);
-      font-weight: 700; color: #FFFFFF; line-height: 1.12; margin-bottom: 1.2rem;
+    .eb-hero::after {
+      content: '✦';
+      position: absolute; bottom: 40px; right: 8%;
+      font-size: 8rem; color: rgba(201,169,110,0.08);
+      pointer-events: none; line-height: 1;
     }
-    .lp-cta h2 em { font-style: italic; color: #E8D5B0; }
-    .lp-cta p { font-family: var(--font-body); color: rgba(255,255,255,.78); font-size: 1.05rem; max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.75; }
-    .cta-price {
-      display: flex; align-items: flex-end; justify-content: center; gap: 1.5rem;
-      margin-bottom: 2.5rem; flex-wrap: wrap;
+    .eb-hero-inner {
+      position: relative; z-index: 1;
+      width: 90%; max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      gap: 5rem; align-items: center;
     }
-    .cta-valor {
-      font-family: var(--font-title); font-size: 5rem;
-      font-weight: 700; color: #E8D5B0; line-height: 1;
+    .eb-hero-text span {
+      display: block;
+      font-family: var(--font-body); font-size: .72rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: #C9A96E; margin-bottom: .8rem;
     }
-    .cta-info {
-      font-family: var(--font-body); font-size: .85rem;
-      color: rgba(255,255,255,.55); line-height: 1.75; text-align: left; margin-bottom: .5rem;
+    .eb-hero-text h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 700; color: #FFFFFF;
+      line-height: 1.05; margin-bottom: 1.2rem;
     }
-    .cta-btn {
-      display: inline-block; padding: 1.4rem 4.5rem;
-      background: linear-gradient(135deg, #C9A96E, #B8935A);
-      color: #FFFFFF !important; font-family: var(--font-body);
-      font-size: 1.25rem; font-weight: 700; letter-spacing: .03em;
+    .eb-hero-text h1 em { font-style: italic; color: #E8D5B0; }
+    .eb-hero-text p {
+      font-family: var(--font-body); font-size: 1.05rem;
+      color: rgba(255,255,255,.78); line-height: 1.8;
+      max-width: 480px; margin-bottom: 2.5rem;
+    }
+    .eb-hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .eb-hero-btns .btn-wpp {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: 1.1rem 2.4rem; background: #25D366; color: #FFFFFF;
+      font-family: var(--font-body); font-size: 1rem; font-weight: 700;
       border-radius: 50px; text-decoration: none;
-      box-shadow: 0 10px 40px rgba(201,169,110,.5); transition: all .4s ease;
+      box-shadow: 0 6px 25px rgba(37,211,102,.4);
+      transition: all .35s ease;
+    }
+    .eb-hero-btns .btn-wpp:hover { background: #20b858; transform: translateY(-2px); box-shadow: 0 10px 35px rgba(37,211,102,.55); }
+    .eb-hero-btns .btn-wpp svg { width: 20px; height: 20px; fill: #FFFFFF; }
+    .eb-hero-btns .btn-scroll {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: 1.1rem 2.4rem;
+      border: 2px solid rgba(255,255,255,.35); color: rgba(255,255,255,.85);
+      font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+      border-radius: 50px; text-decoration: none;
+      transition: all .35s ease;
+    }
+    .eb-hero-btns .btn-scroll:hover { border-color: #C9A96E; color: #C9A96E; transform: translateY(-2px); }
+
+    /* mockup caixa do ebook */
+    .eb-mockup {
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .eb-book {
+      width: 260px; height: 340px;
+      background: linear-gradient(145deg, #E8D5B0, #C9A96E);
+      border-radius: 8px 20px 20px 8px;
+      box-shadow:
+        -10px 0 0 #B8935A,
+        0 30px 60px rgba(0,0,0,0.45),
+        0 10px 30px rgba(107,39,55,0.4);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2.5rem 2rem; text-align: center;
+      position: relative; overflow: hidden;
+      transform: perspective(600px) rotateY(-8deg);
+      transition: transform .4s ease;
+    }
+    .eb-book:hover { transform: perspective(600px) rotateY(-2deg) translateY(-6px); }
+    .eb-book::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 8px; height: 100%;
+      background: linear-gradient(to bottom, #8B6914, #C9A96E, #8B6914);
+      border-radius: 8px 0 0 8px;
+    }
+    .eb-book-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .eb-book-title {
+      font-family: var(--font-title); font-size: 1.4rem; font-weight: 700;
+      color: #4A1825; line-height: 1.2; margin-bottom: .5rem;
+    }
+    .eb-book-sub {
+      font-family: var(--font-body); font-size: .72rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: #6B2737; opacity: .8;
+    }
+    .eb-book-badge {
+      position: absolute; top: 1.2rem; right: -1rem;
+      background: #6B2737; color: #E8D5B0;
+      font-family: var(--font-body); font-size: .68rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .35rem .9rem; border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(107,39,55,.4);
+    }
+    .eb-mockup-glow {
+      position: absolute; inset: -40px;
+      background: radial-gradient(circle, rgba(201,169,110,.15) 0%, transparent 70%);
+      pointer-events: none; z-index: -1;
+    }
+
+    /* ── O QUE VOCÊ VAI APRENDER ── */
+    .eb-sec { padding: 100px 0; background: #FAF6F0; }
+    .eb-sec-alt { padding: 100px 0; background: #F5EFE6; }
+    .eb-wrap { width: 90%; max-width: 1100px; margin: 0 auto; }
+    .eb-ey {
+      display: block; font-family: var(--font-body); font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: #C9A96E; margin-bottom: .5rem;
+    }
+    .eb-h2 {
+      font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700; color: #2C1810; line-height: 1.15; margin-bottom: .5rem;
+    }
+    .eb-div {
+      width: 56px; height: 2px;
+      background: linear-gradient(90deg, #6B2737, #C9A96E);
+      margin: 1rem auto 3rem;
+    }
+
+    .modulos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    .modulo-card {
+      background: #FFFFFF; border-radius: 20px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 8px 40px rgba(107,39,55,.1);
+      transition: all .4s ease;
+      border-left: 4px solid transparent;
       position: relative; overflow: hidden;
     }
-    .cta-btn::before {
-      content: ''; position: absolute; top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
-      transition: left .55s;
+    .modulo-card::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, rgba(201,169,110,.1) 0%, transparent 70%);
     }
-    .cta-btn:hover::before { left: 100%; }
-    .cta-btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 55px rgba(201,169,110,.65); color: #FFFFFF !important; }
-    .cta-seg {
-      margin-top: 1.8rem; display: flex; align-items: center; justify-content: center; gap: .6rem;
-      font-family: var(--font-body); font-size: .8rem; color: rgba(255,255,255,.4);
+    .modulo-card:hover { transform: translateY(-6px); box-shadow: 0 20px 55px rgba(107,39,55,.16); border-left-color: #C9A96E; }
+    .modulo-num {
+      font-family: var(--font-title); font-size: 2.8rem; font-weight: 700;
+      color: rgba(201,169,110,.25); line-height: 1;
+      margin-bottom: .5rem;
     }
-    .cta-seg svg { width: 17px; height: 17px; fill: rgba(255,255,255,.35); flex-shrink: 0; }
+    .modulo-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .modulo-card h4 {
+      font-family: var(--font-title); font-size: 1.15rem; color: #6B2737; margin-bottom: .5rem;
+    }
+    .modulo-card p {
+      font-family: var(--font-body); font-size: .85rem; color: #9B7B6B; line-height: 1.7; margin: 0;
+    }
 
-    /* ── Responsivo ── */
+    /* ── PARA QUEM É ── */
+    .para-quem-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .para-quem-text h2 { font-family: var(--font-title); font-size: clamp(1.8rem,3vw,2.8rem); color: #2C1810; margin-bottom: 1.2rem; line-height: 1.15; }
+    .para-quem-text h2 em { font-style: italic; color: #C4714A; }
+    .para-quem-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .9rem; }
+    .para-quem-list li {
+      display: flex; align-items: flex-start; gap: .9rem;
+      font-family: var(--font-body); font-size: .93rem;
+      color: #5C3D2E; line-height: 1.6;
+    }
+    .para-quem-list li::before {
+      content: '✦';
+      color: #C9A96E; font-size: .8rem; flex-shrink: 0; margin-top: .2rem;
+    }
+    .para-quem-img {
+      background: linear-gradient(135deg, #F5EFE6, #E8D5C4);
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(107,39,55,.2);
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem;
+    }
+    .para-quem-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* ── PREÇO ── */
+    .eb-preco {
+      background: linear-gradient(135deg, #4A1825 0%, #6B2737 60%, #C4714A 100%);
+      padding: 100px 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .eb-preco::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .eb-preco-inner { position: relative; z-index: 1; width: 90%; max-width: 700px; margin: 0 auto; }
+    .eb-preco-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(201,169,110,.3);
+      border-radius: 28px; padding: 3.5rem 3rem;
+      backdrop-filter: blur(12px);
+    }
+    .eb-preco-tag {
+      font-family: var(--font-body); font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: #C9A96E; display: block; margin-bottom: 1rem;
+    }
+    .eb-preco-titulo {
+      font-family: var(--font-title); font-size: clamp(1.6rem,3vw,2.4rem);
+      font-weight: 700; color: #FFFFFF; margin-bottom: 2rem; line-height: 1.2;
+    }
+    .eb-preco-titulo em { font-style: italic; color: #E8D5B0; }
+    .eb-valor-de {
+      font-family: var(--font-body); font-size: .9rem;
+      color: rgba(255,255,255,.45); text-decoration: line-through;
+      margin-bottom: .3rem;
+    }
+    .eb-valor {
+      font-family: var(--font-title); font-size: 4rem; font-weight: 700;
+      color: #E8D5B0; line-height: 1; margin-bottom: .4rem;
+    }
+    .eb-valor span { font-size: 1.8rem; vertical-align: top; margin-top: .5rem; display: inline-block; }
+    .eb-valor-nota {
+      font-family: var(--font-body); font-size: .8rem;
+      color: rgba(255,255,255,.5); margin-bottom: 2rem;
+    }
+    .eb-includes {
+      list-style: none; padding: 0; margin: 0 0 2.5rem;
+      display: flex; flex-direction: column; gap: .7rem; text-align: left;
+    }
+    .eb-includes li {
+      display: flex; align-items: center; gap: .8rem;
+      font-family: var(--font-body); font-size: .9rem;
+      color: rgba(255,255,255,.82);
+    }
+    .eb-includes li::before { content: '✓'; color: #C9A96E; font-weight: 700; flex-shrink: 0; }
+    .btn-comprar {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(135deg, #C9A96E, #B8935A);
+      color: #FFFFFF; font-family: var(--font-body); font-size: 1.05rem; font-weight: 700;
+      border-radius: 50px; text-decoration: none;
+      box-shadow: 0 8px 30px rgba(201,169,110,.45);
+      transition: all .35s ease; width: 100%; justify-content: center;
+    }
+    .btn-comprar:hover { transform: translateY(-3px); box-shadow: 0 14px 45px rgba(201,169,110,.6); color: #FFFFFF; }
+    .eb-garantia {
+      margin-top: 1.2rem;
+      font-family: var(--font-body); font-size: .78rem;
+      color: rgba(255,255,255,.4);
+    }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+    .faq-item {
+      background: #FFFFFF; border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(107,39,55,.08);
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; padding: 1.4rem 1.8rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-title); font-size: 1.1rem;
+      color: #2C1810; text-align: left;
+      transition: color .3s;
+    }
+    .faq-question:hover { color: #6B2737; }
+    .faq-question svg {
+      width: 20px; height: 20px; flex-shrink: 0;
+      fill: #C9A96E; transition: transform .3s;
+    }
+    .faq-item.open .faq-question svg { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .4s ease;
+      font-family: var(--font-body); font-size: .9rem;
+      color: #5C3D2E; line-height: 1.75;
+      padding: 0 1.8rem;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 1.8rem 1.4rem; }
+
     @media (max-width: 900px) {
-      .lp-inner { grid-template-columns: 1fr; gap: 3rem; padding: 40px 0 100px; }
-      .ebook-mockup { order: -1; }
-      .mockup-book { width: 210px; }
-      .bolos-cards, .diferenciais-grid, .dep-grid { grid-template-columns: 1fr 1fr; }
-      .pq-box { grid-template-columns: 1fr; gap: 2.5rem; }
+      .eb-hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .eb-hero-text p { max-width: 100%; }
+      .eb-hero-btns { justify-content: center; }
+      .eb-book { transform: none; }
+      .modulos-grid { grid-template-columns: 1fr 1fr; }
+      .para-quem-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .eb-preco-card { padding: 2.5rem 1.8rem; }
     }
     @media (max-width: 600px) {
-      .lp-sec, .lp-sec-alt { padding: 70px 0; }
-      .bolos-cards, .diferenciais-grid, .dep-grid { grid-template-columns: 1fr; }
-      .lp-cta { padding: 80px 0; }
-      .cta-valor { font-size: 3.8rem; }
-      .cta-btn { padding: 1.2rem 3rem; font-size: 1.1rem; }
-      .pq-box { padding: 3rem 1.5rem; }
-      .sp-list { gap: 1.2rem; }
+      .eb-sec, .eb-sec-alt { padding: 70px 0; }
+      .modulos-grid { grid-template-columns: 1fr; }
+      .eb-preco { padding: 70px 0; }
+      .eb-valor { font-size: 3rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ NAVBAR ══ -->
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -515,379 +337,235 @@
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="cardapio.html">Cardápio</a></li>
       <li><a href="encomendas.html">Encomendas</a></li>
-      <li><a href="ebook.html">Mini Curso</a></li>
+      <li><a href="ebook.html">Ebook</a></li>
       <li><a href="contato.html" class="nav-cta">Contato</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
-<section class="lp-hero">
-  <div class="lp-hero-main">
-    <div class="lp-inner">
-
-      <!-- Texto -->
-      <div class="lp-hero-text">
-        <div class="lp-badge">✦ Mini Masterclass com Vídeos Práticos</div>
-        <h1>3 Bolos Caseiros<br><em>Perfeitos</em> — do Zero<br>ao Sabor Profissional</h1>
-        <p class="lp-hero-sub">
-          Aprenda as receitas reais da Chef Paula Bravo e faça em casa bolos que parecem feitos por uma confeiteira profissional — mesmo que você nunca tenha feito um bolo na vida.
-        </p>
-
-        <!-- Os 3 bolos -->
-        <div class="bolos-lista">
-          <div class="bolo-item">
-            <div class="bolo-check">✓</div>
-            <span>🍬 <strong>Bolo de Paçoca</strong> — crocante por fora, cremoso por dentro</span>
-          </div>
-          <div class="bolo-item">
-            <div class="bolo-check">✓</div>
-            <span>🌽 <strong>Bolo de Milho com Curau Cremoso</strong> — textura irresistível</span>
-          </div>
-          <div class="bolo-item">
-            <div class="bolo-check">✓</div>
-            <span>🍓 <strong>Bolo Romeu e Julieta</strong> — o equilíbrio perfeito do doce e salgado</span>
-          </div>
-        </div>
-
-        <!-- Preço -->
-        <div class="lp-price-row">
-          <div>
-            <span class="price-por">R$ 97</span>
-          </div>
-          <div class="price-desc">
-            Pagamento único<br>
-            Acesso vitalício<br>
-            Vídeos práticos + ingredientes simples
-          </div>
-        </div>
-
-        <a href="https://go.hotmart.com/X100940490L" class="btn-comprar" target="_blank" rel="noopener">
-          🍰 Quero a Mini Masterclass agora — R$ 97
+<!-- ══ HERO ══ -->
+<section class="eb-hero">
+  <div class="eb-hero-inner">
+    <div class="eb-hero-text reveal-left">
+      <span>✦ Mini Curso Digital</span>
+      <h1>Os segredos dos<br><em>Bolos Artesanais</em><br>revelados</h1>
+      <p>Aprenda com a Chef Paula Bravo a criar bolos caseiros incríveis — do zero, com técnicas simples, ingredientes acessíveis e muito amor. 🍰</p>
+      <div class="eb-hero-btns">
+        <a href="#preco" class="btn-wpp">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Quero o Mini Curso
         </a>
-        <div class="lp-garantia">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          Compra 100% segura · Hotmart · Acesso imediato após pagamento
-        </div>
+        <a href="#modulos" class="btn-scroll">Ver conteúdo ↓</a>
       </div>
-
-      <!-- Mockup -->
-      <div class="ebook-mockup">
-        <div class="mockup-book">
-          <div class="mockup-ribbon">Mini<br>Master<br>class</div>
-          <div class="mockup-inner">
-            <div class="mockup-emoji">🍰</div>
-            <div class="mockup-sub">Chef Paula Bravo</div>
-            <div class="mockup-title">3 Bolos Caseiros Perfeitos</div>
-            <div class="mockup-bolos">
-              <span>🍬 Bolo de Paçoca</span>
-              <span>🌽 Milho com Curau Cremoso</span>
-              <span>🍓 Romeu e Julieta</span>
-            </div>
-            <div class="mockup-divider"></div>
-            <div class="mockup-author">Chef Paula Bravo</div>
-            <div class="mockup-cargo">Gastróloga · Confeiteira Artesanal</div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
-
-  <!-- Social proof -->
-  <div class="lp-sp">
-    <div class="sp-list">
-      <div class="sp-item">🎬 <span><strong>Vídeos práticos</strong> passo a passo</span></div>
-      <div class="sp-item">🌾 <span><strong>Ingredientes simples</strong> do mercado</span></div>
-      <div class="sp-item">👩‍🍳 <span>Técnicas de <strong>confeiteira profissional</strong></span></div>
-      <div class="sp-item">♾️ <span>Acesso <strong>vitalício</strong></span></div>
+    <div class="eb-mockup reveal-right">
+      <div class="eb-mockup-glow"></div>
+      <div class="eb-book">
+        <div class="eb-book-badge">Mini Curso</div>
+        <div class="eb-book-icon">🎂</div>
+        <div class="eb-book-title">Bolos Artesanais<br>da Chef Paula</div>
+        <div class="eb-book-sub">Chef Paula Bravo</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     OS 3 BOLOS DO CURSO
-══════════════════════════════════ -->
-<section class="lp-sec">
-  <div class="lp-wrap">
+<!-- ══ MÓDULOS ══ -->
+<section class="eb-sec" id="modulos">
+  <div class="eb-wrap">
     <div style="text-align:center">
-      <span class="lp-ey">O que você vai aprender</span>
-      <h2 class="lp-h2">3 receitas que vão te fazer<br><em style="font-style:italic;color:#C4714A">arrasar na cozinha</em></h2>
-      <div class="lp-div"></div>
+      <span class="eb-ey reveal">Conteúdo completo</span>
+      <h2 class="eb-h2 reveal">O que você vai <em style="font-style:italic;color:#C4714A">aprender</em></h2>
+      <div class="eb-div"></div>
     </div>
-    <div class="bolos-cards">
-
-      <!-- Bolo 1 -->
-      <div class="bolo-card">
-        <div class="bolo-card-header">
-          <span class="bolo-card-num">Receita 01</span>
-          <span class="bolo-card-icon">🍬</span>
-          <h3>Bolo de<br><em>Paçoca</em></h3>
-        </div>
-        <div class="bolo-card-body">
-          <p>O queridinho de todo mundo em versão bolo! Massa incrivelmente macia com sabor intenso de paçoca, cobertura especial e aquele acabamento que impressiona. A Chef Paula ensina cada detalhe do ponto perfeito.</p>
-          <div class="bolo-tag-list">
-            <span class="bolo-tag">Massa macia</span>
-            <span class="bolo-tag">Cobertura especial</span>
-            <span class="bolo-tag">Faz sucesso</span>
-          </div>
-        </div>
+    <div class="modulos-grid">
+      <div class="modulo-card reveal">
+        <div class="modulo-num">01</div>
+        <div class="modulo-icon">🌾</div>
+        <h4>Ingredientes que fazem a diferença</h4>
+        <p>Como escolher farinha, ovos, manteiga e açúcar de qualidade. Substitutos inteligentes para economizar sem perder sabor.</p>
       </div>
-
-      <!-- Bolo 2 -->
-      <div class="bolo-card">
-        <div class="bolo-card-header">
-          <span class="bolo-card-num">Receita 02</span>
-          <span class="bolo-card-icon">🌽</span>
-          <h3>Milho com<br><em>Curau Cremoso</em></h3>
-        </div>
-        <div class="bolo-card-body">
-          <p>Textura aveludada, sabor que lembra a infância e um recheio cremoso de curau que ninguém resiste. Uma das receitas preferidas dos clientes da Chef Paula — e você vai aprender do zero ao acabamento.</p>
-          <div class="bolo-tag-list">
-            <span class="bolo-tag">Textura cremosa</span>
-            <span class="bolo-tag">Recheio especial</span>
-            <span class="bolo-tag">Ingredientes simples</span>
-          </div>
-        </div>
+      <div class="modulo-card reveal">
+        <div class="modulo-num">02</div>
+        <div class="modulo-icon">🥣</div>
+        <h4>Técnicas de massa perfeita</h4>
+        <p>O segredo do bolo fofinho e úmido. Como misturar, quanto bater e os erros mais comuns que arruínam a massa.</p>
       </div>
-
-      <!-- Bolo 3 -->
-      <div class="bolo-card">
-        <div class="bolo-card-header">
-          <span class="bolo-card-num">Receita 03</span>
-          <span class="bolo-card-icon">🍓</span>
-          <h3>Romeu e<br><em>Julieta</em></h3>
-        </div>
-        <div class="bolo-card-body">
-          <p>O clássico do doce de goiaba com queijo reinventado em bolo artesanal. Equilíbrio perfeito entre o doce e o salgado, visual elegante e sabor que surpreende. Ideal para presentear e para vender.</p>
-          <div class="bolo-tag-list">
-            <span class="bolo-tag">Visual elegante</span>
-            <span class="bolo-tag">Sabor equilibrado</span>
-            <span class="bolo-tag">Ideal para vender</span>
-          </div>
-        </div>
+      <div class="modulo-card reveal">
+        <div class="modulo-num">03</div>
+        <div class="modulo-icon">🔥</div>
+        <h4>Forno e temperatura</h4>
+        <p>Aprenda a dominar qualquer forno. Tempo correto, posição da grade e como saber se o bolo está no ponto certo.</p>
       </div>
-
+      <div class="modulo-card reveal">
+        <div class="modulo-num">04</div>
+        <div class="modulo-icon">🍫</div>
+        <h4>Recheios e coberturas</h4>
+        <p>3 recheios coringa que combinam com tudo: brigadeiro cremoso, creme de leite condensado e ganache de chocolate.</p>
+      </div>
+      <div class="modulo-card reveal">
+        <div class="modulo-num">05</div>
+        <div class="modulo-icon">✨</div>
+        <h4>Decoração artesanal</h4>
+        <p>Técnicas simples para decorar bolos com frutas, chantilly, confeitos e flores comestíveis — sem precisar de equipamentos caros.</p>
+      </div>
+      <div class="modulo-card reveal">
+        <div class="modulo-num">06</div>
+        <div class="modulo-icon">💰</div>
+        <h4>Precificação e vendas</h4>
+        <p>Como calcular o preço dos seus bolos, apresentar para clientes e começar a vender pela internet com o que você já tem.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     DIFERENCIAIS DO CURSO
-══════════════════════════════════ -->
-<section class="lp-sec-alt">
-  <div class="lp-wrap">
+<!-- ══ PARA QUEM É ══ -->
+<section class="eb-sec-alt">
+  <div class="eb-wrap">
+    <div class="para-quem-grid">
+      <div class="para-quem-img reveal-left">
+        <img src="fotos/paula-sobre.jpg" alt="Chef Paula Bravo" onerror="this.style.display='none';this.parentElement.innerHTML='🍰'" />
+      </div>
+      <div class="reveal-right">
+        <span class="eb-ey">Este mini curso é para você que...</span>
+        <h2>Quer transformar <em>amor em receita</em></h2>
+        <div style="width:56px;height:2px;background:linear-gradient(90deg,#6B2737,#C9A96E);margin:1rem 0 2rem"></div>
+        <ul class="para-quem-list">
+          <li>Ama cozinhar e quer aprender confeitaria do zero sem complicação</li>
+          <li>Já faz bolos em casa e quer elevar a qualidade e o sabor</li>
+          <li>Sonha em começar um negócio de bolos artesanais</li>
+          <li>Quer impressionar família e amigos em ocasiões especiais</li>
+          <li>Busca uma renda extra fazendo o que ama</li>
+          <li>Procura receitas testadas e aprovadas por uma confeiteira profissional</li>
+        </ul>
+        <div style="margin-top:2rem">
+          <a href="#preco" class="btn btn-primary btn-lg">Quero Aprender Agora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PREÇO ══ -->
+<section class="eb-preco" id="preco">
+  <div class="eb-preco-inner">
+    <div class="eb-preco-card reveal">
+      <span class="eb-preco-tag">✦ Oferta especial de lançamento</span>
+      <h2 class="eb-preco-titulo">Mini Curso<br><em>Bolos Artesanais</em><br>Chef Paula Bravo</h2>
+      <div class="eb-valor-de">De R$ 97,00</div>
+      <div class="eb-valor"><span>R$</span> 47</div>
+      <div class="eb-valor-nota">pagamento único · acesso imediato</div>
+      <ul class="eb-includes">
+        <li>6 módulos em vídeo + material de apoio em PDF</li>
+        <li>3 receitas exclusivas da Chef Paula</li>
+        <li>Guia completo de ingredientes e substituições</li>
+        <li>Planilha de precificação para vendas</li>
+        <li>Acesso vitalício ao conteúdo</li>
+        <li>Suporte direto pelo WhatsApp da Chef</li>
+      </ul>
+      <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula!%20Quero%20comprar%20o%20Mini%20Curso%20de%20Bolos%20Artesanais%20pelo%20valor%20especial%20de%20R%2447!" class="btn-comprar" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero por R$ 47 — Comprar Agora
+      </a>
+      <p class="eb-garantia">🔒 Pagamento seguro pelo WhatsApp · Acesso enviado em até 24h</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="eb-sec">
+  <div class="eb-wrap">
     <div style="text-align:center">
-      <span class="lp-ey">Por que esta masterclass é diferente</span>
-      <h2 class="lp-h2">Aprenda do jeito certo,<br><em style="font-style:italic;color:#C4714A">de verdade</em></h2>
-      <div class="lp-div"></div>
-    </div>
-    <div class="diferenciais-grid">
-      <div class="dif-card">
-        <div class="dif-icon">🎬</div>
-        <h3>Vídeos Práticos e Detalhados</h3>
-        <p>Cada receita é ensinada em vídeo, com a Chef Paula mostrando cada etapa, textura e ponto certo. Você vê exatamente o que precisa fazer.</p>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">🛒</div>
-        <h3>Ingredientes Simples</h3>
-        <p>Nada de ingredientes caros ou difíceis de encontrar. Tudo que você precisa está no mercado da sua cidade — fácil, rápido e econômico.</p>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">👩‍🍳</div>
-        <h3>Técnicas de Profissional</h3>
-        <p>A Chef Paula compartilha os segredos que aprendeu como gastróloga — textura, ponto de massa, recheio cremoso e acabamento impecável.</p>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">🌱</div>
-        <h3>Ideal para Iniciantes</h3>
-        <p>Não importa se você nunca fez um bolo. A linguagem é simples, a explicação é clara e o resultado é profissional desde a primeira tentativa.</p>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">♾️</div>
-        <h3>Acesso Vitalício</h3>
-        <p>Comprou uma vez, acessa para sempre. Reveja quantas vezes precisar, no celular, tablet ou computador, na hora que quiser.</p>
-      </div>
-      <div class="dif-card">
-        <div class="dif-icon">💰</div>
-        <h3>Receitas para Vender</h3>
-        <p>Os 3 bolos foram escolhidos por terem alta demanda no mercado. Perfeitos para quem quer empreender e já sair faturando com confeitaria.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     PARA QUEM É
-══════════════════════════════════ -->
-<section class="lp-sec">
-  <div class="lp-wrap">
-    <div class="pq-box">
-      <div>
-        <span class="lp-ey">Este curso é para você que...</span>
-        <h2>Este mini curso<br>foi feito pra você</h2>
-        <div class="pq-list">
-          <div class="pq-item"><div class="pq-ck">✓</div>Quer aprender receitas de verdade, com técnicas profissionais</div>
-          <div class="pq-item"><div class="pq-ck">✓</div>Está cansada de receitas que não funcionam na prática</div>
-          <div class="pq-item"><div class="pq-ck">✓</div>Quer surpreender família e amigos com bolos incríveis</div>
-          <div class="pq-item"><div class="pq-ck">✓</div>Deseja começar a vender bolos caseiros e gerar renda extra</div>
-          <div class="pq-item"><div class="pq-ck">✓</div>Quer aprender sem sair de casa, no seu ritmo e horário</div>
-          <div class="pq-item"><div class="pq-ck">✓</div>Busca um curso prático, direto e com resultado garantido</div>
-        </div>
-      </div>
-      <div class="pq-cta">
-        <span style="font-size:5rem">🍰</span>
-        <p>Não precisa de experiência prévia. Com a Chef Paula do seu lado, você aprende e já pode fazer seus primeiros bolos perfeitos ainda hoje.</p>
-        <a href="https://go.hotmart.com/X100940490L" class="btn-gold-lp" target="_blank" rel="noopener">
-          Quero me inscrever agora
-        </a>
-        <span class="pq-note">Acesso imediato · Vídeos práticos · R$ 97 único</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     DEPOIMENTOS
-══════════════════════════════════ -->
-<section class="lp-sec-alt">
-  <div class="lp-wrap">
-    <div style="text-align:center">
-      <span class="lp-ey">Quem já fez aprova</span>
-      <h2 class="lp-h2">Resultados <em style="font-style:italic;color:#C4714A">reais</em></h2>
-      <div class="lp-div"></div>
-    </div>
-    <div class="dep-grid">
-      <div class="dep-card">
-        <div class="dep-stars">★★★★★</div>
-        <p class="dep-text">"Fiz o Bolo de Paçoca na primeira tentativa e ficou perfeito! Os vídeos da Chef Paula são muito claros e ela explica cada detalhe. Minha filha pediu de aniversário e todos ficaram impressionados!"</p>
-        <div class="dep-autor">Fernanda Rodrigues</div>
-        <div class="dep-cargo">Professora · Taubaté/SP</div>
-      </div>
-      <div class="dep-card">
-        <div class="dep-stars">★★★★★</div>
-        <p class="dep-text">"Comecei a vender os bolos uma semana depois de comprar o curso. O Romeu e Julieta já virou o mais pedido aqui no meu bairro. Investimento que se pagou no mesmo mês!"</p>
-        <div class="dep-autor">Priscila Lima</div>
-        <div class="dep-cargo">Empreendedora · São José dos Campos</div>
-      </div>
-      <div class="dep-card">
-        <div class="dep-stars">★★★★★</div>
-        <p class="dep-text">"O Bolo de Milho com Curau Cremoso é simplesmente perfeito. Nunca tinha conseguido aquela textura antes. A Chef Paula ensina os segredos que nenhum tutorial do YouTube mostra. Valeu muito!"</p>
-        <div class="dep-autor">Ana Beatriz Torres</div>
-        <div class="dep-cargo">Designer · Tremembé/SP</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     FAQ
-══════════════════════════════════ -->
-<section class="lp-sec">
-  <div class="lp-wrap">
-    <div style="text-align:center">
-      <span class="lp-ey">Dúvidas frequentes</span>
-      <h2 class="lp-h2">Perguntas <em style="font-style:italic;color:#C4714A">frequentes</em></h2>
-      <div class="lp-div"></div>
+      <span class="eb-ey reveal">Dúvidas frequentes</span>
+      <h2 class="eb-h2 reveal">Perguntas <em style="font-style:italic;color:#C4714A">frequentes</em></h2>
+      <div class="eb-div"></div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Como vou acessar o curso após a compra?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Assim que o pagamento for confirmado, você recebe um e-mail com o acesso à plataforma Hotmart. É só criar seu login e já assistir às aulas — em qualquer dispositivo, a qualquer hora.</div>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Preciso ter experiência prévia com confeitaria?
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">Não! O mini curso foi desenvolvido para quem está começando do zero. A Chef Paula explica cada etapa de forma simples e didática, sem termos complicados.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Precisa de experiência em confeitaria?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Não! O curso foi desenvolvido exatamente para quem está começando do zero. A Chef Paula explica cada passo com clareza, desde como preparar os ingredientes até o acabamento final.</div>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Como vou receber o conteúdo?
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">Após a confirmação do pagamento pelo WhatsApp, a Chef Paula envia o link de acesso em até 24 horas. Você acessa o conteúdo pelo celular, tablet ou computador.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Os ingredientes são fáceis de encontrar?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Sim! Todos os ingredientes das 3 receitas são simples e encontrados em qualquer mercado. Não é preciso nenhum produto importado ou equipamento especial para fazer os bolos.</div>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Por quanto tempo terei acesso?
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">O acesso é vitalício! Você poderá assistir quantas vezes quiser, no seu tempo e no seu ritmo — sem prazo de expiração.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Por quanto tempo tenho acesso ao conteúdo?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">O acesso é vitalício! Você comprou uma vez e assiste quantas vezes quiser, para sempre. O conteúdo fica salvo na plataforma Hotmart disponível a qualquer momento.</div>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Quais são as formas de pagamento?
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">Aceitamos Pix, cartão de crédito e transferência bancária. Tudo combinado diretamente pelo WhatsApp com a Chef Paula de forma segura e simples.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Posso fazer os bolos para vender depois?
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">Com certeza! Os 3 bolos foram escolhidos pela Chef Paula justamente por terem alta demanda e bom ticket de venda. Muitas alunas já começaram a faturar logo após o curso.</div>
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Posso tirar dúvidas com a Chef Paula?
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">Sim! Quem adquire o mini curso tem acesso ao suporte direto pelo WhatsApp. A Chef Paula responde dúvidas sobre as receitas e técnicas ensinadas no curso.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     CTA FINAL
-══════════════════════════════════ -->
-<section class="lp-cta">
-  <div class="lp-wrap">
-    <div class="lp-cta-inner">
-      <span class="lp-ey" style="color:#E8D5B0;font-size:.72rem">✦ Comece agora ✦</span>
-      <h2>3 bolos. Uma Chef.<br>Resultado <em>garantido</em>.</h2>
-      <p>Aprenda com quem realmente faz — a Chef Paula Bravo, gastróloga e confeiteira artesanal de Taubaté/SP. Com vídeos práticos, ingredientes simples e técnicas profissionais.</p>
-      <div class="cta-price">
-        <div class="cta-valor">R$ 97</div>
-        <div class="cta-info">
-          Pagamento único<br>
-          Sem mensalidade<br>
-          Acesso vitalício
-        </div>
-      </div>
-      <a href="https://go.hotmart.com/X100940490L" class="cta-btn" target="_blank" rel="noopener">
-        🍰 Quero me inscrever agora
-      </a>
-      <div class="cta-seg">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-        Compra 100% segura pela Hotmart · Acesso imediato após pagamento
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo"><span class="logo-name">Chef Paula Bravo</span><span class="logo-sub">Confeitaria Artesanal</span></a>
-        <p>Bolos caseiros e artesanais feitos com amor. Taubaté/SP e região.</p>
+        <a href="index.html" class="nav-logo">
+          <span class="logo-name">Chef Paula Bravo</span>
+          <span class="logo-sub">Confeitaria Artesanal</span>
+        </a>
+        <p>Bolos caseiros e artesanais feitos com amor e ingredientes selecionados. Taubaté/SP e região.</p>
       </div>
-      <div><h4>Navegação</h4><ul><li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="cardapio.html">Cardápio</a></li><li><a href="encomendas.html">Encomendas</a></li><li><a href="ebook.html">Mini Curso</a></li><li><a href="contato.html">Contato</a></li></ul></div>
-      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5512991387404">(12) 99138-7404</a></li><li><a href="https://instagram.com/chefpaulabravo" target="_blank">@chefpaulabravo</a></li><li>Taubaté/SP</li></ul></div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Sobre a Chef</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="encomendas.html">Encomendas</a></li>
+          <li><a href="ebook.html">Ebook</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5512991387404" target="_blank">(12) 99138-7404</a></li>
+          <li><a href="https://instagram.com/chefpaulabravo" target="_blank">@chefpaulabravo</a></li>
+          <li>Taubaté/SP e região</li>
+        </ul>
+      </div>
     </div>
     <p class="footer-bottom">© 2026 Chef Paula Bravo · Todos os direitos reservados</p>
   </div>
 </footer>
 
-<!-- WHATSAPP FLUTUANTE -->
 <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<script src="script.js"></script>
 <script>
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    const allItems = document.querySelectorAll('.faq-item');
-    allItems.forEach(i => { if (i !== item) i.classList.remove('open'); });
-    item.classList.toggle('open');
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
   }
 </script>
+<script src="script.js"></script>
 </body>
 </html>
