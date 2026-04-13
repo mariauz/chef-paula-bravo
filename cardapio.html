@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardápio | Chef Paula Bravo</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .category-tabs {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      margin: 3rem 0 2rem;
+    }
+    .tab-btn {
+      padding: 0.6rem 1.6rem;
+      border: 2px solid var(--nude);
+      border-radius: 50px;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--vinho);
+      border-color: var(--vinho);
+      color: var(--white);
+    }
+    .category-section { display: none; }
+    .category-section.active { display: block; }
+    .categoria-header {
+      display: flex; align-items: center; gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .categoria-header h2 { margin: 0; }
+    .categoria-header .cat-line { flex: 1; height: 1px; background: var(--nude); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .menu-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .menu-card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+    }
+    .menu-card-body {
+      padding: 1.4rem;
+      flex: 1;
+      display: flex; flex-direction: column;
+    }
+    .menu-card-body h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+    .menu-card-body p  { font-size: 0.85rem; color: var(--text-light); flex: 1; margin-bottom: 1rem; }
+    .menu-card-footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap;
+    }
+
+    /* Nota de encomenda */
+    .encomenda-note {
+      background: var(--bege);
+      border-left: 4px solid var(--dourado);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.5rem 2rem;
+      margin: 4rem 0 0;
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    }
+    .encomenda-note p { font-size: 0.9rem; color: var(--text-mid); flex: 1; margin: 0; }
+
+    @media (max-width: 900px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="logo-name">Chef Paula Bravo</span><span class="logo-sub">Confeitaria Artesanal</span></a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="encomendas.html">Encomendas</a></li>
+      <li><a href="ebook.html">Ebook</a></li>
+      <li><a href="contato.html" class="nav-cta">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <span class="eyebrow">Sabores que encantam</span>
+    <h1>Cardápio</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <span class="eyebrow reveal">Escolha o seu favorito</span>
+      <p class="reveal" style="max-width:600px;margin:0 auto;color:var(--text-mid);font-style:italic">Todos os produtos são feitos sob encomenda com ingredientes frescos e selecionados. Clique em "Encomendar" para falar diretamente com a Chef Paula pelo WhatsApp.</p>
+    </div>
+
+    <div class="category-tabs">
+      <button class="tab-btn active" onclick="showCategory('caseiros', this)">🧁 Bolos Caseiros</button>
+      <button class="tab-btn" onclick="showCategory('especiais', this)">🎂 Bolos Especiais</button>
+      <button class="tab-btn" onclick="showCategory('artesanais', this)">🍞 Artesanais & Acomp.</button>
+    </div>
+
+    <!-- CATEGORIA 1: Caseiros -->
+    <div class="category-section active" id="cat-caseiros">
+      <div class="categoria-header">
+        <h2>Bolos <em style="font-style:italic;color:var(--terracota)">Caseiros</em></h2>
+        <div class="cat-line"></div>
+      </div>
+      <div class="menu-grid">
+
+        <!-- fotos/bolo-canela-creme.jpg → post DQlNUUrDtt5 -->
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-canela-creme.jpg" alt="Bolo de Canela com Creme" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Caseiro</span>
+            <h3>Canela com Creme de Leite Condensado</h3>
+            <p>Massa perfumada de canela com recheio cremoso de leite condensado. Puro aconchego.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 65</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Canela%20com%20Creme%20(R%2465)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sem foto específica → use placeholder ou fotos/bolo-fuba.jpg -->
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-fuba.jpg" alt="Bolo de Fubá" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Caseiro</span>
+            <h3>Bolo de Fubá com Toque Especial</h3>
+            <p>Fubá de qualidade com segredo da Chef: textura incrível, casca crocante e miolo macio.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 55</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Fub%C3%A1%20(R%2455)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-laranja.jpg" alt="Bolo de Laranja" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Caseiro</span>
+            <h3>Bolo de Laranja Fofinho</h3>
+            <p>Levinho, com aroma cítrico natural e cobertura de glacê de laranja. Irresistível no café.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 50</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Laranja%20(R%2450)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-cenoura.jpg" alt="Bolo de Cenoura" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Caseiro</span>
+            <h3>Cenoura com Cobertura de Chocolate</h3>
+            <p>O clássico brasileiro reinventado: massa fofa de cenoura com cobertura de brigadeiro cremoso.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 60</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Cenoura%20(R%2460)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-milho.jpg" alt="Bolo de Milho" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Caseiro</span>
+            <h3>Bolo de Milho Cremoso</h3>
+            <p>Feito com milho verde fresco, textura aveludada e sabor que lembra a casa da vovó.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 58</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Milho%20(R%2458)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORIA 2: Especiais -->
+    <div class="category-section" id="cat-especiais">
+      <div class="categoria-header">
+        <h2>Bolos <em style="font-style:italic;color:var(--terracota)">Especiais</em></h2>
+        <div class="cat-line"></div>
+      </div>
+      <div class="menu-grid">
+
+        <!-- fotos/bolo-maca-castanhas.jpg → post DQq67KKjpCp -->
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-maca-castanhas.jpg" alt="Bolo de Maçã com Castanhas" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Especial</span>
+            <h3>Maçã com Castanhas e Canela</h3>
+            <p>Maçãs caramelizadas, castanhas crocantes e canela em pó perfumando cada fatia.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 85</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Ma%C3%A7%C3%A3%20com%20Castanhas%20(R%2485)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- fotos/bolo-frutas.jpg → foto ela segurando bolo com frutas -->
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-frutas.jpg" alt="Bolo de Frutas Vermelhas" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Especial</span>
+            <h3>Bolo de Frutas Vermelhas</h3>
+            <p>Decorado com frutas frescas e calda artesanal. Elegante, fresco e cheio de personalidade.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 95</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Frutas%20Vermelhas%20(R%2495)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- fotos/bolo-nozes.jpg → post DSbhp4xjlxE -->
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-nozes.jpg" alt="Bolo de Nozes" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Especial</span>
+            <h3>Nozes com Mousse de Chocolate</h3>
+            <p>Massa densa com nozes inteiras e mousse de chocolate amargo. Um clássico premium.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 98</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Nozes%20com%20Mousse%20(R%2498)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-coco.jpg" alt="Bolo de Coco" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Especial</span>
+            <h3>Coco com Brigadeiro Branco</h3>
+            <p>Coco fresco ralado, recheio de brigadeiro branco cremoso e cobertura nevada. Uma festa.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 90</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Coco%20com%20Brigadeiro%20Branco%20(R%2490)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/bolo-ninho.jpg" alt="Bolo de Ninho com Morango" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Especial</span>
+            <h3>Ninho com Morango</h3>
+            <p>Recheio de creme de leite ninho com morangos frescos fatiadados. Delicado e irresistível.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 92</span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Bolo%20de%20Ninho%20com%20Morango%20(R%2492)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORIA 3: Artesanais -->
+    <div class="category-section" id="cat-artesanais">
+      <div class="categoria-header">
+        <h2>Artesanais & <em style="font-style:italic;color:var(--terracota)">Acompanhamentos</em></h2>
+        <div class="cat-line"></div>
+      </div>
+      <div class="menu-grid">
+
+        <!-- fotos/paezinhos-mandioquinha.jpg → reel DU8c0iWkVsP -->
+        <div class="menu-card reveal">
+          <img src="fotos/paezinhos-mandioquinha.jpg" alt="Pãezinhos de Mandioquinha" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Artesanal</span>
+            <h3>Pãezinhos de Mandioquinha</h3>
+            <p>Dúzia de pãezinhos artesanais macios por dentro, levemente crocantes por fora. Irresistíveis quentinhos.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 38 <small style="font-size:.75rem;color:var(--text-light)">/dúzia</small></span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20P%C3%A3ezinhos%20de%20Mandioquinha%20(R%2438)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/tortinhas-frango.jpg" alt="Tortinhas de Frango" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Salgado</span>
+            <h3>Tortinhas Individuais de Frango</h3>
+            <p>Massa artesanal crocante com recheio cremoso de frango temperado. Perfeitas para eventos.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 12 <small style="font-size:.75rem;color:var(--text-light)">/unid.</small></span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20Tortinhas%20de%20Frango%20(R%2412%20cada)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/kit-cafe.jpg" alt="Kit Café da Tarde" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Kit</span>
+            <h3>Kit Café da Tarde</h3>
+            <p>Para 4 pessoas: bolo caseiro + pãezinhos + brigadeiros + seleção de acompanhamentos artesanais.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 120 <small style="font-size:.75rem;color:var(--text-light)">/4 pessoas</small></span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20o%20Kit%20Caf%C3%A9%20da%20Tarde%20(R%24120)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <img src="fotos/brigadeiros.jpg" alt="Brigadeiros Gourmet" class="menu-card-img" />
+          <div class="menu-card-body">
+            <span class="eyebrow" style="text-align:left">Doce</span>
+            <h3>Brigadeiros Gourmet</h3>
+            <p>Caixa com 12 unidades de brigadeiros gourmet em sabores variados, embalagem presente incluída.</p>
+            <div class="menu-card-footer">
+              <span class="card-price">R$ 45 <small style="font-size:.75rem;color:var(--text-light)">/caixa 12</small></span>
+              <a href="https://wa.me/5512991387404?text=Ol%C3%A1!%20Quero%20Brigadeiros%20Gourmet%20(R%2445%20a%20caixa)." class="btn btn-primary" target="_blank">Encomendar</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Nota -->
+    <div class="encomenda-note reveal">
+      <span style="font-size:1.5rem">⏰</span>
+      <p><strong>Encomendas com antecedência:</strong> solicite com pelo menos 3 dias de antecedência. Para datas comemorativas, peça com 7 dias. Entrega a combinar na região de Taubaté/SP.</p>
+      <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula!%20Gostaria%20de%20fazer%20uma%20encomenda." class="btn btn-wpp" target="_blank">Fazer Encomenda</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo"><span class="logo-name">Chef Paula Bravo</span><span class="logo-sub">Confeitaria Artesanal</span></a><p>Bolos caseiros e artesanais feitos com amor. Taubaté/SP e região.</p></div>
+      <div><h4>Navegação</h4><ul><li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="cardapio.html">Cardápio</a></li><li><a href="encomendas.html">Encomendas</a></li><li><a href="ebook.html">Ebook</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5512991387404">(12) 99138-7404</a></li><li><a href="https://instagram.com/chefpaulabravo" target="_blank">@chefpaulabravo</a></li><li>Taubaté/SP</li></ul></div>
+    </div>
+    <p class="footer-bottom">© 2026 Chef Paula Bravo · Todos os direitos reservados</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="script.js"></script>
+<script>
+  function showCategory(id, btn) {
+    document.querySelectorAll('.category-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('cat-' + id).classList.add('active');
+    btn.classList.add('active');
+    document.querySelectorAll('#cat-' + id + ' .reveal').forEach(el => {
+      el.classList.remove('visible');
+      setTimeout(() => el.classList.add('visible'), 50);
+    });
+  }
+</script>
+</body>
+</html>
