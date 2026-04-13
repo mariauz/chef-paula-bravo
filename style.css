@@ -371,3 +371,50 @@ footer ul a:hover { color: #E8D5B0; }
   .footer-grid { grid-template-columns: 1fr; }
   .wpp-float { bottom: 20px; right: 20px; width: 54px; height: 54px; }
 }
+
+/* HERO CENTRALIZADA */
+.hero {
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  text-align: center;
+}
+
+.hero-subtitle,
+.hero-location {
+  text-align: center;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    padding: 2rem 5%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    text-align: center;
+  }
+
+  .hero-btns {
+    justify-content: center;
+  }
+}
