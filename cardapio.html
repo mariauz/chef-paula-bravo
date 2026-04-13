@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cardápio | Chef Paula Bravo</title>
-  <meta name="description" content="Conheça o cardápio de bolos artesanais da Chef Paula Bravo em Taubaté/SP." />
+  <title>Contato | Chef Paula Bravo</title>
+  <meta name="description" content="Entre em contato com a Chef Paula Bravo para encomendas de bolos artesanais em Taubaté/SP." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     /* ── HERO ── */
-    .card-hero {
+    .ctt-hero {
       min-height: 50vh;
       padding-top: var(--nav-h);
       padding-bottom: 70px;
@@ -21,157 +21,218 @@
       position: relative;
       overflow: hidden;
     }
-    .card-hero::before {
+    .ctt-hero::before {
       content: '';
       position: absolute; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Ccircle cx='0' cy='0' r='4'/%3E%3Ccircle cx='60' cy='0' r='4'/%3E%3Ccircle cx='0' cy='60' r='4'/%3E%3Ccircle cx='60' cy='60' r='4'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .card-hero-content {
+    .ctt-hero-content {
       position: relative; z-index: 1;
       width: 90%; max-width: 1200px; margin: 0 auto;
     }
-    .card-hero-content span {
+    .ctt-hero-content span {
       display: block;
       font-family: var(--font-body);
       font-size: .72rem; font-weight: 700;
       letter-spacing: .2em; text-transform: uppercase;
       color: #E8D5B0; margin-bottom: .6rem;
     }
-    .card-hero-content h1 {
+    .ctt-hero-content h1 {
       font-family: var(--font-title);
       font-size: clamp(2.8rem, 5vw, 5rem);
       font-weight: 700; color: #FFFFFF;
       line-height: 1.05; margin: 0;
     }
-    .card-hero-content h1 em { font-style: italic; color: #E8D5B0; }
+    .ctt-hero-content h1 em { font-style: italic; color: #E8D5B0; }
 
-    /* ── FILTROS ── */
-    .filtros-bar {
-      background: #F5EFE6;
-      border-bottom: 1px solid #E8D5C4;
-      padding: 24px 0;
-      position: sticky;
-      top: var(--nav-h);
-      z-index: 100;
-    }
-    .filtros-inner {
-      width: 90%; max-width: 1200px; margin: 0 auto;
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-    }
-    .filtro-btn {
-      font-family: var(--font-body); font-size: .78rem; font-weight: 700;
-      letter-spacing: .1em; text-transform: uppercase;
-      padding: .55rem 1.4rem; border-radius: 50px;
-      border: 2px solid #E8D5C4;
-      background: transparent; color: #5C3D2E;
-      cursor: pointer; transition: all .3s ease;
-    }
-    .filtro-btn:hover,
-    .filtro-btn.active {
-      background: #6B2737; color: #FFFFFF;
-      border-color: #6B2737;
-    }
-
-    /* ── GRID PRODUTOS ── */
-    .cardapio-sec { padding: 80px 0; background: #FAF6F0; }
-    .cardapio-wrap { width: 90%; max-width: 1200px; margin: 0 auto; }
-    .cat-title {
-      font-family: var(--font-title);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      color: #6B2737; margin-bottom: 2rem;
-      padding-bottom: .8rem;
-      border-bottom: 2px solid #E8D5C4;
-      display: flex; align-items: center; gap: .8rem;
-    }
-    .cardapio-grid {
+    /* ── BODY ── */
+    .ctt-sec { padding: 100px 0; background: #FAF6F0; }
+    .ctt-wrap { width: 90%; max-width: 1200px; margin: 0 auto; }
+    .ctt-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-bottom: 4rem;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      align-items: start;
     }
-    .prod-card {
-      background: #FFFFFF;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(107,39,55,0.1);
-      transition: all .4s ease;
+
+    /* ── INFO LATERAL ── */
+    .ctt-info h2 {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: #2C1810; line-height: 1.15; margin-bottom: 1rem;
     }
-    .prod-card:hover { transform: translateY(-8px); box-shadow: 0 22px 60px rgba(107,39,55,0.18); }
-    .prod-img {
-      width: 100%; aspect-ratio: 4/3;
-      object-fit: cover; display: block;
-      background: #F5EFE6;
+    .ctt-info h2 em { font-style: italic; color: #C4714A; }
+    .ctt-info p {
+      font-family: var(--font-body);
+      font-size: .93rem; color: #5C3D2E;
+      line-height: 1.85; margin-bottom: 2rem;
     }
-    .prod-img-placeholder {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #F5EFE6, #E8D5C4);
+    .ctt-cards { display: flex; flex-direction: column; gap: 1.2rem; }
+    .ctt-card {
+      display: flex; align-items: center; gap: 1.2rem;
+      background: #FFFFFF; border-radius: 16px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 6px 30px rgba(107,39,55,0.09);
+      transition: all .3s ease;
+      text-decoration: none; color: inherit;
+    }
+    .ctt-card:hover { transform: translateX(6px); box-shadow: 0 10px 40px rgba(107,39,55,0.15); }
+    .ctt-card-icon {
+      width: 50px; height: 50px; flex-shrink: 0;
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem;
+      font-size: 1.4rem;
     }
-    .prod-body { padding: 1.6rem; }
-    .prod-tag {
-      font-family: var(--font-body); font-size: .65rem; font-weight: 700;
-      letter-spacing: .15em; text-transform: uppercase;
-      color: #C9A96E; margin-bottom: .4rem; display: block;
+    .ctt-card-icon.verde  { background: rgba(37,211,102,.12); }
+    .ctt-card-icon.vinho  { background: rgba(107,39,55,.1); }
+    .ctt-card-icon.dourado{ background: rgba(201,169,110,.15); }
+    .ctt-card-label {
+      font-family: var(--font-body); font-size: .68rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: #C9A96E;
+      margin-bottom: .2rem;
     }
-    .prod-name {
-      font-family: var(--font-title); font-size: 1.25rem;
-      color: #2C1810; margin-bottom: .5rem; line-height: 1.2;
+    .ctt-card-value {
+      font-family: var(--font-body); font-size: .95rem;
+      font-weight: 700; color: #2C1810;
     }
-    .prod-desc {
-      font-family: var(--font-body); font-size: .84rem;
-      color: #9B7B6B; line-height: 1.65; margin-bottom: 1.2rem;
+
+    .ctt-redes { margin-top: 2rem; }
+    .ctt-redes h4 {
+      font-family: var(--font-body); font-size: .7rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: #9B7B6B; margin-bottom: 1rem;
     }
-    .prod-footer {
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: .8rem;
-    }
-    .prod-price {
-      font-family: var(--font-title); font-size: 1.4rem;
-      color: #6B2737; font-weight: 700;
-    }
-    .btn-pedir {
-      display: inline-flex; align-items: center; gap: .4rem;
-      padding: .55rem 1.2rem;
-      background: #6B2737; color: #FFFFFF;
-      font-family: var(--font-body); font-size: .78rem; font-weight: 700;
-      letter-spacing: .05em; border-radius: 50px;
+    .redes-btns { display: flex; gap: .8rem; flex-wrap: wrap; }
+    .rede-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .6rem 1.2rem; border-radius: 50px;
+      font-family: var(--font-body); font-size: .8rem; font-weight: 700;
       text-decoration: none; transition: all .3s ease;
     }
-    .btn-pedir:hover { background: #4A1825; transform: translateY(-2px); color: #FFFFFF; }
-    .btn-pedir svg { width: 14px; height: 14px; fill: #FFFFFF; }
+    .rede-btn.ig  { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color: #FFFFFF; }
+    .rede-btn.ig:hover  { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(253,29,29,.3); }
+    .rede-btn.wpp { background: #25D366; color: #FFFFFF; }
+    .rede-btn.wpp:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,.4); background: #20b858; }
 
-    /* ── CTA ── */
-    .cardapio-cta {
+    /* ── FORMULÁRIO ── */
+    .ctt-form-wrap {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 3rem;
+      box-shadow: 0 12px 50px rgba(107,39,55,0.13);
+    }
+    .ctt-form-wrap h3 {
+      font-family: var(--font-title);
+      font-size: 1.8rem; color: #6B2737;
+      margin-bottom: .4rem;
+    }
+    .ctt-form-wrap p {
+      font-family: var(--font-body); font-size: .87rem;
+      color: #9B7B6B; margin-bottom: 2rem; line-height: 1.6;
+    }
+    .ctt-form .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .ctt-form .form-group { margin-bottom: 1.2rem; }
+    .ctt-form label {
+      display: block; font-family: var(--font-body);
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: #5C3D2E; margin-bottom: .45rem;
+    }
+    .ctt-form input,
+    .ctt-form select,
+    .ctt-form textarea {
+      width: 100%; padding: .9rem 1.2rem;
+      border: 1.5px solid #E8D5C4; border-radius: 12px;
+      font-family: var(--font-body); font-size: .93rem;
+      color: #2C1810; background: #FAF6F0;
+      outline: none; transition: border-color .3s, box-shadow .3s;
+      appearance: none;
+    }
+    .ctt-form input:focus,
+    .ctt-form select:focus,
+    .ctt-form textarea:focus {
+      border-color: #6B2737;
+      box-shadow: 0 0 0 3px rgba(107,39,55,.1);
+      background: #FFFFFF;
+    }
+    .ctt-form textarea { resize: vertical; min-height: 130px; }
+    .btn-enviar {
+      width: 100%; padding: 1.1rem;
+      background: #6B2737; color: #FFFFFF;
+      font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+      letter-spacing: .05em; border: none; border-radius: 50px;
+      cursor: pointer; transition: all .3s ease;
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
+      text-decoration: none;
+    }
+    .btn-enviar:hover {
+      background: #4A1825; transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(107,39,55,.4); color: #FFFFFF;
+    }
+    .form-nota {
+      text-align: center; font-size: .75rem; color: #9B7B6B;
+      margin-top: 1rem; line-height: 1.5;
+    }
+
+    /* ── MAPA / LOCALIZAÇÃO ── */
+    .ctt-loc {
+      padding: 80px 0;
+      background: #F5EFE6;
+    }
+    .ctt-loc-wrap { width: 90%; max-width: 1200px; margin: 0 auto; text-align: center; }
+    .ctt-loc h2 {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: #2C1810; margin-bottom: .4rem;
+    }
+    .ctt-loc h2 em { font-style: italic; color: #C4714A; }
+    .ctt-loc-div {
+      width: 56px; height: 2px;
+      background: linear-gradient(90deg, #6B2737, #C9A96E);
+      margin: 1rem auto 2.5rem;
+    }
+    .ctt-loc p {
+      font-family: var(--font-body); font-size: .93rem;
+      color: #5C3D2E; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.75;
+    }
+    .map-frame {
+      width: 100%; height: 380px; border-radius: 20px;
+      overflow: hidden; box-shadow: 0 12px 50px rgba(107,39,55,.13);
+      border: none;
+    }
+
+    /* ── CTA FINAL ── */
+    .ctt-cta {
       background: linear-gradient(135deg, #4A1825 0%, #6B2737 50%, #C4714A 100%);
       padding: 100px 0; text-align: center;
       position: relative; overflow: hidden;
     }
-    .cardapio-cta::before {
+    .ctt-cta::before {
       content: ''; position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3Ccircle cx='80' cy='0' r='5'/%3E%3Ccircle cx='0' cy='80' r='5'/%3E%3Ccircle cx='80' cy='80' r='5'/%3E%3C/g%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .cardapio-cta-inner { position: relative; z-index: 1; width: 90%; max-width: 700px; margin: 0 auto; }
-    .cardapio-cta h2 {
+    .ctt-cta-inner { position: relative; z-index: 1; width: 90%; max-width: 680px; margin: 0 auto; }
+    .ctt-cta h2 {
       font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 700; color: #FFFFFF; line-height: 1.12; margin-bottom: 1rem;
     }
-    .cardapio-cta h2 em { font-style: italic; color: #E8D5B0; }
-    .cardapio-cta p {
+    .ctt-cta h2 em { font-style: italic; color: #E8D5B0; }
+    .ctt-cta p {
       font-family: var(--font-body); font-size: 1rem;
       color: rgba(255,255,255,.75); margin: 0 auto 2.5rem; line-height: 1.75;
     }
-    .cardapio-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     @media (max-width: 900px) {
-      .cardapio-grid { grid-template-columns: 1fr 1fr; }
+      .ctt-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .ctt-form .form-grid { grid-template-columns: 1fr; }
+      .ctt-form-wrap { padding: 2rem; }
     }
     @media (max-width: 600px) {
-      .cardapio-grid { grid-template-columns: 1fr; }
-      .filtros-inner { gap: .6rem; }
-      .cardapio-cta { padding: 70px 0; }
+      .ctt-sec { padding: 70px 0; }
+      .ctt-cta { padding: 70px 0; }
+      .map-frame { height: 260px; }
     }
   </style>
 </head>
@@ -195,260 +256,139 @@
   </div>
 </nav>
 
-<section class="card-hero">
-  <div class="card-hero-content">
-    <span>Tudo feito com amor e ingredientes selecionados</span>
-    <h1>Nosso <em>Cardápio</em></h1>
+<section class="ctt-hero">
+  <div class="ctt-hero-content">
+    <span>Estamos prontos para te atender</span>
+    <h1>Fale com a <em>Chef Paula</em></h1>
   </div>
 </section>
 
-<div class="filtros-bar">
-  <div class="filtros-inner">
-    <button class="filtro-btn active" onclick="filtrar('todos', this)">Todos</button>
-    <button class="filtro-btn" onclick="filtrar('especiais', this)">Especiais</button>
-    <button class="filtro-btn" onclick="filtrar('caseiros', this)">Caseiros</button>
-    <button class="filtro-btn" onclick="filtrar('festivos', this)">Festivos</button>
-    <button class="filtro-btn" onclick="filtrar('cafe', this)">Café da Tarde</button>
-  </div>
-</div>
+<section class="ctt-sec">
+  <div class="ctt-wrap">
+    <div class="ctt-grid">
 
-<section class="cardapio-sec">
-  <div class="cardapio-wrap">
+      <!-- INFO -->
+      <div class="ctt-info reveal-left">
+        <span class="eyebrow">Canais de atendimento</span>
+        <h2>Vamos criar algo<br><em>especial juntos?</em></h2>
+        <div class="divider left"></div>
+        <p>Tem uma dúvida, quer fazer uma encomenda ou simplesmente bater um papo sobre bolos? A Chef Paula está aqui para te atender com todo o carinho. Escolha o canal mais fácil pra você! 💛</p>
 
-    <!-- ESPECIAIS -->
-    <h2 class="cat-title">✨ Bolos Especiais</h2>
-    <div class="cardapio-grid">
+        <div class="ctt-cards">
+          <a href="https://wa.me/5512991387404" class="ctt-card" target="_blank" rel="noopener">
+            <div class="ctt-card-icon verde">📱</div>
+            <div>
+              <div class="ctt-card-label">WhatsApp</div>
+              <div class="ctt-card-value">(12) 99138-7404</div>
+            </div>
+          </a>
+          <a href="https://instagram.com/chefpaulabravo" class="ctt-card" target="_blank" rel="noopener">
+            <div class="ctt-card-icon vinho">📸</div>
+            <div>
+              <div class="ctt-card-label">Instagram</div>
+              <div class="ctt-card-value">@chefpaulabravo</div>
+            </div>
+          </a>
+          <div class="ctt-card" style="cursor:default">
+            <div class="ctt-card-icon dourado">📍</div>
+            <div>
+              <div class="ctt-card-label">Localização</div>
+              <div class="ctt-card-value">Taubaté/SP e região</div>
+            </div>
+          </div>
+          <div class="ctt-card" style="cursor:default">
+            <div class="ctt-card-icon vinho">⏰</div>
+            <div>
+              <div class="ctt-card-label">Atendimento</div>
+              <div class="ctt-card-value">Seg – Sáb · 8h às 20h</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="prod-card" data-cat="especiais">
-        <img src="fotos/bolo-maca-castanhas.jpg" alt="Bolo de Maçã com Castanhas" class="prod-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div class="prod-img-placeholder" style="display:none">🍎</div>
-        <div class="prod-body">
-          <span class="prod-tag">Especial</span>
-          <h3 class="prod-name">Bolo de Maçã com Castanhas</h3>
-          <p class="prod-desc">Massa fofinha com maçãs caramelizadas, castanhas crocantes e toque perfumado de canela.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 85</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20o%20Bolo%20de%20Ma%C3%A7%C3%A3%20com%20Castanhas." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
+        <div class="ctt-redes">
+          <h4>Redes sociais</h4>
+          <div class="redes-btns">
+            <a href="https://instagram.com/chefpaulabravo" class="rede-btn ig" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="rede-btn wpp" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
             </a>
           </div>
         </div>
       </div>
 
-      <div class="prod-card" data-cat="especiais">
-        <img src="fotos/bolo-nozes.jpg" alt="Bolo de Nozes com Mousse" class="prod-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div class="prod-img-placeholder" style="display:none">🌰</div>
-        <div class="prod-body">
-          <span class="prod-tag">Especial</span>
-          <h3 class="prod-name">Bolo de Nozes com Mousse</h3>
-          <p class="prod-desc">Bolo denso e saboroso com nozes inteiras e irresistível mousse de chocolate artesanal.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 98</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20o%20Bolo%20de%20Nozes%20com%20Mousse." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
+      <!-- FORMULÁRIO -->
+      <div class="ctt-form-wrap reveal-right">
+        <h3>Manda uma mensagem 💬</h3>
+        <p>Preencha o formulário e a Chef Paula entra em contato em breve. Ou se preferir, chama direto no WhatsApp!</p>
+        <form class="ctt-form" onsubmit="enviarFormulario(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nome">Seu nome</label>
+              <input type="text" id="nome" placeholder="Ex: Ana Paula" required />
+            </div>
+            <div class="form-group">
+              <label for="tel">WhatsApp</label>
+              <input type="tel" id="tel" placeholder="(12) 99999-9999" required />
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="prod-card" data-cat="especiais">
-        <img src="fotos/bolo-frutas-vermelhas.jpg" alt="Bolo de Frutas Vermelhas" class="prod-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div class="prod-img-placeholder" style="display:none">🍓</div>
-        <div class="prod-body">
-          <span class="prod-tag">Especial</span>
-          <h3 class="prod-name">Bolo de Frutas Vermelhas</h3>
-          <p class="prod-desc">Massa delicada com recheio de frutas vermelhas frescas e cobertura de chantilly artesanal.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 95</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20o%20Bolo%20de%20Frutas%20Vermelhas." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
+          <div class="form-group">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" required>
+              <option value="" disabled selected>Selecione um assunto</option>
+              <option value="Encomenda de bolo">Encomenda de bolo</option>
+              <option value="Kit Café da Tarde">Kit Café da Tarde</option>
+              <option value="Bolo de festa personalizado">Bolo de festa personalizado</option>
+              <option value="Dúvida sobre cardápio">Dúvida sobre cardápio</option>
+              <option value="Mini Curso / Ebook">Mini Curso / Ebook</option>
+              <option value="Outro assunto">Outro assunto</option>
+            </select>
           </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CASEIROS -->
-    <h2 class="cat-title">🏠 Bolos Caseiros</h2>
-    <div class="cardapio-grid">
-
-      <div class="prod-card" data-cat="caseiros">
-        <img src="fotos/bolo-canela-creme.jpg" alt="Bolo de Canela com Creme" class="prod-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div class="prod-img-placeholder" style="display:none">🍮</div>
-        <div class="prod-body">
-          <span class="prod-tag">Caseiro</span>
-          <h3 class="prod-name">Bolo de Canela com Creme</h3>
-          <p class="prod-desc">Massa perfumada de canela com recheio cremoso de leite condensado. Puro aconchego.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 65</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20o%20Bolo%20de%20Canela%20com%20Creme." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
+          <div class="form-group">
+            <label for="msg">Mensagem</label>
+            <textarea id="msg" placeholder="Conta mais detalhes: data, sabor, tamanho, ocasião..." required></textarea>
           </div>
-        </div>
-      </div>
-
-      <div class="prod-card" data-cat="caseiros">
-        <div class="prod-img-placeholder">🌽</div>
-        <div class="prod-body">
-          <span class="prod-tag">Caseiro</span>
-          <h3 class="prod-name">Bolo de Fubá com Goiabada</h3>
-          <p class="prod-desc">O clássico bolo de fubá cremoso com pedaços generosos de goiabada derretida. Receita de família.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 55</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20o%20Bolo%20de%20Fub%C3%A1%20com%20Goiabada." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prod-card" data-cat="caseiros">
-        <div class="prod-img-placeholder">🍌</div>
-        <div class="prod-body">
-          <span class="prod-tag">Caseiro</span>
-          <h3 class="prod-name">Bolo de Banana com Canela</h3>
-          <p class="prod-desc">Banana madura assada com massa úmida e cobertura crocante de açúcar e canela. Irresistível!</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 58</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20o%20Bolo%20de%20Banana%20com%20Canela." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- FESTIVOS -->
-    <h2 class="cat-title">🎉 Bolos Festivos</h2>
-    <div class="cardapio-grid">
-
-      <div class="prod-card" data-cat="festivos">
-        <div class="prod-img-placeholder">🎂</div>
-        <div class="prod-body">
-          <span class="prod-tag">Festivo</span>
-          <h3 class="prod-name">Bolo de Aniversário Personalizado</h3>
-          <p class="prod-desc">Bolo decorado conforme o tema da festa. Sabores, tamanhos e decorações 100% personalizados.</p>
-          <div class="prod-footer">
-            <span class="prod-price">A consultar</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20um%20Bolo%20de%20Anivers%C3%A1rio%20Personalizado." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Consultar
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prod-card" data-cat="festivos">
-        <div class="prod-img-placeholder">👶</div>
-        <div class="prod-body">
-          <span class="prod-tag">Festivo</span>
-          <h3 class="prod-name">Bolo de Chá de Bebê</h3>
-          <p class="prod-desc">Delicado e especial para receber o novo membro da família. Decorações temáticas e sabores suaves.</p>
-          <div class="prod-footer">
-            <span class="prod-price">A consultar</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20um%20Bolo%20de%20Ch%C3%A1%20de%20Beb%C3%AA." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Consultar
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prod-card" data-cat="festivos">
-        <div class="prod-img-placeholder">💍</div>
-        <div class="prod-body">
-          <span class="prod-tag">Festivo</span>
-          <h3 class="prod-name">Bolo de Casamento</h3>
-          <p class="prod-desc">Elegante e sofisticado para o dia mais especial. Andares, sabores e decorações exclusivas para os noivos.</p>
-          <div class="prod-footer">
-            <span class="prod-price">A consultar</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20um%20Bolo%20de%20Casamento." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Consultar
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CAFÉ DA TARDE -->
-    <h2 class="cat-title">☕ Café da Tarde</h2>
-    <div class="cardapio-grid">
-
-      <div class="prod-card" data-cat="cafe">
-        <div class="prod-img-placeholder">🥐</div>
-        <div class="prod-body">
-          <span class="prod-tag">Café da Tarde</span>
-          <h3 class="prod-name">Kit Café da Tarde</h3>
-          <p class="prod-desc">Seleção especial com bolo caseiro, pãezinhos artesanais e biscoitinhos. Para 8 a 10 pessoas.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 120</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20o%20Kit%20Caf%C3%A9%20da%20Tarde." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prod-card" data-cat="cafe">
-        <div class="prod-img-placeholder">🧇</div>
-        <div class="prod-body">
-          <span class="prod-tag">Café da Tarde</span>
-          <h3 class="prod-name">Pãezinhos de Mandioquinha</h3>
-          <p class="prod-desc">Pãezinhos macios e quentinhos de mandioquinha. Dúzia artesanal feita no dia da entrega.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 35 / dz</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20P%C3%A3ezinhos%20de%20Mandioquinha." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="prod-card" data-cat="cafe">
-        <div class="prod-img-placeholder">🍪</div>
-        <div class="prod-body">
-          <span class="prod-tag">Café da Tarde</span>
-          <h3 class="prod-name">Biscoitinhos Artesanais</h3>
-          <p class="prod-desc">Caixinha com biscoitinhos amanteigados e de especiarias. Perfeitos para acompanhar o café.</p>
-          <div class="prod-footer">
-            <span class="prod-price">R$ 28</span>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Quero%20encomendar%20Biscoitinhos%20Artesanais." class="btn-pedir" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Encomendar
-            </a>
-          </div>
-        </div>
+          <a href="#" class="btn-enviar" id="btnEnviar" onclick="enviarFormulario(event)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar pelo WhatsApp
+          </a>
+          <p class="form-nota">📲 Ao clicar, você será redirecionada para o WhatsApp com a mensagem já preenchida.</p>
+        </form>
       </div>
 
     </div>
   </div>
 </section>
 
-<section class="cardapio-cta">
-  <div class="cardapio-cta-inner">
-    <span class="eyebrow" style="color:#E8D5B0;text-align:center;display:block;margin-bottom:.5rem">Não encontrou o que procura?</span>
-    <h2>Peça um bolo<br><em>personalizado</em></h2>
-    <p>A Chef Paula cria receitas exclusivas para o seu gosto. Fale pelo WhatsApp e crie o bolo dos seus sonhos!</p>
-    <div class="cardapio-cta-btns">
-      <a href="https://wa.me/5512991387404?text=Ol%C3%A1%20Chef%20Paula!%20Gostaria%20de%20um%20bolo%20personalizado." class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Pedir Personalizado
-      </a>
-      <a href="encomendas.html" class="btn btn-gold btn-lg">Como Encomendar</a>
-    </div>
+<section class="ctt-loc">
+  <div class="ctt-loc-wrap">
+    <span class="eyebrow reveal">Onde estamos</span>
+    <h2 class="reveal">Atendemos <em>Taubaté e região</em></h2>
+    <div class="ctt-loc-div"></div>
+    <p class="reveal">Entregas em Taubaté, Tremembé, Pindamonhangaba, Caçapava e cidades próximas. Frete combinado pelo WhatsApp.</p>
+    <iframe
+      class="map-frame reveal"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119594.46064!2d-45.6235!3d-23.0259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cc4b1a9b5f3a4f%3A0x4a5b5b5b5b5b5b5b!2sTaubat%C3%A9%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1713900000000"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Taubaté, SP">
+    </iframe>
+  </div>
+</section>
+
+<section class="ctt-cta">
+  <div class="ctt-cta-inner reveal">
+    <span class="eyebrow" style="color:#E8D5B0;text-align:center;display:block;margin-bottom:.5rem">A forma mais rápida</span>
+    <h2>Chama no <em>WhatsApp</em><br>agora mesmo!</h2>
+    <p>Não precisa de formulário. Só clicar no botão abaixo e já começa a conversa com a Chef Paula. É simples, rápido e cheio de carinho! 🍰</p>
+    <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chamar no WhatsApp
+    </a>
   </div>
 </section>
 
@@ -491,17 +431,19 @@
 </a>
 
 <script>
-  function filtrar(cat, btn) {
-    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.prod-card').forEach(card => {
-      if (cat === 'todos' || card.dataset.cat === cat) {
-        card.style.display = 'flex';
-        card.style.flexDirection = 'column';
-      } else {
-        card.style.display = 'none';
-      }
-    });
+  function enviarFormulario(e) {
+    e.preventDefault();
+    const nome    = document.getElementById('nome').value.trim();
+    const tel     = document.getElementById('tel').value.trim();
+    const assunto = document.getElementById('assunto').value;
+    const msg     = document.getElementById('msg').value.trim();
+    if (!nome || !tel || !assunto || !msg) {
+      alert('Por favor, preencha todos os campos antes de enviar.');
+      return;
+    }
+    const texto = `Olá, Chef Paula! 🍰\n\n*Nome:* ${nome}\n*WhatsApp:* ${tel}\n*Assunto:* ${assunto}\n\n*Mensagem:*\n${msg}`;
+    const url = `https://wa.me/5512991387404?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
   }
 </script>
 <script src="script.js"></script>
