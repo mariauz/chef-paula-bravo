@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre a Chef Paula Bravo | Confeiteira Artesanal — Taubaté/SP</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Editorial Split ── */
+    .sobre-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .sobre-split.reverse { direction: rtl; }
+    .sobre-split.reverse > * { direction: ltr; }
+    .sobre-img-wrap {
+      position: relative;
+    }
+    .sobre-img-wrap img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      aspect-ratio: 3/4;
+      box-shadow: var(--shadow-lg);
+    }
+    .sobre-img-deco {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      width: 60%; height: 60%;
+      border: 2px solid var(--dourado);
+      border-radius: var(--radius-lg);
+      z-index: -1;
+    }
+    .sobre-tag {
+      display: inline-block;
+      background: var(--vinho);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .sobre-quote {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--vinho);
+      border-left: 3px solid var(--dourado);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      line-height: 1.5;
+    }
+    /* ── Valores ── */
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .valor-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 1.2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .valor-card:hover { transform: translateY(-5px); }
+    .valor-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .valor-card h4 { color: var(--vinho); font-size: 1.1rem; margin-bottom: 0.4rem; }
+    .valor-card p  { font-size: 0.83rem; color: var(--text-light); }
+
+    /* ── Formação ── */
+    .formacao-card {
+      background: linear-gradient(135deg, var(--vinho) 0%, var(--vinho-dark) 100%);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      color: var(--white);
+      display: flex; gap: 2rem; align-items: center;
+    }
+    .formacao-icon { font-size: 4rem; flex-shrink: 0; }
+    .formacao-card h3 { color: var(--dourado-light); margin-bottom: 0.5rem; }
+    .formacao-card p  { color: rgba(255,255,255,0.8); }
+
+    @media (max-width: 900px) {
+      .sobre-split { grid-template-columns: 1fr; gap: 2.5rem; }
+      .sobre-split.reverse { direction: ltr; }
+      .valores-grid { grid-template-columns: 1fr 1fr; }
+      .formacao-card { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .valores-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-name">Chef Paula Bravo</span>
+      <span class="logo-sub">Confeitaria Artesanal</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="encomendas.html">Encomendas</a></li>
+      <li><a href="ebook.html">Ebook</a></li>
+      <li><a href="contato.html" class="nav-cta">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <span class="eyebrow">A Chef por trás de cada bolo</span>
+    <h1>Sobre<br>Paula Bravo</h1>
+  </div>
+</div>
+
+<!-- ── Apresentação ── -->
+<section class="section">
+  <div class="container">
+    <div class="sobre-split">
+      <!-- FOTO: fotos/paula-sobre.jpg → ensaio DThy-uwjqTd -->
+      <div class="sobre-img-wrap reveal-left">
+        <img src="fotos/paula-sobre.jpg" alt="Chef Paula Bravo — Confeiteira Artesanal Taubaté" />
+        <div class="sobre-img-deco"></div>
+      </div>
+      <div class="reveal-right">
+        <span class="sobre-tag">Gastróloga & Confeiteira</span>
+        <span class="eyebrow">Quem é ela</span>
+        <h2 style="margin-bottom:1.5rem">Apaixonada por<br>transformar momentos</h2>
+        <p style="margin-bottom:1rem">A Chef Paula Bravo é confeiteira e gastróloga apaixonada por gastronomia artesanal. Nascida e criada em Taubaté/SP, descobriu cedo que a cozinha era o seu lugar de expressão — onde cada ingrediente conta uma história e cada bolo carrega uma intenção.</p>
+        <p>Com formação técnica e um olhar refinado para sabores e texturas, Paula transforma receitas em experiências afetivas. Seu trabalho une técnica, criatividade e muito cuidado humano em cada encomenda.</p>
+        <blockquote class="sobre-quote">
+          "Cada bolo carrega uma história.<br>O meu propósito é que a sua história tenha sabor."
+        </blockquote>
+        <a href="encomendas.html" class="btn btn-primary btn-lg">Fazer uma Encomenda</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Valores ── -->
+<section class="section section-alt">
+  <div class="container text-center">
+    <span class="eyebrow reveal">O que guia cada criação</span>
+    <h2 class="section-title reveal">Meus <em style="font-style:italic;color:var(--terracota)">valores</em></h2>
+    <div class="divider"></div>
+    <div class="valores-grid">
+      <div class="valor-card reveal">
+        <div class="valor-icon">💛</div>
+        <h4>Carinho</h4>
+        <p>Cada etapa é feita com atenção e afeto, como se fosse para minha própria família.</p>
+      </div>
+      <div class="valor-card reveal">
+        <div class="valor-icon">✨</div>
+        <h4>Qualidade</h4>
+        <p>Ingredientes selecionados, processos rigorosos e resultado que encanta na primeira mordida.</p>
+      </div>
+      <div class="valor-card reveal">
+        <div class="valor-icon">🍞</div>
+        <h4>Artesanal</h4>
+        <p>Tudo feito à mão, sem atalhos industriais. O sabor de verdade que você só encontra aqui.</p>
+      </div>
+      <div class="valor-card reveal">
+        <div class="valor-icon">🌱</div>
+        <h4>Propósito</h4>
+        <p>Meu trabalho vai além do bolo — é sobre criar memórias afetivas que durem para sempre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Formação + Foto secundária ── -->
+<section class="section">
+  <div class="container">
+    <div class="sobre-split reverse" style="gap:4rem">
+      <!-- FOTO: fotos/paula-uniforme.jpg → post DUqJy8sEd7W -->
+      <div class="sobre-img-wrap reveal-right">
+        <img src="fotos/paula-uniforme.jpg" alt="Chef Paula Bravo no estúdio de confeitaria" />
+        <div class="sobre-img-deco" style="left:-20px;right:auto"></div>
+      </div>
+      <div class="reveal-left">
+        <span class="eyebrow">Formação & Experiência</span>
+        <h2 style="margin-bottom:2rem">Uma Chef com<br><em style="font-style:italic;color:var(--terracota)">formação sólida</em></h2>
+        <div class="formacao-card" style="margin-bottom:1.5rem">
+          <div class="formacao-icon">🎓</div>
+          <div>
+            <h3>Gastróloga</h3>
+            <p>Formação técnica em gastronomia que une ciência dos alimentos, técnica de confeitaria e criatividade culinária.</p>
+          </div>
+        </div>
+        <p style="color:var(--text-light);font-size:.9rem">Além da formação acadêmica, Paula acumula anos de prática artesanal, aprimorando receitas, técnicas e um atendimento cada vez mais personalizado para cada cliente de Taubaté e região.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="container reveal">
+    <span class="eyebrow" style="color:var(--dourado-light)">Vamos criar algo especial?</span>
+    <h2 style="color:var(--white);font-size:clamp(2rem,4vw,3.2rem)">Sua ocasião merece<br>um bolo feito com amor</h2>
+    <p style="color:rgba(255,255,255,0.8);max-width:500px;margin:1rem auto 2.5rem">Entre em contato e vamos criar juntas o bolo perfeito para o seu momento.</p>
+    <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
+      Chamar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><span class="logo-name">Chef Paula Bravo</span><span class="logo-sub">Confeitaria Artesanal</span></a>
+        <p>Bolos caseiros e artesanais feitos com amor. Taubaté/SP e região.</p>
+      </div>
+      <div><h4>Navegação</h4><ul><li><a href="index.html">Home</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="cardapio.html">Cardápio</a></li><li><a href="encomendas.html">Encomendas</a></li><li><a href="ebook.html">Ebook</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5512991387404">(12) 99138-7404</a></li><li><a href="https://instagram.com/chefpaulabravo" target="_blank">@chefpaulabravo</a></li><li>Taubaté/SP</li></ul></div>
+    </div>
+    <p class="footer-bottom">© 2026 Chef Paula Bravo · Todos os direitos reservados</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
