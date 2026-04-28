@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | Chef Paula Bravo</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── Layout principal ── */
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ── Info cards ── */
+    .info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.4rem;
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+    .info-card:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .info-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .info-icon.wpp  { background: #E8FAF0; }
+    .info-icon.inst { background: #FDF0F3; }
+    .info-icon.loc  { background: #F5EFE6; }
+    .info-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 0.2rem;
+    }
+    .info-value {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--vinho);
+    }
+    .info-sub {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.1rem;
+    }
+
+    /* ── Horário ── */
+    .horario-box {
+      background: linear-gradient(135deg, var(--vinho), var(--vinho-dark));
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-top: 0.5rem;
+      color: var(--white);
+    }
+    .horario-box h4 {
+      color: var(--dourado-light);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .horario-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.85);
+    }
+    .horario-row:last-child { border-bottom: none; }
+    .horario-row span:last-child { color: var(--dourado-light); font-weight: 700; }
+
+    /* ── Formulário ── */
+    .form-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-box h3 {
+      color: var(--vinho);
+      margin-bottom: 0.4rem;
+      font-size: 2rem;
+    }
+    .form-box .form-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-style: italic;
+      font-family: var(--font-title);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 1.1rem;
+      background: var(--vinho);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover {
+      background: var(--vinho-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(107,39,55,0.35);
+    }
+    .submit-btn svg { width: 20px; height: 20px; fill: white; }
+
+    .form-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 1.5rem 0;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .form-divider::before,
+    .form-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--nude);
+    }
+
+    .wpp-direct-btn {
+      width: 100%;
+      padding: 1.1rem;
+      background: #25D366;
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .wpp-direct-btn:hover {
+      background: #20b858;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+    }
+    .wpp-direct-btn svg { width: 22px; height: 22px; fill: white; }
+
+    /* ── Sucesso modal ── */
+    #success-msg {
+      display: none;
+      background: #E8FAF0;
+      border: 1.5px solid #25D366;
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      color: #1a7a42;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .contato-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-box { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-name">Chef Paula Bravo</span>
+      <span class="logo-sub">Confeitaria Artesanal</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="encomendas.html">Encomendas</a></li>
+      <li><a href="ebook.html">Ebook</a></li>
+      <li><a href="contato.html" class="nav-cta">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <span class="eyebrow">Fale com a Chef Paula</span>
+    <h1>Vamos criar algo<br><em style="font-style:italic;color:var(--dourado-light)">especial juntas?</em></h1>
+  </div>
+</div>
+
+<!-- ══ CONTEÚDO PRINCIPAL ══ -->
+<section class="section">
+  <div class="container">
+    <div class="contato-grid">
+
+      <!-- ── Coluna esquerda: informações ── -->
+      <div>
+        <span class="eyebrow reveal">Onde me encontrar</span>
+        <h2 class="reveal" style="margin-bottom:2rem;font-size:2.2rem">Entre em<br><em style="font-style:italic;color:var(--terracota)">contato</em></h2>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="info-card reveal" target="_blank" rel="noopener">
+          <div class="info-icon wpp"><svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div>
+            <div class="info-label">WhatsApp</div>
+            <div class="info-value">(12) 99138-7404</div>
+            <div class="info-sub">Clique para chamar agora →</div>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/chefpaulabravo" class="info-card reveal" target="_blank" rel="noopener">
+          <div class="info-icon inst"><svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <div>
+            <div class="info-label">Instagram</div>
+            <div class="info-value">@chefpaulabravo</div>
+            <div class="info-sub">Veja os bolos e siga para novidades →</div>
+          </div>
+        </a>
+
+        <!-- Localização -->
+        <div class="info-card reveal">
+          <div class="info-icon loc"><svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="info-label">Localização</div>
+            <div class="info-value">Taubaté/SP</div>
+            <div class="info-sub">Entrega na região do Vale do Paraíba</div>
+          </div>
+        </div>
+
+        <!-- Horário -->
+        <div class="horario-box reveal">
+          <h4>⏰ Horário de atendimento</h4>
+          <div class="horario-row"><span>Segunda a Sexta</span><span>08h – 18h</span></div>
+          <div class="horario-row"><span>Sábado</span><span>09h – 15h</span></div>
+          <div class="horario-row"><span>Domingo</span><span>Sob consulta</span></div>
+          <div style="margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,0.5)">
+            * Encomendas com mínimo 3 dias de antecedência
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Coluna direita: formulário ── -->
+      <div class="form-box reveal-right">
+        <h3>Envie sua mensagem</h3>
+        <p class="form-subtitle">Preencha o formulário e sua mensagem será enviada direto para o WhatsApp da Chef Paula <svg class="icon-inline icon-accent" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></p>
+
+        <form id="contato-form" onsubmit="enviarWhatsApp(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo *</label>
+              <input type="text" id="nome" placeholder="Seu nome" required />
+            </div>
+            <div class="form-group">
+              <label for="telefone">Seu WhatsApp *</label>
+              <input type="tel" id="telefone" placeholder="(12) 99999-9999" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="produto">Produto desejado *</label>
+            <select id="produto" required>
+              <option value="" disabled selected>Selecione um produto</option>
+              <optgroup label="<svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c2 0 3.5 1.5 3.5 3.5C15.5 7 14 8 12 8s-3.5-1-3.5-2.5C8.5 3.5 10 2 12 2z"/><path d="M6 8h12l-1.5 10H7.5L6 8z"/><path d="M6 8c0-2 2-4 6-4s6 2 6 4"/></svg> Bolos Caseiros">
+                <option>Bolo de Canela com Creme — R$ 65</option>
+                <option>Bolo de Fubá com Toque Especial — R$ 55</option>
+                <option>Bolo de Laranja Fofinho — R$ 50</option>
+                <option>Bolo de Cenoura com Chocolate — R$ 60</option>
+                <option>Bolo de Milho Cremoso — R$ 58</option>
+              </optgroup>
+              <optgroup label="<svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2 1 2 1"/><path d="M2 21h20"/><path d="M7 8v2"/><path d="M12 8v2"/><path d="M17 8v2"/><circle cx="7" cy="4" r="1" fill="currentColor"/><circle cx="12" cy="4" r="1" fill="currentColor"/><circle cx="17" cy="4" r="1" fill="currentColor"/></svg> Bolos Especiais">
+                <option>Bolo de Maçã com Castanhas — R$ 85</option>
+                <option>Bolo de Frutas Vermelhas — R$ 95</option>
+                <option>Bolo de Nozes com Mousse — R$ 98</option>
+                <option>Bolo de Coco com Brigadeiro Branco — R$ 90</option>
+                <option>Bolo de Ninho com Morango — R$ 92</option>
+              </optgroup>
+              <optgroup label="<svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 12H3a4 4 0 1 1 0-8h14a4 4 0 1 1 0 8z"/><path d="M3 12v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/></svg> Artesanais & Acompanhamentos">
+                <option>Pãezinhos de Mandioquinha (dúzia) — R$ 38</option>
+                <option>Tortinhas de Frango — R$ 12/unid.</option>
+                <option>Kit Café da Tarde (4 pessoas) — R$ 120</option>
+                <option>Brigadeiros Gourmet (cx 12) — R$ 45</option>
+              </optgroup>
+              <option value="outro">Outro / Quero indicação da Chef</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="data">Data desejada *</label>
+              <input type="date" id="data" required />
+            </div>
+            <div class="form-group">
+              <label for="ocasiao">Ocasião</label>
+              <select id="ocasiao">
+                <option value="" disabled selected>Selecione</option>
+                <option>Aniversário</option>
+                <option>Casamento</option>
+                <option>Chá de bebê / revelação</option>
+                <option>Café da tarde</option>
+                <option>Presente</option>
+                <option>Confraternização</option>
+                <option>Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem adicional</label>
+            <textarea id="mensagem" rows="4" placeholder="Tamanho desejado, quantidade de pessoas, pedidos especiais, dúvidas..."></textarea>
+          </div>
+
+          <!-- Botão enviar via WhatsApp -->
+          <button type="submit" class="submit-btn">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar mensagem pelo WhatsApp
+          </button>
+
+          <div id="success-msg">
+            <svg class="icon-inline icon-check" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Redirecionando para o WhatsApp da Chef Paula...
+          </div>
+        </form>
+
+        <div class="form-divider">ou</div>
+
+        <!-- Botão direto sem preencher formulário -->
+        <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="wpp-direct-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chamar direto no WhatsApp agora
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-name">Chef Paula Bravo</span>
+          <span class="logo-sub">Confeitaria Artesanal</span>
+        </a>
+        <p>Bolos caseiros e artesanais feitos com amor. Taubaté/SP e região.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="encomendas.html">Encomendas</a></li>
+          <li><a href="ebook.html">Ebook</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5512991387404">(12) 99138-7404</a></li>
+          <li><a href="https://instagram.com/chefpaulabravo" target="_blank">@chefpaulabravo</a></li>
+          <li>Taubaté/SP e região</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Chef Paula Bravo · Todos os direitos reservados</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="script.js"></script>
+<script>
+  function enviarWhatsApp(e) {
+    e.preventDefault();
+
+    const nome     = document.getElementById('nome').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
+    const produto  = document.getElementById('produto').value;
+    const data     = document.getElementById('data').value;
+    const ocasiao  = document.getElementById('ocasiao').value || 'Não informada';
+    const msg      = document.getElementById('mensagem').value.trim();
+
+    // Formata a data de forma legível
+    const dataFormatada = data
+      ? new Date(data + 'T12:00:00').toLocaleDateString('pt-BR')
+      : 'Não informada';
+
+    // Monta a mensagem completa
+    const texto = 
+`Olá, Chef Paula! Vim pelo site e gostaria de fazer uma encomenda. <svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2 1 2 1"/><path d="M2 21h20"/><path d="M7 8v2"/><path d="M12 8v2"/><path d="M17 8v2"/><circle cx="7" cy="4" r="1" fill="currentColor"/><circle cx="12" cy="4" r="1" fill="currentColor"/><circle cx="17" cy="4" r="1" fill="currentColor"/></svg>
+
+*Nome:* ${nome}
+*Meu WhatsApp:* ${telefone}
+*Produto:* ${produto}
+*Data desejada:* ${dataFormatada}
+*Ocasião:* ${ocasiao}
+${msg ? `*Mensagem:* ${msg}` : ''}
+
+Aguardo seu retorno! <svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>`;
+
+    // Exibe o aviso de sucesso
+    document.getElementById('success-msg').style.display = 'block';
+
+    // Aguarda 1s e abre o WhatsApp
+    setTimeout(() => {
+      const url = `https://wa.me/5512991387404?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    }, 900);
+  }
+</script>
+</body>
+</html>
