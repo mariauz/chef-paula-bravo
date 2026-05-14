@@ -1,3 +1,6 @@
+/* Adiciona js-loaded imediatamente — ativa o reveal via CSS só quando JS estiver funcionando */
+document.documentElement.classList.add('js-loaded');
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Navbar scroll ── */
