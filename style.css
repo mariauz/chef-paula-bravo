@@ -39,13 +39,26 @@ img { max-width: 100%; height: auto; display: block; }
 a   { text-decoration: none; color: inherit; }
 ul  { list-style: none; }
 
-/* ── Reveal ── */
-.reveal       { opacity: 0; transform: translateY(40px);  transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal-left  { opacity: 0; transform: translateX(-50px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal-right { opacity: 0; transform: translateX(50px);  transition: opacity 0.7s ease, transform 0.7s ease; }
+/* ── Reveal ──
+   js-loaded é adicionado pelo script.js assim que carrega.
+   Se o JS não carregar, tudo fica visível normalmente.
+*/
+.reveal,
+.reveal-left,
+.reveal-right {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Só esconde quando JS estiver ativo */
+.js-loaded .reveal       { opacity: 0; transform: translateY(40px); }
+.js-loaded .reveal-left  { opacity: 0; transform: translateX(-50px); }
+.js-loaded .reveal-right { opacity: 0; transform: translateX(50px); }
+
 .reveal.visible,
 .reveal-left.visible,
-.reveal-right.visible { opacity: 1; transform: translate(0); }
+.reveal-right.visible { opacity: 1 !important; transform: translate(0) !important; }
 
 /* ── Tipografia ── */
 h1, h2, h3, h4 {
