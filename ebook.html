@@ -93,7 +93,7 @@
     }
     .eb-hotmart-badge {
       margin-top: 1.5rem;
-      display: flex; align-items: center; gap: .6rem;
+      display: inline-flex; align-items: center; gap: .6rem;
       background: rgba(255,255,255,.1);
       border: 1px solid rgba(255,255,255,.2);
       padding: .6rem 1.2rem; border-radius: 50px;
@@ -119,40 +119,143 @@
       margin: 1rem auto 3rem;
     }
 
-    /* ── BOLOS (3 cards com foto) ── */
+    /* ══════════════════════════════════════
+       BOLOS — cards grandes com foto real
+    ══════════════════════════════════════ */
     .bolos-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 2rem; margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.4rem;
+      margin-top: 1rem;
     }
+
     .bolo-card {
-      background: #FFFFFF; border-radius: 24px;
+      background: #FFFFFF;
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 10px 45px rgba(107,39,55,.12);
-      transition: all .4s ease;
+      box-shadow: 0 14px 50px rgba(107,39,55,.13);
+      transition: transform .4s ease, box-shadow .4s ease;
+      display: flex;
+      flex-direction: column;
     }
-    .bolo-card:hover { transform: translateY(-8px); box-shadow: 0 22px 60px rgba(107,39,55,.2); }
-    .bolo-card-img {
-      width: 100%; aspect-ratio: 4/3;
-      object-fit: cover; display: block;
+    .bolo-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 70px rgba(107,39,55,.22);
     }
-    /* fallback quando imagem não existe ainda */
+
+    /* Área da foto — proporção 3/2, grande */
     .bolo-card-img-wrap {
-      position: relative; overflow: hidden;
-      background: linear-gradient(135deg, #4A1825, #6B2737);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 2;
+      background: linear-gradient(135deg, #4A1825 0%, #6B2737 50%, #8B3A50 100%);
     }
-    .bolo-card-img-wrap .bolo-num {
-      position: absolute; top: 1rem; left: 1.5rem;
-      font-family: var(--font-title); font-size: 3rem; font-weight: 700;
-      color: rgba(201,169,110,.3); line-height: 1; z-index: 1;
+
+    .bolo-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
     }
-    .bolo-card-body { padding: 1.8rem; text-align: center; }
+    .bolo-card:hover .bolo-card-img { transform: scale(1.06); }
+
+    /* Número sobreposto no canto — grande e elegante */
+    .bolo-num {
+      position: absolute;
+      top: 1.2rem;
+      left: 1.6rem;
+      font-family: var(--font-title);
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: rgba(201,169,110,.25);
+      line-height: 1;
+      z-index: 2;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Badge de destaque no canto superior direito */
+    .bolo-badge {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.4rem;
+      background: linear-gradient(135deg, #C9A96E, #B8935A);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .35rem .9rem;
+      border-radius: 50px;
+      z-index: 2;
+    }
+
+    /* Placeholder elegante quando a imagem ainda não existe */
+    .bolo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: rgba(201,169,110,.5);
+    }
+    .bolo-placeholder svg {
+      width: 64px; height: 64px;
+      stroke: rgba(201,169,110,.5);
+    }
+    .bolo-placeholder span {
+      font-family: var(--font-body);
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* Corpo do card */
+    .bolo-card-body {
+      padding: 2rem 2rem 2.4rem;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .bolo-card-body h3 {
-      font-family: var(--font-title); font-size: 1.35rem;
-      color: #6B2737; margin-bottom: .6rem; line-height: 1.2;
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      color: #6B2737;
+      margin-bottom: .7rem;
+      line-height: 1.2;
     }
     .bolo-card-body p {
-      font-family: var(--font-body); font-size: .87rem;
-      color: #9B7B6B; line-height: 1.7; margin: 0;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      color: #9B7B6B;
+      line-height: 1.75;
+      margin: 0 0 1.5rem;
+      max-width: 28ch;
+    }
+    .bolo-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #C9A96E;
+      border: 1px solid rgba(201,169,110,.4);
+      padding: .35rem 1rem;
+      border-radius: 50px;
+      margin-top: auto;
+    }
+    .bolo-card-tag svg {
+      width: 13px; height: 13px;
+      stroke: #C9A96E; fill: none;
     }
 
     /* ── DIFERENCIAIS ── */
@@ -174,7 +277,7 @@
       margin: 0 auto 1.2rem;
       border-top: 3px solid #C9A96E;
     }
-    .dif-icon svg { width: 28px; height: 28px; stroke: #6B2737; }
+    .dif-icon svg { width: 28px; height: 28px; stroke: #6B2737; fill: none; }
     .dif-card h4 { font-family: var(--font-title); font-size: 1.05rem; color: #6B2737; margin-bottom: .4rem; }
     .dif-card p  { font-family: var(--font-body); font-size: .83rem; color: #9B7B6B; line-height: 1.65; margin: 0; }
 
@@ -205,9 +308,9 @@
       font-family: var(--font-body); font-size: .93rem;
       color: #5C3D2E; line-height: 1.6;
     }
-    .para-quem-list li::before {
-      content: '\2726'; color: #C9A96E;
-      font-size: .8rem; flex-shrink: 0; margin-top: .2rem;
+    .para-quem-list li svg {
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: .1rem;
+      stroke: #C9A96E; fill: none;
     }
 
     /* ── PREÇO / CTA ── */
@@ -247,7 +350,7 @@
       font-family: var(--font-body); font-size: .9rem;
       color: rgba(255,255,255,.82);
     }
-    .eb-includes li::before { content: '\2714'; color: #C9A96E; font-weight: 700; flex-shrink: 0; }
+    .eb-includes li svg { width: 16px; height: 16px; stroke: #C9A96E; fill: none; flex-shrink: 0; }
     .btn-comprar {
       display: inline-flex; align-items: center; gap: .6rem;
       padding: 1.3rem 3rem;
@@ -274,7 +377,7 @@
       color: #2C1810; text-align: left; transition: color .3s;
     }
     .faq-question:hover { color: #6B2737; }
-    .faq-question svg { width: 20px; height: 20px; flex-shrink: 0; fill: #C9A96E; transition: transform .3s; }
+    .faq-question svg { width: 20px; height: 20px; flex-shrink: 0; stroke: #C9A96E; fill: none; transition: transform .3s; }
     .faq-item.open .faq-question svg { transform: rotate(45deg); }
     .faq-answer {
       max-height: 0; overflow: hidden;
@@ -289,7 +392,7 @@
       .eb-hero-text p { max-width: 100%; }
       .eb-hero-btns { justify-content: center; }
       .eb-book-cover { transform: none; width: 200px; }
-      .bolos-grid { grid-template-columns: 1fr; }
+      .bolos-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
       .dif-grid { grid-template-columns: 1fr 1fr; }
       .para-quem-grid { grid-template-columns: 1fr; gap: 3rem; }
       .eb-preco-card { padding: 2.5rem 1.8rem; }
@@ -298,6 +401,7 @@
       .eb-sec, .eb-sec-alt { padding: 70px 0; }
       .eb-preco { padding: 70px 0; }
       .dif-grid { grid-template-columns: 1fr; }
+      .bolos-grid { max-width: 100%; }
     }
   </style>
 </head>
@@ -313,7 +417,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="cardapio.html">Card&#225;pio</a></li>
       <li><a href="encomendas.html">Encomendas</a></li>
       <li><a href="ebook.html">Ebook</a></li>
       <li><a href="contato.html" class="nav-cta">Contato</a></li>
@@ -325,21 +429,33 @@
 <section class="eb-hero">
   <div class="eb-hero-inner">
     <div class="eb-hero-text reveal-left">
-      <span class="eyebrow">&#10022; Mini Masterclass — disponível na Hotmart</span>
+      <span class="eyebrow">
+        <svg style="display:inline;width:12px;height:12px;vertical-align:middle;margin-right:4px;stroke:#C9A96E;fill:none" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Mini Masterclass — dispon&#237;vel na Hotmart
+      </span>
       <h1>3 Bolos Caseiros<br><em>Perfeitos</em><br>do Zero</h1>
-      <p>Aprenda com a Chef Paula Bravo a fazer Bolo de Paçoca, Bolo de Milho com Curau Cremoso e Romeu e Julieta — com ingredientes simples e técnica profissional.</p>
+      <p>Aprenda com a Chef Paula Bravo a fazer Bolo de Pa&#231;oca, Bolo de Milho com Curau Cremoso e Romeu e Julieta &#8212; com ingredientes simples e t&#233;cnica profissional.</p>
       <div class="eb-hero-btns">
         <a href="https://hotmart.com/pt-br/marketplace/produtos/mini-masterclass-3-bolos-caseiros-perfeitos-do-zero-ao-sabor-profissional-1/X100940490L"
-           class="eb-btn-hot" target="_blank" rel="noopener">&#127381; Quero a Masterclass</a>
-        <a href="#bolos" class="eb-btn-scroll">Ver receitas &#8595;</a>
+           class="eb-btn-hot" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+          Quero a Masterclass
+        </a>
+        <a href="#bolos" class="eb-btn-scroll">
+          Ver receitas
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </a>
       </div>
-      <div class="eb-hotmart-badge">&#128274; Compra segura via Hotmart · Acesso imediato</div>
+      <div class="eb-hotmart-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Compra segura via Hotmart &middot; Acesso imediato
+      </div>
     </div>
     <div class="eb-mockup reveal-right">
       <div class="eb-mockup-glow"></div>
       <img
         src="img/ebook.png"
-        alt="Capa do ebook Mini Masterclass — Chef Paula Bravo"
+        alt="Capa do ebook Mini Masterclass &#8212; Chef Paula Bravo"
         class="eb-book-cover"
         width="260" height="340" loading="lazy"
       />
@@ -351,57 +467,95 @@
 <section class="eb-sec" id="bolos">
   <div class="eb-wrap">
     <div style="text-align:center">
-      <span class="eb-ey reveal">O que você vai aprender</span>
-      <h2 class="eb-h2 reveal">As 3 receitas <em style="font-style:italic;color:#C4714A">que você vai dominar</em></h2>
+      <span class="eb-ey reveal">O que voc&#234; vai aprender</span>
+      <h2 class="eb-h2 reveal">As 3 receitas <em style="font-style:italic;color:#C4714A">que voc&#234; vai dominar</em></h2>
       <div class="eb-div"></div>
     </div>
+
     <div class="bolos-grid">
 
+      <!-- CARD 1 — Bolo de Paçoca -->
       <div class="bolo-card reveal">
         <div class="bolo-card-img-wrap">
           <span class="bolo-num">01</span>
+          <span class="bolo-badge">Receita 1</span>
           <img
             src="img/bolo-pacoca-ebook.png"
-            alt="Bolo de Paçoca"
+            alt="Bolo de Pa&#231;oca"
             class="bolo-card-img"
-            onerror="this.parentElement.style.minHeight='200px'"
+            width="600" height="400"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />
+          <!-- Placeholder elegante caso a imagem ainda não tenha sido enviada -->
+          <div class="bolo-placeholder" style="display:none;position:absolute;inset:0">
+            <svg viewBox="0 0 24 24" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>img/bolo-pacoca-ebook.png</span>
+          </div>
         </div>
         <div class="bolo-card-body">
-          <h3>Bolo de Paçoca</h3>
-          <p>Massa macia com sabor intenso de paçoca, textura incrível e acabamento irresistível. Do zero ao ponto profissional.</p>
+          <h3>Bolo de Pa&#231;oca</h3>
+          <p>Massa macia com sabor intenso de pa&#231;oca, textura incr&#237;vel e acabamento irresist&#237;vel. Do zero ao ponto profissional.</p>
+          <span class="bolo-card-tag">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            Acesso vitalício
+          </span>
         </div>
       </div>
 
+      <!-- CARD 2 — Bolo de Milho com Curau -->
       <div class="bolo-card reveal">
         <div class="bolo-card-img-wrap">
           <span class="bolo-num">02</span>
+          <span class="bolo-badge">Receita 2</span>
           <img
             src="img/bolo-milho-ebook.png"
             alt="Bolo de Milho com Curau Cremoso"
             class="bolo-card-img"
-            onerror="this.parentElement.style.minHeight='200px'"
+            width="600" height="400"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />
+          <div class="bolo-placeholder" style="display:none;position:absolute;inset:0">
+            <svg viewBox="0 0 24 24" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>img/bolo-milho-ebook.png</span>
+          </div>
         </div>
         <div class="bolo-card-body">
-          <h3>Bolo de Milho com Curau Cremoso</h3>
-          <p>O bolo de milho elevado com recheio de curau cremoso artesanal. Úmido, saboroso e de dar água na boca.</p>
+          <h3>Bolo de Milho<br>com Curau Cremoso</h3>
+          <p>O bolo de milho elevado com recheio de curau cremoso artesanal. &#218;mido, saboroso e de dar &#225;gua na boca.</p>
+          <span class="bolo-card-tag">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            Acesso vitalício
+          </span>
         </div>
       </div>
 
+      <!-- CARD 3 — Bolo Romeu e Julieta -->
       <div class="bolo-card reveal">
         <div class="bolo-card-img-wrap">
           <span class="bolo-num">03</span>
+          <span class="bolo-badge">Receita 3</span>
           <img
             src="img/bolo-romeu-julieta-ebook.png"
             alt="Bolo Romeu e Julieta"
             class="bolo-card-img"
-            onerror="this.parentElement.style.minHeight='200px'"
+            width="600" height="400"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />
+          <div class="bolo-placeholder" style="display:none;position:absolute;inset:0">
+            <svg viewBox="0 0 24 24" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>img/bolo-romeu-julieta-ebook.png</span>
+          </div>
         </div>
         <div class="bolo-card-body">
-          <h3>Bolo Romeu e Julieta</h3>
-          <p>A combinação clássica de queijo e goiabada em forma de bolo artesanal sofisticado — com técnica profissional e ingredientes simples.</p>
+          <h3>Bolo Romeu<br>e Julieta</h3>
+          <p>A combina&#231;&#227;o cl&#225;ssica de queijo e goiabada em forma de bolo artesanal sofisticado &#8212; com t&#233;cnica profissional e ingredientes simples.</p>
+          <span class="bolo-card-tag">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            Acesso vitalício
+          </span>
         </div>
       </div>
 
@@ -414,7 +568,7 @@
   <div class="eb-wrap">
     <div style="text-align:center">
       <span class="eb-ey reveal">Por que essa masterclass?</span>
-      <h2 class="eb-h2 reveal">Tudo que você precisa <em style="font-style:italic;color:#C4714A">em um só lugar</em></h2>
+      <h2 class="eb-h2 reveal">Tudo que voc&#234; precisa <em style="font-style:italic;color:#C4714A">em um s&#243; lugar</em></h2>
       <div class="eb-div"></div>
     </div>
     <div class="dif-grid">
@@ -426,8 +580,8 @@
             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
           </svg>
         </div>
-        <h4>Vídeos Práticos</h4>
-        <p>Passo a passo em vídeo, direto ao ponto. Sem enrolação — da massa até a decoração final.</p>
+        <h4>V&#237;deos Pr&#225;ticos</h4>
+        <p>Passo a passo em v&#237;deo, direto ao ponto. Sem enrola&#231;&#227;o &#8212; da massa at&#233; a decora&#231;&#227;o final.</p>
       </div>
 
       <div class="dif-card reveal">
@@ -439,7 +593,7 @@
           </svg>
         </div>
         <h4>Ingredientes Simples</h4>
-        <p>Tudo que você precisa está no mercado perto de casa. Sem ingredientes caros ou difíceis de achar.</p>
+        <p>Tudo que voc&#234; precisa est&#225; no mercado perto de casa. Sem ingredientes caros ou dif&#237;ceis de achar.</p>
       </div>
 
       <div class="dif-card reveal">
@@ -449,7 +603,7 @@
             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
           </svg>
         </div>
-        <h4>Técnica Profissional</h4>
+        <h4>T&#233;cnica Profissional</h4>
         <p>Aprenda os segredos da confeitaria profissional adaptados para a cozinha de casa.</p>
       </div>
 
@@ -461,7 +615,7 @@
           </svg>
         </div>
         <h4>Acesso Vitalício</h4>
-        <p>Assista quando e onde quiser — pelo celular, tablet ou computador. Sem prazo para expirar.</p>
+        <p>Assista quando e onde quiser &#8212; pelo celular, tablet ou computador. Sem prazo para expirar.</p>
       </div>
 
     </div>
@@ -476,16 +630,34 @@
         <img src="img/paula-hero.png" alt="Chef Paula Bravo" width="480" height="600" loading="lazy" />
       </div>
       <div class="para-quem-text reveal-right">
-        <span class="eb-ey">Esta masterclass é pra você que...</span>
+        <span class="eb-ey">Esta masterclass &#233; pra voc&#234; que...</span>
         <h2>Quer transformar <em>amor em receita</em></h2>
         <div style="width:56px;height:2px;background:linear-gradient(90deg,#6B2737,#C9A96E);margin:1rem 0 2rem"></div>
         <ul class="para-quem-list">
-          <li>Ama cozinhar e quer aprender confeitaria do zero</li>
-          <li>Já faz bolos em casa e quer elevar o nível e o sabor</li>
-          <li>Sonha começar um negócio de bolos artesanais</li>
-          <li>Quer impressionar família e amigos em datas especiais</li>
-          <li>Busca uma renda extra fazendo o que ama</li>
-          <li>Procura receitas testadas e aprovadas por confeiteira profissional</li>
+          <li>
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Ama cozinhar e quer aprender confeitaria do zero
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            J&#225; faz bolos em casa e quer elevar o n&#237;vel e o sabor
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Sonha come&#231;ar um neg&#243;cio de bolos artesanais
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Quer impressionar fam&#237;lia e amigos em datas especiais
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Busca uma renda extra fazendo o que ama
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Procura receitas testadas e aprovadas por confeiteira profissional
+          </li>
         </ul>
         <div style="margin-top:2rem">
           <a href="https://hotmart.com/pt-br/marketplace/produtos/mini-masterclass-3-bolos-caseiros-perfeitos-do-zero-ao-sabor-profissional-1/X100940490L"
@@ -502,21 +674,28 @@
 <section class="eb-preco" id="preco">
   <div class="eb-preco-inner">
     <div class="eb-preco-card reveal">
-      <span class="eb-preco-tag">&#10022; Disponível agora na Hotmart</span>
-      <h2 class="eb-preco-titulo">Mini Masterclass<br><em>3 Bolos Caseiros Perfeitos</em><br>— Chef Paula Bravo</h2>
+      <span class="eb-preco-tag">
+        <svg style="display:inline;width:11px;height:11px;vertical-align:middle;margin-right:4px;stroke:#C9A96E;fill:none" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Dispon&#237;vel agora na Hotmart
+      </span>
+      <h2 class="eb-preco-titulo">Mini Masterclass<br><em>3 Bolos Caseiros Perfeitos</em><br>&#8212; Chef Paula Bravo</h2>
       <ul class="eb-includes">
-        <li>3 receitas exclusivas: Paçoca, Milho com Curau e Romeu e Julieta</li>
-        <li>Vídeos práticos passo a passo completo</li>
-        <li>Técnicas de confeitaria profissional</li>
-        <li>Ingredientes simples e acessíveis</li>
-        <li>Acesso vitalício pela plataforma Hotmart</li>
-        <li>Assista quando e onde quiser</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>3 receitas exclusivas: Pa&#231;oca, Milho com Curau e Romeu e Julieta</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>V&#237;deos pr&#225;ticos passo a passo completo</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>T&#233;cnicas de confeitaria profissional</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Ingredientes simples e acess&#237;veis</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Acesso vitalício pela plataforma Hotmart</li>
+        <li><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Assista quando e onde quiser</li>
       </ul>
       <a href="https://hotmart.com/pt-br/marketplace/produtos/mini-masterclass-3-bolos-caseiros-perfeitos-do-zero-ao-sabor-profissional-1/X100940490L"
          class="btn-comprar" target="_blank" rel="noopener">
-        &#127381; Acessar a Masterclass na Hotmart
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+        Acessar a Masterclass na Hotmart
       </a>
-      <p class="eb-garantia">&#128274; Compra segura via Hotmart · Acesso imediato após o pagamento</p>
+      <p class="eb-garantia">
+        <svg style="display:inline;width:12px;height:12px;vertical-align:middle;margin-right:4px;stroke:rgba(255,255,255,.4);fill:none" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Compra segura via Hotmart &middot; Acesso imediato ap&#243;s o pagamento
+      </p>
     </div>
   </div>
 </section>
@@ -525,45 +704,45 @@
 <section class="eb-sec">
   <div class="eb-wrap">
     <div style="text-align:center">
-      <span class="eb-ey reveal">Dúvidas frequentes</span>
+      <span class="eb-ey reveal">D&#250;vidas frequentes</span>
       <h2 class="eb-h2 reveal">Perguntas <em style="font-style:italic;color:#C4714A">frequentes</em></h2>
       <div class="eb-div"></div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Preciso ter experiência prévia com confeitaria?
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          Preciso ter experi&#234;ncia pr&#233;via com confeitaria?
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
-        <div class="faq-answer">Não! A masterclass foi feita para quem está começando do zero. A Chef Paula explica cada etapa de forma simples e didática, sem termos complicados.</div>
+        <div class="faq-answer">N&#227;o! A masterclass foi feita para quem est&#225; come&#231;ando do zero. A Chef Paula explica cada etapa de forma simples e did&#225;tica, sem termos complicados.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Como acesso o conteúdo após a compra?
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          Como acesso o conte&#250;do ap&#243;s a compra?
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
-        <div class="faq-answer">O acesso é imediato! Após o pagamento na Hotmart, você recebe as instruções de acesso por e-mail. O conteúdo fica disponível na plataforma Hotmart — pelo celular, tablet ou computador.</div>
+        <div class="faq-answer">O acesso &#233; imediato! Ap&#243;s o pagamento na Hotmart, voc&#234; recebe as instru&#231;&#245;es de acesso por e-mail. O conte&#250;do fica dispon&#237;vel na plataforma Hotmart &#8212; pelo celular, tablet ou computador.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           Por quanto tempo terei acesso?
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
-        <div class="faq-answer">O acesso é vitalício! Você pode assistir quantas vezes quiser, no seu tempo e no seu ritmo — sem prazo de expiração.</div>
+        <div class="faq-answer">O acesso &#233; vitalício! Voc&#234; pode assistir quantas vezes quiser, no seu tempo e no seu ritmo &#8212; sem prazo de expira&#231;&#227;o.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Quais são as formas de pagamento?
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          Quais s&#227;o as formas de pagamento?
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
-        <div class="faq-answer">A Hotmart aceita cartão de crédito, boleto bancário e Pix. Todos os pagamentos são processados com total segurança pela plataforma.</div>
+        <div class="faq-answer">A Hotmart aceita cart&#227;o de cr&#233;dito, boleto banc&#225;rio e Pix. Todos os pagamentos s&#227;o processados com total seguran&#231;a pela plataforma.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Tenho dúvidas depois da compra, como entro em contato?
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          Tenho d&#250;vidas depois da compra, como entro em contato?
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
-        <div class="faq-answer">Você pode falar diretamente com a Chef Paula pelo WhatsApp ou pelo Instagram @chefpaulabravo. Ela está sempre disponível para ajudar!</div>
+        <div class="faq-answer">Voc&#234; pode falar diretamente com a Chef Paula pelo WhatsApp ou pelo Instagram @chefpaulabravo. Ela est&#225; sempre dispon&#237;vel para ajudar!</div>
       </div>
     </div>
   </div>
@@ -577,14 +756,14 @@
           <span class="logo-name">Chef Paula Bravo</span>
           <span class="logo-sub">Confeitaria Artesanal</span>
         </a>
-        <p>Bolos caseiros e artesanais feitos com amor e ingredientes selecionados. Taubaté/SP e região.</p>
+        <p>Bolos caseiros e artesanais feitos com amor e ingredientes selecionados. Taubat&#233;/SP e regi&#227;o.</p>
       </div>
       <div>
-        <h4>Navegação</h4>
+        <h4>Navega&#231;&#227;o</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="sobre.html">Sobre a Chef</a></li>
-          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="cardapio.html">Card&#225;pio</a></li>
           <li><a href="encomendas.html">Encomendas</a></li>
           <li><a href="ebook.html">Ebook</a></li>
           <li><a href="contato.html">Contato</a></li>
@@ -595,11 +774,11 @@
         <ul>
           <li><a href="https://wa.me/5512991387404" target="_blank">(12) 99138-7404</a></li>
           <li><a href="https://instagram.com/chefpaulabravo" target="_blank">@chefpaulabravo</a></li>
-          <li>Taubaté/SP e região</li>
+          <li>Taubat&#233;/SP e regi&#227;o</li>
         </ul>
       </div>
     </div>
-    <p class="footer-bottom">© 2026 Chef Paula Bravo · Todos os direitos reservados</p>
+    <p class="footer-bottom">&#169; 2026 Chef Paula Bravo &middot; Todos os direitos reservados</p>
   </div>
 </footer>
 
