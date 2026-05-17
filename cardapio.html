@@ -244,6 +244,32 @@
 
   let todosProdutos = [];
 
+  // ──────────────────────────────────────────────────────────────
+  // converterFoto(): converte link de compartilhamento do Google
+  // Drive para link direto de imagem (lh3.googleusercontent.com).
+  // A Paula pode colar o link normal — o site converte sozinho.
+  //
+  // Formatos aceitos:
+  //   https://drive.google.com/file/d/ID/view?usp=sharing
+  //   https://drive.google.com/open?id=ID
+  //   https://drive.google.com/uc?id=ID
+  //   Links de outros serviços (ImgBB, etc.) → usados sem alteração
+  // ──────────────────────────────────────────────────────────────
+  function converterFoto(url) {
+    if (!url || url.trim() === '') return '';
+    const u = url.trim();
+    // Já é link direto lh3 — usa como está
+    if (u.includes('lh3.googleusercontent.com')) return u;
+    // Formato /file/d/ID/view
+    const m1 = u.match(/\/file\/d\/([^/\?&]+)/);
+    if (m1) return `https://lh3.googleusercontent.com/d/${m1[1]}`;
+    // Formato ?id=ID ou open?id=ID ou uc?id=ID
+    const m2 = u.match(/[?&]id=([^&]+)/);
+    if (m2) return `https://lh3.googleusercontent.com/d/${m2[1]}`;
+    // Não é Drive — devolve o link original (ImgBB, Imgur, etc.)
+    return u;
+  }
+
   function emojiParaCategoria(cat) {
     if (!cat) return EMOJI_CATEGORIA.default;
     const lower = cat.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -265,8 +291,9 @@
     const linkWpp = `https://wa.me/5512991387404?text=${wppMsg}`;
     const preco = formatarPreco(produto.preco);
     const emoji = emojiParaCategoria(produto.categoria);
-    const imgHtml = produto.foto
-      ? `<img src="${produto.foto}" alt="${produto.nome}" width="400" height="300" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'produto-sem-img\\'>${emoji}</div>'">`
+    const fotoUrl = converterFoto(produto.foto);
+    const imgHtml = fotoUrl
+      ? `<img src="${fotoUrl}" alt="${produto.nome}" width="400" height="300" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'produto-sem-img\\'>${emoji}</div>'">`
       : `<div class="produto-sem-img">${emoji}</div>`;
     return `
       <div class="produto-card" data-categoria="${produto.categoria || ''}">
