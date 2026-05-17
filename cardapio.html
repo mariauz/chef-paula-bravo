@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── HERO ── */
     .card-hero {
       min-height: 48vh;
       padding-top: var(--nav-h);
@@ -45,92 +44,48 @@
       line-height: 1.05; margin: 0;
     }
     .card-hero-content h1 em { font-style: italic; color: #E8D5B0; }
-
-    /* ── SEÇÃO PRINCIPAL ── */
-    .cardapio-sec {
-      background: #FAF6F0;
-      padding: 80px 0 120px;
-    }
-    .cardapio-wrap {
-      width: 90%; max-width: 1200px; margin: 0 auto;
-    }
-
-    /* ── FILTROS DE CATEGORIA ── */
+    .cardapio-sec { background: #FAF6F0; padding: 80px 0 120px; }
+    .cardapio-wrap { width: 90%; max-width: 1200px; margin: 0 auto; }
     .filtros-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .7rem;
-      margin-bottom: 3rem;
-      justify-content: center;
+      display: flex; flex-wrap: wrap; gap: .7rem;
+      margin-bottom: 3rem; justify-content: center;
     }
     .filtro-btn {
-      padding: .55rem 1.4rem;
-      border-radius: 50px;
-      border: 2px solid #E8D5C4;
-      background: #FFFFFF;
-      font-family: var(--font-body);
-      font-size: .82rem; font-weight: 700;
-      letter-spacing: .05em;
-      color: #5C3D2E;
-      cursor: pointer;
+      padding: .55rem 1.4rem; border-radius: 50px;
+      border: 2px solid #E8D5C4; background: #FFFFFF;
+      font-family: var(--font-body); font-size: .82rem; font-weight: 700;
+      letter-spacing: .05em; color: #5C3D2E; cursor: pointer;
       transition: all .25s ease;
     }
-    .filtro-btn:hover {
-      border-color: #6B2737;
-      color: #6B2737;
-    }
-    .filtro-btn.ativo {
-      background: #6B2737;
-      border-color: #6B2737;
-      color: #FFFFFF;
-    }
-
-    /* ── GRID DE CARDS ── */
+    .filtro-btn:hover { border-color: #6B2737; color: #6B2737; }
+    .filtro-btn.ativo { background: #6B2737; border-color: #6B2737; color: #FFFFFF; }
     .produtos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 1.8rem;
     }
-
-    /* ── CARD DE PRODUTO ── */
     .produto-card {
-      background: #FFFFFF;
-      border-radius: 20px;
-      overflow: hidden;
+      background: #FFFFFF; border-radius: 20px; overflow: hidden;
       box-shadow: 0 4px 20px rgba(107,39,55,0.08);
       transition: transform .3s ease, box-shadow .3s ease;
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
     }
-    .produto-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 40px rgba(107,39,55,0.15);
-    }
+    .produto-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(107,39,55,0.15); }
     .produto-img-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      background: #F5EFE6;
+      position: relative; width: 100%; aspect-ratio: 4/3;
+      overflow: hidden; background: #F5EFE6;
     }
     .produto-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover;
       transition: transform .4s ease;
     }
-    .produto-card:hover .produto-img-wrap img {
-      transform: scale(1.06);
-    }
+    .produto-card:hover .produto-img-wrap img { transform: scale(1.06); }
     .produto-categoria-badge {
       position: absolute; top: 12px; left: 12px;
-      background: rgba(107,39,55,.88);
-      color: #FFFFFF;
-      font-family: var(--font-body);
-      font-size: .62rem; font-weight: 700;
+      background: rgba(107,39,55,.88); color: #FFFFFF;
+      font-family: var(--font-body); font-size: .62rem; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
-      padding: .28rem .75rem;
-      border-radius: 50px;
-      backdrop-filter: blur(4px);
+      padding: .28rem .75rem; border-radius: 50px; backdrop-filter: blur(4px);
     }
     .produto-sem-img {
       width: 100%; height: 100%;
@@ -138,97 +93,35 @@
       font-size: 3.5rem;
       background: linear-gradient(135deg, #F5EFE6, #EDE0D4);
     }
-    .produto-body {
-      padding: 1.4rem 1.5rem 1.6rem;
-      display: flex; flex-direction: column; flex: 1;
-    }
-    .produto-nome {
-      font-family: var(--font-title);
-      font-size: 1.25rem; font-weight: 700;
-      color: #2C1810; line-height: 1.2;
-      margin-bottom: .4rem;
-    }
-    .produto-desc {
-      font-family: var(--font-body);
-      font-size: .86rem; color: #7A5C50;
-      line-height: 1.65; flex: 1;
-      margin-bottom: .9rem;
-    }
-    .produto-rodape {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: .6rem;
-      margin-top: auto;
-    }
-    .produto-info-extra {
-      display: flex; flex-direction: column; gap: .2rem;
-    }
-    .produto-peso {
-      font-family: var(--font-body);
-      font-size: .75rem; color: #9B7B6B;
-      font-weight: 600; letter-spacing: .05em;
-    }
-    .produto-preco {
-      font-family: var(--font-title);
-      font-size: 1.45rem; font-weight: 700;
-      color: #6B2737;
-    }
+    .produto-body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
+    .produto-nome { font-family: var(--font-title); font-size: 1.25rem; font-weight: 700; color: #2C1810; line-height: 1.2; margin-bottom: .4rem; }
+    .produto-desc { font-family: var(--font-body); font-size: .86rem; color: #7A5C50; line-height: 1.65; flex: 1; margin-bottom: .9rem; }
+    .produto-rodape { display: flex; align-items: center; justify-content: space-between; gap: .6rem; margin-top: auto; }
+    .produto-info-extra { display: flex; flex-direction: column; gap: .2rem; }
+    .produto-peso { font-family: var(--font-body); font-size: .75rem; color: #9B7B6B; font-weight: 600; letter-spacing: .05em; }
+    .produto-preco { font-family: var(--font-title); font-size: 1.45rem; font-weight: 700; color: #6B2737; }
     .btn-pedir {
       display: inline-flex; align-items: center; gap: .4rem;
-      padding: .6rem 1.1rem;
-      background: #25D366;
-      color: #FFFFFF;
+      padding: .6rem 1.1rem; background: #25D366; color: #FFFFFF;
       font-family: var(--font-body); font-size: .78rem; font-weight: 700;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all .25s ease;
-      white-space: nowrap;
+      border-radius: 50px; text-decoration: none; transition: all .25s ease; white-space: nowrap;
     }
-    .btn-pedir:hover {
-      background: #1cb855;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37,211,102,.4);
-    }
-
-    /* ── LOADING ── */
-    .loading-wrap {
-      text-align: center;
-      padding: 5rem 0;
-    }
+    .btn-pedir:hover { background: #1cb855; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,.4); }
+    .loading-wrap { text-align: center; padding: 5rem 0; }
     .loading-spinner {
-      width: 48px; height: 48px;
-      border: 4px solid #E8D5C4;
-      border-top-color: #6B2737;
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
-      margin: 0 auto 1.2rem;
+      width: 48px; height: 48px; border: 4px solid #E8D5C4;
+      border-top-color: #6B2737; border-radius: 50%;
+      animation: spin .8s linear infinite; margin: 0 auto 1.2rem;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .loading-wrap p {
-      font-family: var(--font-body);
-      color: #9B7B6B; font-size: .9rem;
-    }
-
-    /* ── ERRO / VAZIO ── */
-    .estado-vazio {
-      text-align: center;
-      padding: 4rem 1rem;
-      color: #9B7B6B;
-    }
+    .loading-wrap p { font-family: var(--font-body); color: #9B7B6B; font-size: .9rem; }
+    .estado-vazio { text-align: center; padding: 4rem 1rem; color: #9B7B6B; }
     .estado-vazio .emoji { font-size: 3rem; margin-bottom: 1rem; }
-    .estado-vazio h3 {
-      font-family: var(--font-title);
-      font-size: 1.5rem; color: #5C3D2E;
-      margin-bottom: .5rem;
-    }
+    .estado-vazio h3 { font-family: var(--font-title); font-size: 1.5rem; color: #5C3D2E; margin-bottom: .5rem; }
     .estado-vazio p { font-family: var(--font-body); font-size: .9rem; }
-
-    /* ── CTA FINAL ── */
     .card-cta {
       background: linear-gradient(135deg, #4A1825 0%, #6B2737 50%, #C4714A 100%);
-      padding: 90px 0; text-align: center;
-      position: relative; overflow: hidden;
+      padding: 90px 0; text-align: center; position: relative; overflow: hidden;
     }
     .card-cta::before {
       content: ''; position: absolute; inset: 0;
@@ -236,17 +129,9 @@
       pointer-events: none;
     }
     .card-cta-inner { position: relative; z-index: 1; width: 90%; max-width: 640px; margin: 0 auto; }
-    .card-cta h2 {
-      font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 700; color: #FFFFFF; line-height: 1.12; margin-bottom: 1rem;
-    }
+    .card-cta h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; line-height: 1.12; margin-bottom: 1rem; }
     .card-cta h2 em { font-style: italic; color: #E8D5B0; }
-    .card-cta p {
-      font-family: var(--font-body); font-size: .97rem;
-      color: rgba(255,255,255,.75); margin: 0 auto 2.2rem; line-height: 1.75;
-    }
-
-    /* ── RESPONSIVO ── */
+    .card-cta p { font-family: var(--font-body); font-size: .97rem; color: rgba(255,255,255,.75); margin: 0 auto 2.2rem; line-height: 1.75; }
     @media (max-width: 640px) {
       .cardapio-sec { padding: 60px 0 80px; }
       .produtos-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -254,9 +139,7 @@
       .produto-nome { font-size: 1.05rem; }
       .produto-preco { font-size: 1.2rem; }
     }
-    @media (max-width: 400px) {
-      .produtos-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 400px) { .produtos-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -279,7 +162,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="card-hero">
   <div class="card-hero-content">
     <span>Feito com amor e ingredientes selecionados</span>
@@ -287,29 +169,22 @@
   </div>
 </section>
 
-<!-- CARDÁPIO DINÂMICO -->
 <section class="cardapio-sec">
   <div class="cardapio-wrap">
-
-    <!-- Filtros de categoria (gerados dinamicamente) -->
     <div class="filtros-wrap" id="filtros">
       <button class="filtro-btn ativo" data-cat="Todos">🍰 Todos</button>
     </div>
-
-    <!-- Grid de produtos -->
     <div id="produtos-container">
       <div class="loading-wrap">
         <div class="loading-spinner"></div>
         <p>Carregando o cardápio...</p>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <section class="card-cta">
-  <div class="card-cta-inner reveal">
+  <div class="card-cta-inner">
     <span class="eyebrow" style="color:#E8D5B0;text-align:center;display:block;margin-bottom:.5rem">Encontrou algo que amou?</span>
     <h2>Faça sua <em>encomenda</em><br>pelo WhatsApp!</h2>
     <p>É só chamar a Chef Paula — ela atende com todo carinho e cria o bolo dos seus sonhos!</p>
@@ -359,34 +234,17 @@
 </a>
 
 <script>
-  // ════════════════════════════════════════════════════════
-  //  ⚙️  CONFIGURAÇÃO — só mexa aqui!
-  // ════════════════════════════════════════════════════════
-  //
-  //  1. Abra sua planilha no Google Sheets
-  //  2. Clique em Arquivo → Compartilhar → Publicar na web
-  //  3. Escolha a aba "Cardápio" e formato "CSV"
-  //  4. Clique em Publicar e copie o link gerado
-  //  5. Cole o link abaixo substituindo o texto entre aspas
-  //
-  const PLANILHA_URL = 'COLE_AQUI_O_LINK_DA_PLANILHA_CSV';
-  //
-  // ════════════════════════════════════════════════════════
+  // URL CSV gerada a partir da planilha da Chef Paula
+  // ID da planilha: 1gxvf8n-1BQvPpn4vqjO44z7BTN9zQsfwEyw2uwUZYH4
+  const PLANILHA_URL = 'https://docs.google.com/spreadsheets/d/1gxvf8n-1BQvPpn4vqjO44z7BTN9zQsfwEyw2uwUZYH4/export?format=csv&gid=0';
 
-  // Emojis automáticos por categoria (caso não tenha foto)
   const EMOJI_CATEGORIA = {
-    'bolo': '🎂',
-    'torta': '🥧',
-    'kit': '☕',
-    'brownie': '🍫',
-    'cookie': '🍪',
-    'cupcake': '🧁',
-    'pão': '🍞',
-    'default': '🍰'
+    'bolo': '🎂', 'torta': '🥧', 'kit': '☕',
+    'brownie': '🍫', 'cookie': '🍪', 'cupcake': '🧁',
+    'pão': '🍞', 'default': '🍰'
   };
 
   let todosProdutos = [];
-  let categoriaAtiva = 'Todos';
 
   function emojiParaCategoria(cat) {
     if (!cat) return EMOJI_CATEGORIA.default;
@@ -409,11 +267,9 @@
     const linkWpp = `https://wa.me/5512991387404?text=${wppMsg}`;
     const preco = formatarPreco(produto.preco);
     const emoji = emojiParaCategoria(produto.categoria);
-
     const imgHtml = produto.foto
       ? `<img src="${produto.foto}" alt="${produto.nome}" width="400" height="300" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'produto-sem-img\\'>${emoji}</div>'">`
       : `<div class="produto-sem-img">${emoji}</div>`;
-
     return `
       <div class="produto-card" data-categoria="${produto.categoria || ''}">
         <div class="produto-img-wrap">
@@ -440,25 +296,15 @@
   function renderizarProdutos(lista) {
     const container = document.getElementById('produtos-container');
     if (!lista || lista.length === 0) {
-      container.innerHTML = `
-        <div class="estado-vazio">
-          <div class="emoji">🍰</div>
-          <h3>Nenhum produto encontrado</h3>
-          <p>Tente selecionar outra categoria ou volte em breve!</p>
-        </div>`;
+      container.innerHTML = `<div class="estado-vazio"><div class="emoji">🍰</div><h3>Nenhum produto encontrado</h3><p>Tente selecionar outra categoria ou volte em breve!</p></div>`;
       return;
     }
     container.innerHTML = `<div class="produtos-grid">${lista.map(criarCard).join('')}</div>`;
   }
 
   function filtrarPorCategoria(cat) {
-    categoriaAtiva = cat;
-    document.querySelectorAll('.filtro-btn').forEach(btn => {
-      btn.classList.toggle('ativo', btn.dataset.cat === cat);
-    });
-    const filtrados = cat === 'Todos'
-      ? todosProdutos
-      : todosProdutos.filter(p => p.categoria === cat);
+    document.querySelectorAll('.filtro-btn').forEach(btn => btn.classList.toggle('ativo', btn.dataset.cat === cat));
+    const filtrados = cat === 'Todos' ? todosProdutos : todosProdutos.filter(p => p.categoria === cat);
     renderizarProdutos(filtrados);
   }
 
@@ -467,11 +313,10 @@
     const wrap = document.getElementById('filtros');
     wrap.innerHTML = `<button class="filtro-btn ativo" data-cat="Todos">🍰 Todos</button>`;
     categorias.forEach(cat => {
-      const emoji = emojiParaCategoria(cat);
       const btn = document.createElement('button');
       btn.className = 'filtro-btn';
       btn.dataset.cat = cat;
-      btn.textContent = `${emoji} ${cat}`;
+      btn.textContent = `${emojiParaCategoria(cat)} ${cat}`;
       btn.addEventListener('click', () => filtrarPorCategoria(cat));
       wrap.appendChild(btn);
     });
@@ -481,62 +326,47 @@
   function parseCSV(texto) {
     const linhas = texto.trim().split('\n');
     if (linhas.length < 2) return [];
-    // Cabeçalho: Categoria | Nome | Descrição | Peso | Preço | Foto
-    const headers = linhas[0].split(',').map(h => h.trim().toLowerCase()
-      .replace('ção', 'cao').replace('á', 'a').replace('é', 'e').replace('ã', 'a'));
+    const headers = linhas[0].split(',').map(h =>
+      h.trim().toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]/g, '')
+    );
     return linhas.slice(1).map(linha => {
-      const cols = linha.split(',').map(c => c.trim().replace(/^"|"$/g, ''));
+      // Trata campos com vírgula dentro de aspas
+      const cols = [];
+      let dentro = false, atual = '';
+      for (const ch of linha) {
+        if (ch === '"') { dentro = !dentro; }
+        else if (ch === ',' && !dentro) { cols.push(atual.trim()); atual = ''; }
+        else { atual += ch; }
+      }
+      cols.push(atual.trim());
       const obj = {};
-      headers.forEach((h, i) => { obj[h] = cols[i] || ''; });
+      headers.forEach((h, i) => { obj[h] = (cols[i] || '').replace(/^"|"$/g, ''); });
       return {
         categoria: obj['categoria'] || obj['category'] || '',
-        nome: obj['nome'] || obj['name'] || obj['titulo'] || '',
-        descricao: obj['descricao'] || obj['descri'] || obj['description'] || '',
-        peso: obj['peso'] || obj['weight'] || '',
-        preco: obj['preco'] || obj['pre'] || obj['price'] || '',
-        foto: obj['foto'] || obj['imagem'] || obj['image'] || obj['url da foto'] || ''
+        nome:      obj['nome'] || obj['name'] || obj['titulo'] || '',
+        descricao: obj['descricao'] || obj['description'] || '',
+        peso:      obj['peso'] || obj['weight'] || '',
+        preco:     obj['preco'] || obj['preo'] || obj['price'] || '',
+        foto:      obj['foto'] || obj['imagem'] || obj['image'] || ''
       };
     }).filter(p => p.nome && p.nome.trim() !== '');
   }
 
   async function carregarCardapio() {
     const container = document.getElementById('produtos-container');
-
-    // Se não configurou a planilha ainda, mostra demo
-    if (PLANILHA_URL === 'COLE_AQUI_O_LINK_DA_PLANILHA_CSV') {
-      todosProdutos = [
-        { categoria: 'Bolos', nome: 'Bolo de Chocolate Belga', descricao: 'Massa fofinha com recheio cremoso de ganache e cobertura de brigadeiro gourmet.', peso: '1,5 kg', preco: '120', foto: '' },
-        { categoria: 'Bolos', nome: 'Bolo de Morango', descricao: 'Pão de ló especial com chantilly artesanal e morangos frescos.', peso: '1,5 kg', preco: '130', foto: '' },
-        { categoria: 'Bolos', nome: 'Bolo Red Velvet', descricao: 'Clássico americano com cream cheese suave e decoração elegante.', peso: '1,5 kg', preco: '135', foto: '' },
-        { categoria: 'Kits Café', nome: 'Kit Café da Tarde Completo', descricao: 'Inclui bolo no pote, cookies, brownies e mini cupcakes. Perfeito para presentear!', peso: '800 g', preco: '95', foto: '' },
-        { categoria: 'Kits Café', nome: 'Kit Mini Degustação', descricao: 'Seleção de 4 sabores diferentes em porções individuais.', peso: '500 g', preco: '65', foto: '' },
-        { categoria: 'Brownies', nome: 'Brownie de Chocolate + Nozes', descricao: 'Crocante por fora, molhadinho por dentro. Irresistível!', peso: '6 unid.', preco: '48', foto: '' },
-        { categoria: 'Cupcakes', nome: 'Cupcakes Personalizados', descricao: 'Decorados sob encomenda para qualquer ocasião.', peso: '6 unid.', preco: '72', foto: '' },
-      ];
-      montarFiltros(todosProdutos);
-      renderizarProdutos(todosProdutos);
-
-      // Aviso de configuração (visível só pra você, desenvolvedor)
-      console.warn('⚠️ Cardápio em modo DEMO. Configure a variável PLANILHA_URL com o link CSV do Google Sheets.');
-      return;
-    }
-
     try {
       const resp = await fetch(PLANILHA_URL);
-      if (!resp.ok) throw new Error('Erro ao buscar planilha');
+      if (!resp.ok) throw new Error('Erro HTTP ' + resp.status);
       const texto = await resp.text();
       todosProdutos = parseCSV(texto);
-      if (todosProdutos.length === 0) throw new Error('Planilha vazia');
+      if (todosProdutos.length === 0) throw new Error('Planilha vazia ou sem dados válidos');
       montarFiltros(todosProdutos);
       renderizarProdutos(todosProdutos);
     } catch (err) {
-      container.innerHTML = `
-        <div class="estado-vazio">
-          <div class="emoji">😕</div>
-          <h3>Cardápio temporariamente indisponível</h3>
-          <p>Chama a gente no WhatsApp que te enviamos tudo!</p>
-        </div>`;
       console.error('Erro ao carregar cardápio:', err);
+      container.innerHTML = `<div class="estado-vazio"><div class="emoji">😕</div><h3>Cardápio temporariamente indisponível</h3><p>Chama a gente no WhatsApp que te enviamos tudo!</p></div>`;
     }
   }
 
