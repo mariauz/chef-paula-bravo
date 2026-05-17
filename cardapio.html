@@ -172,7 +172,7 @@
 <section class="cardapio-sec">
   <div class="cardapio-wrap">
     <div class="filtros-wrap" id="filtros">
-      <button class="filtro-btn ativo" data-cat="Todos">🍰 Todos</button>
+      <button class="filtro-btn ativo" data-cat="Todos">Todos</button>
     </div>
     <div id="produtos-container">
       <div class="loading-wrap">
@@ -234,7 +234,6 @@
 </a>
 
 <script>
-  // Planilha publicada na web (CSV público) — Chef Paula Bravo
   const PLANILHA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT-3FrJYs5CkMTW0zgSkRPW_oJLZI0qDFOIGrBYFzQvW2-uz552e4IhpqMbn39LDy1H9Z5ftvTBBFLa/pub?output=csv';
 
   const EMOJI_CATEGORIA = {
@@ -310,12 +309,12 @@
   function montarFiltros(produtos) {
     const categorias = [...new Set(produtos.map(p => p.categoria).filter(Boolean))];
     const wrap = document.getElementById('filtros');
-    wrap.innerHTML = `<button class="filtro-btn ativo" data-cat="Todos">🍰 Todos</button>`;
+    wrap.innerHTML = `<button class="filtro-btn ativo" data-cat="Todos">Todos</button>`;
     categorias.forEach(cat => {
       const btn = document.createElement('button');
       btn.className = 'filtro-btn';
       btn.dataset.cat = cat;
-      btn.textContent = `${emojiParaCategoria(cat)} ${cat}`;
+      btn.textContent = cat;
       btn.addEventListener('click', () => filtrarPorCategoria(cat));
       wrap.appendChild(btn);
     });
