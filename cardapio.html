@@ -234,21 +234,20 @@
 </a>
 
 <script>
-  // URL CSV gerada a partir da planilha da Chef Paula
-  // ID da planilha: 1gxvf8n-1BQvPpn4vqjO44z7BTN9zQsfwEyw2uwUZYH4
-  const PLANILHA_URL = 'https://docs.google.com/spreadsheets/d/1gxvf8n-1BQvPpn4vqjO44z7BTN9zQsfwEyw2uwUZYH4/export?format=csv&gid=0';
+  // Planilha publicada na web (CSV público) — Chef Paula Bravo
+  const PLANILHA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT-3FrJYs5CkMTW0zgSkRPW_oJLZI0qDFOIGrBYFzQvW2-uz552e4IhpqMbn39LDy1H9Z5ftvTBBFLa/pub?output=csv';
 
   const EMOJI_CATEGORIA = {
     'bolo': '🎂', 'torta': '🥧', 'kit': '☕',
     'brownie': '🍫', 'cookie': '🍪', 'cupcake': '🧁',
-    'pão': '🍞', 'default': '🍰'
+    'pão': '🍞', 'paes': '🍞', 'pao': '🍞', 'default': '🍰'
   };
 
   let todosProdutos = [];
 
   function emojiParaCategoria(cat) {
     if (!cat) return EMOJI_CATEGORIA.default;
-    const lower = cat.toLowerCase();
+    const lower = cat.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     for (const [chave, emoji] of Object.entries(EMOJI_CATEGORIA)) {
       if (lower.includes(chave)) return emoji;
     }
@@ -332,7 +331,6 @@
         .replace(/[^a-z0-9]/g, '')
     );
     return linhas.slice(1).map(linha => {
-      // Trata campos com vírgula dentro de aspas
       const cols = [];
       let dentro = false, atual = '';
       for (const ch of linha) {
