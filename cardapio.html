@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contato | Chef Paula Bravo</title>
-  <meta name="description" content="Entre em contato com a Chef Paula Bravo para encomendas de bolos artesanais em Taubaté/SP." />
+  <title>Cardápio | Chef Paula Bravo</title>
+  <meta name="description" content="Cardápio da Chef Paula Bravo — bolos artesanais, kits café da tarde e muito mais em Taubaté/SP." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     /* ── HERO ── */
-    .ctt-hero {
-      min-height: 50vh;
+    .card-hero {
+      min-height: 48vh;
       padding-top: var(--nav-h);
       padding-bottom: 70px;
       background: linear-gradient(135deg, #4A1825 0%, #6B2737 60%, #C4714A 100%);
@@ -21,218 +21,241 @@
       position: relative;
       overflow: hidden;
     }
-    .ctt-hero::before {
+    .card-hero::before {
       content: '';
       position: absolute; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3Ccircle cx='0' cy='0' r='4'/%3E%3Ccircle cx='60' cy='0' r='4'/%3E%3Ccircle cx='0' cy='60' r='4'/%3E%3Ccircle cx='60' cy='60' r='4'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .ctt-hero-content {
+    .card-hero-content {
       position: relative; z-index: 1;
       width: 90%; max-width: 1200px; margin: 0 auto;
     }
-    .ctt-hero-content span {
+    .card-hero-content span {
       display: block;
       font-family: var(--font-body);
       font-size: .72rem; font-weight: 700;
       letter-spacing: .2em; text-transform: uppercase;
       color: #E8D5B0; margin-bottom: .6rem;
     }
-    .ctt-hero-content h1 {
+    .card-hero-content h1 {
       font-family: var(--font-title);
       font-size: clamp(2.8rem, 5vw, 5rem);
       font-weight: 700; color: #FFFFFF;
       line-height: 1.05; margin: 0;
     }
-    .ctt-hero-content h1 em { font-style: italic; color: #E8D5B0; }
+    .card-hero-content h1 em { font-style: italic; color: #E8D5B0; }
 
-    /* ── BODY ── */
-    .ctt-sec { padding: 100px 0; background: #FAF6F0; }
-    .ctt-wrap { width: 90%; max-width: 1200px; margin: 0 auto; }
-    .ctt-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 5rem;
-      align-items: start;
+    /* ── SEÇÃO PRINCIPAL ── */
+    .cardapio-sec {
+      background: #FAF6F0;
+      padding: 80px 0 120px;
+    }
+    .cardapio-wrap {
+      width: 90%; max-width: 1200px; margin: 0 auto;
     }
 
-    /* ── INFO LATERAL ── */
-    .ctt-info h2 {
-      font-family: var(--font-title);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: #2C1810; line-height: 1.15; margin-bottom: 1rem;
+    /* ── FILTROS DE CATEGORIA ── */
+    .filtros-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-bottom: 3rem;
+      justify-content: center;
     }
-    .ctt-info h2 em { font-style: italic; color: #C4714A; }
-    .ctt-info p {
+    .filtro-btn {
+      padding: .55rem 1.4rem;
+      border-radius: 50px;
+      border: 2px solid #E8D5C4;
+      background: #FFFFFF;
       font-family: var(--font-body);
-      font-size: .93rem; color: #5C3D2E;
-      line-height: 1.85; margin-bottom: 2rem;
+      font-size: .82rem; font-weight: 700;
+      letter-spacing: .05em;
+      color: #5C3D2E;
+      cursor: pointer;
+      transition: all .25s ease;
     }
-    .ctt-cards { display: flex; flex-direction: column; gap: 1.2rem; }
-    .ctt-card {
-      display: flex; align-items: center; gap: 1.2rem;
-      background: #FFFFFF; border-radius: 16px;
-      padding: 1.4rem 1.6rem;
-      box-shadow: 0 6px 30px rgba(107,39,55,0.09);
-      transition: all .3s ease;
-      text-decoration: none; color: inherit;
-    }
-    .ctt-card:hover { transform: translateX(6px); box-shadow: 0 10px 40px rgba(107,39,55,0.15); }
-    .ctt-card-icon {
-      width: 50px; height: 50px; flex-shrink: 0;
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-    }
-    .ctt-card-icon.verde  { background: rgba(37,211,102,.12); }
-    .ctt-card-icon.vinho  { background: rgba(107,39,55,.1); }
-    .ctt-card-icon.dourado{ background: rgba(201,169,110,.15); }
-    .ctt-card-label {
-      font-family: var(--font-body); font-size: .68rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase; color: #C9A96E;
-      margin-bottom: .2rem;
-    }
-    .ctt-card-value {
-      font-family: var(--font-body); font-size: .95rem;
-      font-weight: 700; color: #2C1810;
-    }
-
-    .ctt-redes { margin-top: 2rem; }
-    .ctt-redes h4 {
-      font-family: var(--font-body); font-size: .7rem; font-weight: 700;
-      letter-spacing: .18em; text-transform: uppercase;
-      color: #9B7B6B; margin-bottom: 1rem;
-    }
-    .redes-btns { display: flex; gap: .8rem; flex-wrap: wrap; }
-    .rede-btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .6rem 1.2rem; border-radius: 50px;
-      font-family: var(--font-body); font-size: .8rem; font-weight: 700;
-      text-decoration: none; transition: all .3s ease;
-    }
-    .rede-btn.ig  { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color: #FFFFFF; }
-    .rede-btn.ig:hover  { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(253,29,29,.3); }
-    .rede-btn.wpp { background: #25D366; color: #FFFFFF; }
-    .rede-btn.wpp:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,.4); background: #20b858; }
-
-    /* ── FORMULÁRIO ── */
-    .ctt-form-wrap {
-      background: #FFFFFF;
-      border-radius: 28px;
-      padding: 3rem;
-      box-shadow: 0 12px 50px rgba(107,39,55,0.13);
-    }
-    .ctt-form-wrap h3 {
-      font-family: var(--font-title);
-      font-size: 1.8rem; color: #6B2737;
-      margin-bottom: .4rem;
-    }
-    .ctt-form-wrap p {
-      font-family: var(--font-body); font-size: .87rem;
-      color: #9B7B6B; margin-bottom: 2rem; line-height: 1.6;
-    }
-    .ctt-form .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .ctt-form .form-group { margin-bottom: 1.2rem; }
-    .ctt-form label {
-      display: block; font-family: var(--font-body);
-      font-size: .7rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: #5C3D2E; margin-bottom: .45rem;
-    }
-    .ctt-form input,
-    .ctt-form select,
-    .ctt-form textarea {
-      width: 100%; padding: .9rem 1.2rem;
-      border: 1.5px solid #E8D5C4; border-radius: 12px;
-      font-family: var(--font-body); font-size: .93rem;
-      color: #2C1810; background: #FAF6F0;
-      outline: none; transition: border-color .3s, box-shadow .3s;
-      appearance: none;
-    }
-    .ctt-form input:focus,
-    .ctt-form select:focus,
-    .ctt-form textarea:focus {
+    .filtro-btn:hover {
       border-color: #6B2737;
-      box-shadow: 0 0 0 3px rgba(107,39,55,.1);
-      background: #FFFFFF;
+      color: #6B2737;
     }
-    .ctt-form textarea { resize: vertical; min-height: 130px; }
-    .btn-enviar {
-      width: 100%; padding: 1.1rem;
-      background: #6B2737; color: #FFFFFF;
-      font-family: var(--font-body); font-size: 1rem; font-weight: 700;
-      letter-spacing: .05em; border: none; border-radius: 50px;
-      cursor: pointer; transition: all .3s ease;
-      display: flex; align-items: center; justify-content: center; gap: .6rem;
-      text-decoration: none;
-    }
-    .btn-enviar:hover {
-      background: #4A1825; transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(107,39,55,.4); color: #FFFFFF;
-    }
-    .form-nota {
-      text-align: center; font-size: .75rem; color: #9B7B6B;
-      margin-top: 1rem; line-height: 1.5;
+    .filtro-btn.ativo {
+      background: #6B2737;
+      border-color: #6B2737;
+      color: #FFFFFF;
     }
 
-    /* ── MAPA / LOCALIZAÇÃO ── */
-    .ctt-loc {
-      padding: 80px 0;
+    /* ── GRID DE CARDS ── */
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.8rem;
+    }
+
+    /* ── CARD DE PRODUTO ── */
+    .produto-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(107,39,55,0.08);
+      transition: transform .3s ease, box-shadow .3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .produto-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 40px rgba(107,39,55,0.15);
+    }
+    .produto-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
       background: #F5EFE6;
     }
-    .ctt-loc-wrap { width: 90%; max-width: 1200px; margin: 0 auto; text-align: center; }
-    .ctt-loc h2 {
+    .produto-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .produto-card:hover .produto-img-wrap img {
+      transform: scale(1.06);
+    }
+    .produto-categoria-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(107,39,55,.88);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .28rem .75rem;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+    }
+    .produto-sem-img {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #F5EFE6, #EDE0D4);
+    }
+    .produto-body {
+      padding: 1.4rem 1.5rem 1.6rem;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .produto-nome {
       font-family: var(--font-title);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      color: #2C1810; margin-bottom: .4rem;
+      font-size: 1.25rem; font-weight: 700;
+      color: #2C1810; line-height: 1.2;
+      margin-bottom: .4rem;
     }
-    .ctt-loc h2 em { font-style: italic; color: #C4714A; }
-    .ctt-loc-div {
-      width: 56px; height: 2px;
-      background: linear-gradient(90deg, #6B2737, #C9A96E);
-      margin: 1rem auto 2.5rem;
+    .produto-desc {
+      font-family: var(--font-body);
+      font-size: .86rem; color: #7A5C50;
+      line-height: 1.65; flex: 1;
+      margin-bottom: .9rem;
     }
-    .ctt-loc p {
-      font-family: var(--font-body); font-size: .93rem;
-      color: #5C3D2E; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.75;
+    .produto-rodape {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .6rem;
+      margin-top: auto;
     }
-    .map-frame {
-      width: 100%; height: 380px; border-radius: 20px;
-      overflow: hidden; box-shadow: 0 12px 50px rgba(107,39,55,.13);
-      border: none;
+    .produto-info-extra {
+      display: flex; flex-direction: column; gap: .2rem;
+    }
+    .produto-peso {
+      font-family: var(--font-body);
+      font-size: .75rem; color: #9B7B6B;
+      font-weight: 600; letter-spacing: .05em;
+    }
+    .produto-preco {
+      font-family: var(--font-title);
+      font-size: 1.45rem; font-weight: 700;
+      color: #6B2737;
+    }
+    .btn-pedir {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .6rem 1.1rem;
+      background: #25D366;
+      color: #FFFFFF;
+      font-family: var(--font-body); font-size: .78rem; font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all .25s ease;
+      white-space: nowrap;
+    }
+    .btn-pedir:hover {
+      background: #1cb855;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,211,102,.4);
     }
 
+    /* ── LOADING ── */
+    .loading-wrap {
+      text-align: center;
+      padding: 5rem 0;
+    }
+    .loading-spinner {
+      width: 48px; height: 48px;
+      border: 4px solid #E8D5C4;
+      border-top-color: #6B2737;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 1.2rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-wrap p {
+      font-family: var(--font-body);
+      color: #9B7B6B; font-size: .9rem;
+    }
+
+    /* ── ERRO / VAZIO ── */
+    .estado-vazio {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: #9B7B6B;
+    }
+    .estado-vazio .emoji { font-size: 3rem; margin-bottom: 1rem; }
+    .estado-vazio h3 {
+      font-family: var(--font-title);
+      font-size: 1.5rem; color: #5C3D2E;
+      margin-bottom: .5rem;
+    }
+    .estado-vazio p { font-family: var(--font-body); font-size: .9rem; }
+
     /* ── CTA FINAL ── */
-    .ctt-cta {
+    .card-cta {
       background: linear-gradient(135deg, #4A1825 0%, #6B2737 50%, #C4714A 100%);
-      padding: 100px 0; text-align: center;
+      padding: 90px 0; text-align: center;
       position: relative; overflow: hidden;
     }
-    .ctt-cta::before {
+    .card-cta::before {
       content: ''; position: absolute; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A96E' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
-    .ctt-cta-inner { position: relative; z-index: 1; width: 90%; max-width: 680px; margin: 0 auto; }
-    .ctt-cta h2 {
-      font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.5rem);
+    .card-cta-inner { position: relative; z-index: 1; width: 90%; max-width: 640px; margin: 0 auto; }
+    .card-cta h2 {
+      font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 700; color: #FFFFFF; line-height: 1.12; margin-bottom: 1rem;
     }
-    .ctt-cta h2 em { font-style: italic; color: #E8D5B0; }
-    .ctt-cta p {
-      font-family: var(--font-body); font-size: 1rem;
-      color: rgba(255,255,255,.75); margin: 0 auto 2.5rem; line-height: 1.75;
+    .card-cta h2 em { font-style: italic; color: #E8D5B0; }
+    .card-cta p {
+      font-family: var(--font-body); font-size: .97rem;
+      color: rgba(255,255,255,.75); margin: 0 auto 2.2rem; line-height: 1.75;
     }
 
-    @media (max-width: 900px) {
-      .ctt-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .ctt-form .form-grid { grid-template-columns: 1fr; }
-      .ctt-form-wrap { padding: 2rem; }
+    /* ── RESPONSIVO ── */
+    @media (max-width: 640px) {
+      .cardapio-sec { padding: 60px 0 80px; }
+      .produtos-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .produto-body { padding: 1rem 1rem 1.2rem; }
+      .produto-nome { font-size: 1.05rem; }
+      .produto-preco { font-size: 1.2rem; }
     }
-    @media (max-width: 600px) {
-      .ctt-sec { padding: 70px 0; }
-      .ctt-cta { padding: 70px 0; }
-      .map-frame { height: 260px; }
+    @media (max-width: 400px) {
+      .produtos-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -248,7 +271,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="cardapio.html" class="active">Cardápio</a></li>
       <li><a href="encomendas.html">Encomendas</a></li>
       <li><a href="ebook.html">Ebook</a></li>
       <li><a href="contato.html" class="nav-cta">Contato</a></li>
@@ -256,138 +279,43 @@
   </div>
 </nav>
 
-<section class="ctt-hero">
-  <div class="ctt-hero-content">
-    <span>Estamos prontos para te atender</span>
-    <h1>Fale com a <em>Chef Paula</em></h1>
+<!-- HERO -->
+<section class="card-hero">
+  <div class="card-hero-content">
+    <span>Feito com amor e ingredientes selecionados</span>
+    <h1>Nosso <em>Cardápio</em></h1>
   </div>
 </section>
 
-<section class="ctt-sec">
-  <div class="ctt-wrap">
-    <div class="ctt-grid">
+<!-- CARDÁPIO DINÂMICO -->
+<section class="cardapio-sec">
+  <div class="cardapio-wrap">
 
-      <!-- INFO -->
-      <div class="ctt-info reveal-left">
-        <span class="eyebrow">Canais de atendimento</span>
-        <h2>Vamos criar algo<br><em>especial juntos?</em></h2>
-        <div class="divider left"></div>
-        <p>Tem uma dúvida, quer fazer uma encomenda ou simplesmente bater um papo sobre bolos? A Chef Paula está aqui para te atender com todo o carinho. Escolha o canal mais fácil pra você! <svg class="icon-inline icon-accent" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></p>
-
-        <div class="ctt-cards">
-          <a href="https://wa.me/5512991387404" class="ctt-card" target="_blank" rel="noopener">
-            <div class="ctt-card-icon verde"><svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
-            <div>
-              <div class="ctt-card-label">WhatsApp</div>
-              <div class="ctt-card-value">(12) 99138-7404</div>
-            </div>
-          </a>
-          <a href="https://instagram.com/chefpaulabravo" class="ctt-card" target="_blank" rel="noopener">
-            <div class="ctt-card-icon vinho"><svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-            <div>
-              <div class="ctt-card-label">Instagram</div>
-              <div class="ctt-card-value">@chefpaulabravo</div>
-            </div>
-          </a>
-          <div class="ctt-card" style="cursor:default">
-            <div class="ctt-card-icon dourado"><svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div>
-              <div class="ctt-card-label">Localização</div>
-              <div class="ctt-card-value">Taubaté/SP e região</div>
-            </div>
-          </div>
-          <div class="ctt-card" style="cursor:default">
-            <div class="ctt-card-icon vinho">⏰</div>
-            <div>
-              <div class="ctt-card-label">Atendimento</div>
-              <div class="ctt-card-value">Seg – Sáb · 8h às 20h</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ctt-redes">
-          <h4>Redes sociais</h4>
-          <div class="redes-btns">
-            <a href="https://instagram.com/chefpaulabravo" class="rede-btn ig" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              Instagram
-            </a>
-            <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="rede-btn wpp" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- FORMULÁRIO -->
-      <div class="ctt-form-wrap reveal-right">
-        <h3>Manda uma mensagem <svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></h3>
-        <p>Preencha o formulário e a Chef Paula entra em contato em breve. Ou se preferir, chama direto no WhatsApp!</p>
-        <form class="ctt-form" onsubmit="enviarFormulario(event)">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="nome">Seu nome</label>
-              <input type="text" id="nome" placeholder="Ex: Ana Paula" required />
-            </div>
-            <div class="form-group">
-              <label for="tel">WhatsApp</label>
-              <input type="tel" id="tel" placeholder="(12) 99999-9999" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="assunto">Assunto</label>
-            <select id="assunto" required>
-              <option value="" disabled selected>Selecione um assunto</option>
-              <option value="Encomenda de bolo">Encomenda de bolo</option>
-              <option value="Kit Café da Tarde">Kit Café da Tarde</option>
-              <option value="Bolo de festa personalizado">Bolo de festa personalizado</option>
-              <option value="Dúvida sobre cardápio">Dúvida sobre cardápio</option>
-              <option value="Mini Curso / Ebook">Mini Curso / Ebook</option>
-              <option value="Outro assunto">Outro assunto</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="msg">Mensagem</label>
-            <textarea id="msg" placeholder="Conta mais detalhes: data, sabor, tamanho, ocasião..." required></textarea>
-          </div>
-          <a href="#" class="btn-enviar" id="btnEnviar" onclick="enviarFormulario(event)">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Enviar pelo WhatsApp
-          </a>
-          <p class="form-nota"><svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg> Ao clicar, você será redirecionada para o WhatsApp com a mensagem já preenchida.</p>
-        </form>
-      </div>
-
+    <!-- Filtros de categoria (gerados dinamicamente) -->
+    <div class="filtros-wrap" id="filtros">
+      <button class="filtro-btn ativo" data-cat="Todos">🍰 Todos</button>
     </div>
+
+    <!-- Grid de produtos -->
+    <div id="produtos-container">
+      <div class="loading-wrap">
+        <div class="loading-spinner"></div>
+        <p>Carregando o cardápio...</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section class="ctt-loc">
-  <div class="ctt-loc-wrap">
-    <span class="eyebrow reveal">Onde estamos</span>
-    <h2 class="reveal">Atendemos <em>Taubaté e região</em></h2>
-    <div class="ctt-loc-div"></div>
-    <p class="reveal">Entregas em Taubaté, Tremembé, Pindamonhangaba, Caçapava e cidades próximas. Frete combinado pelo WhatsApp.</p>
-    <iframe
-      class="map-frame reveal"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119594.46064!2d-45.6235!3d-23.0259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cc4b1a9b5f3a4f%3A0x4a5b5b5b5b5b5b5b!2sTaubat%C3%A9%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1713900000000"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Taubaté, SP">
-    </iframe>
-  </div>
-</section>
-
-<section class="ctt-cta">
-  <div class="ctt-cta-inner reveal">
-    <span class="eyebrow" style="color:#E8D5B0;text-align:center;display:block;margin-bottom:.5rem">A forma mais rápida</span>
-    <h2>Chama no <em>WhatsApp</em><br>agora mesmo!</h2>
-    <p>Não precisa de formulário. Só clicar no botão abaixo e já começa a conversa com a Chef Paula. É simples, rápido e cheio de carinho! <svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16H3l3-9h12l3 9z"/><path d="M3 16v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M12 3v4"/><circle cx="12" cy="2" r="1" fill="currentColor"/></svg></p>
-    <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
+<!-- CTA FINAL -->
+<section class="card-cta">
+  <div class="card-cta-inner reveal">
+    <span class="eyebrow" style="color:#E8D5B0;text-align:center;display:block;margin-bottom:.5rem">Encontrou algo que amou?</span>
+    <h2>Faça sua <em>encomenda</em><br>pelo WhatsApp!</h2>
+    <p>É só chamar a Chef Paula — ela atende com todo carinho e cria o bolo dos seus sonhos!</p>
+    <a href="https://wa.me/5512991387404?text=Ol%C3%A1%2C%20Chef%20Paula%21%20Vi%20o%20card%C3%A1pio%20e%20quero%20fazer%20uma%20encomenda!" class="btn btn-wpp btn-lg" target="_blank" rel="noopener">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Chamar no WhatsApp
+      Quero fazer minha encomenda
     </a>
   </div>
 </section>
@@ -431,20 +359,188 @@
 </a>
 
 <script>
-  function enviarFormulario(e) {
-    e.preventDefault();
-    const nome    = document.getElementById('nome').value.trim();
-    const tel     = document.getElementById('tel').value.trim();
-    const assunto = document.getElementById('assunto').value;
-    const msg     = document.getElementById('msg').value.trim();
-    if (!nome || !tel || !assunto || !msg) {
-      alert('Por favor, preencha todos os campos antes de enviar.');
+  // ════════════════════════════════════════════════════════
+  //  ⚙️  CONFIGURAÇÃO — só mexa aqui!
+  // ════════════════════════════════════════════════════════
+  //
+  //  1. Abra sua planilha no Google Sheets
+  //  2. Clique em Arquivo → Compartilhar → Publicar na web
+  //  3. Escolha a aba "Cardápio" e formato "CSV"
+  //  4. Clique em Publicar e copie o link gerado
+  //  5. Cole o link abaixo substituindo o texto entre aspas
+  //
+  const PLANILHA_URL = 'COLE_AQUI_O_LINK_DA_PLANILHA_CSV';
+  //
+  // ════════════════════════════════════════════════════════
+
+  // Emojis automáticos por categoria (caso não tenha foto)
+  const EMOJI_CATEGORIA = {
+    'bolo': '🎂',
+    'torta': '🥧',
+    'kit': '☕',
+    'brownie': '🍫',
+    'cookie': '🍪',
+    'cupcake': '🧁',
+    'pão': '🍞',
+    'default': '🍰'
+  };
+
+  let todosProdutos = [];
+  let categoriaAtiva = 'Todos';
+
+  function emojiParaCategoria(cat) {
+    if (!cat) return EMOJI_CATEGORIA.default;
+    const lower = cat.toLowerCase();
+    for (const [chave, emoji] of Object.entries(EMOJI_CATEGORIA)) {
+      if (lower.includes(chave)) return emoji;
+    }
+    return EMOJI_CATEGORIA.default;
+  }
+
+  function formatarPreco(valor) {
+    if (!valor || valor.toString().trim() === '') return null;
+    const num = parseFloat(valor.toString().replace(',', '.').replace(/[^0-9.]/g, ''));
+    if (isNaN(num)) return null;
+    return num.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  function criarCard(produto) {
+    const wppMsg = encodeURIComponent(`Olá, Chef Paula! Vi o cardápio e quero encomendar: *${produto.nome}*. Pode me dar mais informações?`);
+    const linkWpp = `https://wa.me/5512991387404?text=${wppMsg}`;
+    const preco = formatarPreco(produto.preco);
+    const emoji = emojiParaCategoria(produto.categoria);
+
+    const imgHtml = produto.foto
+      ? `<img src="${produto.foto}" alt="${produto.nome}" width="400" height="300" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'produto-sem-img\\'>${emoji}</div>'">`
+      : `<div class="produto-sem-img">${emoji}</div>`;
+
+    return `
+      <div class="produto-card" data-categoria="${produto.categoria || ''}">
+        <div class="produto-img-wrap">
+          ${imgHtml}
+          ${produto.categoria ? `<span class="produto-categoria-badge">${produto.categoria}</span>` : ''}
+        </div>
+        <div class="produto-body">
+          <h3 class="produto-nome">${produto.nome}</h3>
+          ${produto.descricao ? `<p class="produto-desc">${produto.descricao}</p>` : ''}
+          <div class="produto-rodape">
+            <div class="produto-info-extra">
+              ${produto.peso ? `<span class="produto-peso">⚖️ ${produto.peso}</span>` : ''}
+              ${preco ? `<span class="produto-preco">${preco}</span>` : ''}
+            </div>
+            <a href="${linkWpp}" class="btn-pedir" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Pedir
+            </a>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderizarProdutos(lista) {
+    const container = document.getElementById('produtos-container');
+    if (!lista || lista.length === 0) {
+      container.innerHTML = `
+        <div class="estado-vazio">
+          <div class="emoji">🍰</div>
+          <h3>Nenhum produto encontrado</h3>
+          <p>Tente selecionar outra categoria ou volte em breve!</p>
+        </div>`;
       return;
     }
-    const texto = `Olá, Chef Paula! <svg class="icon-inline" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16H3l3-9h12l3 9z"/><path d="M3 16v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M12 3v4"/><circle cx="12" cy="2" r="1" fill="currentColor"/></svg>\n\n*Nome:* ${nome}\n*WhatsApp:* ${tel}\n*Assunto:* ${assunto}\n\n*Mensagem:*\n${msg}`;
-    const url = `https://wa.me/5512991387404?text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank');
+    container.innerHTML = `<div class="produtos-grid">${lista.map(criarCard).join('')}</div>`;
   }
+
+  function filtrarPorCategoria(cat) {
+    categoriaAtiva = cat;
+    document.querySelectorAll('.filtro-btn').forEach(btn => {
+      btn.classList.toggle('ativo', btn.dataset.cat === cat);
+    });
+    const filtrados = cat === 'Todos'
+      ? todosProdutos
+      : todosProdutos.filter(p => p.categoria === cat);
+    renderizarProdutos(filtrados);
+  }
+
+  function montarFiltros(produtos) {
+    const categorias = [...new Set(produtos.map(p => p.categoria).filter(Boolean))];
+    const wrap = document.getElementById('filtros');
+    wrap.innerHTML = `<button class="filtro-btn ativo" data-cat="Todos">🍰 Todos</button>`;
+    categorias.forEach(cat => {
+      const emoji = emojiParaCategoria(cat);
+      const btn = document.createElement('button');
+      btn.className = 'filtro-btn';
+      btn.dataset.cat = cat;
+      btn.textContent = `${emoji} ${cat}`;
+      btn.addEventListener('click', () => filtrarPorCategoria(cat));
+      wrap.appendChild(btn);
+    });
+    wrap.querySelector('[data-cat="Todos"]').addEventListener('click', () => filtrarPorCategoria('Todos'));
+  }
+
+  function parseCSV(texto) {
+    const linhas = texto.trim().split('\n');
+    if (linhas.length < 2) return [];
+    // Cabeçalho: Categoria | Nome | Descrição | Peso | Preço | Foto
+    const headers = linhas[0].split(',').map(h => h.trim().toLowerCase()
+      .replace('ção', 'cao').replace('á', 'a').replace('é', 'e').replace('ã', 'a'));
+    return linhas.slice(1).map(linha => {
+      const cols = linha.split(',').map(c => c.trim().replace(/^"|"$/g, ''));
+      const obj = {};
+      headers.forEach((h, i) => { obj[h] = cols[i] || ''; });
+      return {
+        categoria: obj['categoria'] || obj['category'] || '',
+        nome: obj['nome'] || obj['name'] || obj['titulo'] || '',
+        descricao: obj['descricao'] || obj['descri'] || obj['description'] || '',
+        peso: obj['peso'] || obj['weight'] || '',
+        preco: obj['preco'] || obj['pre'] || obj['price'] || '',
+        foto: obj['foto'] || obj['imagem'] || obj['image'] || obj['url da foto'] || ''
+      };
+    }).filter(p => p.nome && p.nome.trim() !== '');
+  }
+
+  async function carregarCardapio() {
+    const container = document.getElementById('produtos-container');
+
+    // Se não configurou a planilha ainda, mostra demo
+    if (PLANILHA_URL === 'COLE_AQUI_O_LINK_DA_PLANILHA_CSV') {
+      todosProdutos = [
+        { categoria: 'Bolos', nome: 'Bolo de Chocolate Belga', descricao: 'Massa fofinha com recheio cremoso de ganache e cobertura de brigadeiro gourmet.', peso: '1,5 kg', preco: '120', foto: '' },
+        { categoria: 'Bolos', nome: 'Bolo de Morango', descricao: 'Pão de ló especial com chantilly artesanal e morangos frescos.', peso: '1,5 kg', preco: '130', foto: '' },
+        { categoria: 'Bolos', nome: 'Bolo Red Velvet', descricao: 'Clássico americano com cream cheese suave e decoração elegante.', peso: '1,5 kg', preco: '135', foto: '' },
+        { categoria: 'Kits Café', nome: 'Kit Café da Tarde Completo', descricao: 'Inclui bolo no pote, cookies, brownies e mini cupcakes. Perfeito para presentear!', peso: '800 g', preco: '95', foto: '' },
+        { categoria: 'Kits Café', nome: 'Kit Mini Degustação', descricao: 'Seleção de 4 sabores diferentes em porções individuais.', peso: '500 g', preco: '65', foto: '' },
+        { categoria: 'Brownies', nome: 'Brownie de Chocolate + Nozes', descricao: 'Crocante por fora, molhadinho por dentro. Irresistível!', peso: '6 unid.', preco: '48', foto: '' },
+        { categoria: 'Cupcakes', nome: 'Cupcakes Personalizados', descricao: 'Decorados sob encomenda para qualquer ocasião.', peso: '6 unid.', preco: '72', foto: '' },
+      ];
+      montarFiltros(todosProdutos);
+      renderizarProdutos(todosProdutos);
+
+      // Aviso de configuração (visível só pra você, desenvolvedor)
+      console.warn('⚠️ Cardápio em modo DEMO. Configure a variável PLANILHA_URL com o link CSV do Google Sheets.');
+      return;
+    }
+
+    try {
+      const resp = await fetch(PLANILHA_URL);
+      if (!resp.ok) throw new Error('Erro ao buscar planilha');
+      const texto = await resp.text();
+      todosProdutos = parseCSV(texto);
+      if (todosProdutos.length === 0) throw new Error('Planilha vazia');
+      montarFiltros(todosProdutos);
+      renderizarProdutos(todosProdutos);
+    } catch (err) {
+      container.innerHTML = `
+        <div class="estado-vazio">
+          <div class="emoji">😕</div>
+          <h3>Cardápio temporariamente indisponível</h3>
+          <p>Chama a gente no WhatsApp que te enviamos tudo!</p>
+        </div>`;
+      console.error('Erro ao carregar cardápio:', err);
+    }
+  }
+
+  carregarCardapio();
 </script>
 <script src="script.js"></script>
 </body>
