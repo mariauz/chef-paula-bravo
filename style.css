@@ -257,7 +257,12 @@ h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
   transition: var(--transition);
 }
 .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-.card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center 65%;
+}
 .card-body { padding: 1.6rem; }
 .card-price { font-family: var(--font-title); font-size: 1.4rem; color: var(--vinho); font-weight: 700; }
 
