@@ -44,8 +44,10 @@
       line-height: 1.05; margin: 0;
     }
     .card-hero-content h1 em { font-style: italic; color: #E8D5B0; }
+
     .cardapio-sec { background: #FAF6F0; padding: 80px 0 120px; }
     .cardapio-wrap { width: 90%; max-width: 1200px; margin: 0 auto; }
+
     .filtros-wrap {
       display: flex; flex-wrap: wrap; gap: .7rem;
       margin-bottom: 3rem; justify-content: center;
@@ -59,6 +61,7 @@
     }
     .filtro-btn:hover { border-color: #6B2737; color: #6B2737; }
     .filtro-btn.ativo { background: #6B2737; border-color: #6B2737; color: #FFFFFF; }
+
     .produtos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -71,6 +74,7 @@
       display: flex; flex-direction: column;
     }
     .produto-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(107,39,55,0.15); }
+
     .produto-img-wrap {
       position: relative; width: 100%; aspect-ratio: 4/3;
       overflow: hidden; background: #F5EFE6;
@@ -93,13 +97,49 @@
       font-size: 3.5rem;
       background: linear-gradient(135deg, #F5EFE6, #EDE0D4);
     }
+
     .produto-body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
     .produto-nome { font-family: var(--font-title); font-size: 1.25rem; font-weight: 700; color: #2C1810; line-height: 1.2; margin-bottom: .4rem; }
     .produto-desc { font-family: var(--font-body); font-size: .86rem; color: #7A5C50; line-height: 1.65; flex: 1; margin-bottom: .9rem; }
+
+    /* ── TAMANHOS P / M / G ── */
+    .tamanhos-wrap {
+      display: flex; gap: .45rem;
+      margin-bottom: .85rem; align-items: center;
+    }
+    .tamanho-label {
+      font-family: var(--font-body); font-size: .72rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: #9B7B6B; margin-right: .1rem;
+    }
+    .tamanho-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 2px solid #E8D5C4; background: #FAF6F0;
+      font-family: var(--font-body); font-size: .78rem; font-weight: 700;
+      color: #5C3D2E; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s ease;
+    }
+    .tamanho-btn:hover { border-color: #6B2737; color: #6B2737; background: #F5EFE6; }
+    .tamanho-btn.ativo {
+      background: #6B2737; border-color: #6B2737;
+      color: #FFFFFF;
+    }
+
+    /* ── RODAPÉ DO CARD ── */
     .produto-rodape { display: flex; align-items: center; justify-content: space-between; gap: .6rem; margin-top: auto; }
     .produto-info-extra { display: flex; flex-direction: column; gap: .2rem; }
     .produto-peso { font-family: var(--font-body); font-size: .75rem; color: #9B7B6B; font-weight: 600; letter-spacing: .05em; }
-    .produto-preco { font-family: var(--font-title); font-size: 1.45rem; font-weight: 700; color: #6B2737; }
+    .produto-preco {
+      font-family: var(--font-title); font-size: 1.45rem; font-weight: 700; color: #6B2737;
+      transition: opacity .2s;
+    }
+    .produto-preco-label {
+      font-family: var(--font-body); font-size: .7rem; font-weight: 600;
+      color: #C9A96E; letter-spacing: .04em; text-transform: uppercase;
+      margin-bottom: .1rem;
+    }
+
     .btn-pedir {
       display: inline-flex; align-items: center; gap: .4rem;
       padding: .6rem 1.1rem; background: #25D366; color: #FFFFFF;
@@ -107,6 +147,7 @@
       border-radius: 50px; text-decoration: none; transition: all .25s ease; white-space: nowrap;
     }
     .btn-pedir:hover { background: #1cb855; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,.4); }
+
     .loading-wrap { text-align: center; padding: 5rem 0; }
     .loading-spinner {
       width: 48px; height: 48px; border: 4px solid #E8D5C4;
@@ -119,6 +160,7 @@
     .estado-vazio .emoji { font-size: 3rem; margin-bottom: 1rem; }
     .estado-vazio h3 { font-family: var(--font-title); font-size: 1.5rem; color: #5C3D2E; margin-bottom: .5rem; }
     .estado-vazio p { font-family: var(--font-body); font-size: .9rem; }
+
     .card-cta {
       background: linear-gradient(135deg, #4A1825 0%, #6B2737 50%, #C4714A 100%);
       padding: 90px 0; text-align: center; position: relative; overflow: hidden;
@@ -132,6 +174,7 @@
     .card-cta h2 { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; line-height: 1.12; margin-bottom: 1rem; }
     .card-cta h2 em { font-style: italic; color: #E8D5B0; }
     .card-cta p { font-family: var(--font-body); font-size: .97rem; color: rgba(255,255,255,.75); margin: 0 auto 2.2rem; line-height: 1.75; }
+
     @media (max-width: 640px) {
       .cardapio-sec { padding: 60px 0 80px; }
       .produtos-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -237,36 +280,21 @@
   const PLANILHA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT-3FrJYs5CkMTW0zgSkRPW_oJLZI0qDFOIGrBYFzQvW2-uz552e4IhpqMbn39LDy1H9Z5ftvTBBFLa/pub?output=csv';
 
   const EMOJI_CATEGORIA = {
-    'bolo': '🎂', 'torta': '🥧', 'kit': '☕',
+    'bolo': '🎂', 'torta': '🫗', 'kit': '☕',
     'brownie': '🍫', 'cookie': '🍪', 'cupcake': '🧁',
     'pão': '🍞', 'paes': '🍞', 'pao': '🍞', 'default': '🍰'
   };
 
   let todosProdutos = [];
 
-  // ──────────────────────────────────────────────────────────────
-  // converterFoto(): converte link de compartilhamento do Google
-  // Drive para link direto de imagem (lh3.googleusercontent.com).
-  // A Paula pode colar o link normal — o site converte sozinho.
-  //
-  // Formatos aceitos:
-  //   https://drive.google.com/file/d/ID/view?usp=sharing
-  //   https://drive.google.com/open?id=ID
-  //   https://drive.google.com/uc?id=ID
-  //   Links de outros serviços (ImgBB, etc.) → usados sem alteração
-  // ──────────────────────────────────────────────────────────────
   function converterFoto(url) {
     if (!url || url.trim() === '') return '';
     const u = url.trim();
-    // Já é link direto lh3 — usa como está
     if (u.includes('lh3.googleusercontent.com')) return u;
-    // Formato /file/d/ID/view
     const m1 = u.match(/\/file\/d\/([^/\?&]+)/);
     if (m1) return `https://lh3.googleusercontent.com/d/${m1[1]}`;
-    // Formato ?id=ID ou open?id=ID ou uc?id=ID
     const m2 = u.match(/[?&]id=([^&]+)/);
     if (m2) return `https://lh3.googleusercontent.com/d/${m2[1]}`;
-    // Não é Drive — devolve o link original (ImgBB, Imgur, etc.)
     return u;
   }
 
@@ -286,17 +314,72 @@
     return num.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
+  // Retorna o menor preço entre os tamanhos disponíveis (para exibir "a partir de")
+  function precoMinimo(produto) {
+    const candidatos = [
+      produto.preco_p, produto.preco_m, produto.preco_g, produto.preco
+    ].map(v => {
+      if (!v || v.trim() === '') return null;
+      const n = parseFloat(v.replace(',', '.').replace(/[^0-9.]/g, ''));
+      return isNaN(n) ? null : n;
+    }).filter(v => v !== null);
+    if (candidatos.length === 0) return null;
+    return Math.min(...candidatos);
+  }
+
   function criarCard(produto) {
     const wppMsg = encodeURIComponent(`Olá, Chef Paula! Vi o cardápio e quero encomendar: *${produto.nome}*. Pode me dar mais informações?`);
     const linkWpp = `https://wa.me/5512991387404?text=${wppMsg}`;
-    const preco = formatarPreco(produto.preco);
     const emoji = emojiParaCategoria(produto.categoria);
     const fotoUrl = converterFoto(produto.foto);
+
+    // Monta os tamanhos disponíveis
+    const tamanhos = [
+      { label: 'P', preco: produto.preco_p },
+      { label: 'M', preco: produto.preco_m },
+      { label: 'G', preco: produto.preco_g },
+    ].filter(t => t.preco && t.preco.trim() !== '');
+
+    const temTamanhos = tamanhos.length > 0;
+    // Preço inicial: se tem tamanhos, mostra "a partir de" o menor; senão usa preco
+    const minValor = precoMinimo(produto);
+    const precoFormatado = formatarPreco(produto.preco);
+    const cardId = 'card-' + Math.random().toString(36).substr(2, 8);
+
     const imgHtml = fotoUrl
       ? `<img src="${fotoUrl}" alt="${produto.nome}" width="400" height="300" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'produto-sem-img\\'>${emoji}</div>'">`
       : `<div class="produto-sem-img">${emoji}</div>`;
+
+    // Bloco de tamanhos (só aparece se tiver P/M/G na planilha)
+    const tamanhosHtml = temTamanhos ? `
+      <div class="tamanhos-wrap">
+        <span class="tamanho-label">Tam.:</span>
+        ${tamanhos.map((t, i) => `
+          <button
+            class="tamanho-btn${i === 0 ? ' ativo' : ''}"
+            data-preco="${t.preco}"
+            data-label="${t.label}"
+            onclick="selecionarTamanho(this, '${cardId}')"
+            aria-label="Tamanho ${t.label}">
+            ${t.label}
+          </button>`).join('')}
+      </div>` : '';
+
+    // Label acima do preço
+    const labelPreco = temTamanhos
+      ? `<span class="produto-preco-label">a partir de</span>`
+      : '';
+
+    // Preço exibido inicialmente
+    let precoInicial = '';
+    if (temTamanhos) {
+      precoInicial = formatarPreco(tamanhos[0].preco) || '';
+    } else if (precoFormatado) {
+      precoInicial = precoFormatado;
+    }
+
     return `
-      <div class="produto-card" data-categoria="${produto.categoria || ''}">
+      <div class="produto-card" id="${cardId}" data-categoria="${produto.categoria || ''}">
         <div class="produto-img-wrap">
           ${imgHtml}
           ${produto.categoria ? `<span class="produto-categoria-badge">${produto.categoria}</span>` : ''}
@@ -304,10 +387,14 @@
         <div class="produto-body">
           <h3 class="produto-nome">${produto.nome}</h3>
           ${produto.descricao ? `<p class="produto-desc">${produto.descricao}</p>` : ''}
+          ${tamanhosHtml}
           <div class="produto-rodape">
             <div class="produto-info-extra">
               ${produto.peso ? `<span class="produto-peso">⚖️ ${produto.peso}</span>` : ''}
-              ${preco ? `<span class="produto-preco">${preco}</span>` : ''}
+              ${precoInicial ? `
+                ${labelPreco}
+                <span class="produto-preco" data-preco-display>${precoInicial}</span>
+              ` : ''}
             </div>
             <a href="${linkWpp}" class="btn-pedir" target="_blank" rel="noopener">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -316,6 +403,25 @@
           </div>
         </div>
       </div>`;
+  }
+
+  // Chamada quando usuário clica em P / M / G
+  function selecionarTamanho(btn, cardId) {
+    const card = document.getElementById(cardId);
+    // Remove .ativo de todos os botões do card
+    card.querySelectorAll('.tamanho-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    // Atualiza preço
+    const precoDisplay = card.querySelector('[data-preco-display]');
+    if (precoDisplay) {
+      const novoPreco = formatarPreco(btn.dataset.preco);
+      precoDisplay.textContent = novoPreco || '';
+      precoDisplay.style.opacity = '0';
+      requestAnimationFrame(() => { precoDisplay.style.opacity = '1'; });
+    }
+    // Atualiza label "a partir de" → quando já escolheu um tamanho, muda para ""
+    const label = card.querySelector('.produto-preco-label');
+    if (label) label.textContent = '';
   }
 
   function renderizarProdutos(lista) {
@@ -354,7 +460,7 @@
     const headers = linhas[0].split(',').map(h =>
       h.trim().toLowerCase()
         .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]/g, '')
+        .replace(/[^a-z0-9_]/g, '')
     );
     return linhas.slice(1).map(linha => {
       const cols = [];
@@ -373,6 +479,10 @@
         descricao: obj['descricao'] || obj['description'] || '',
         peso:      obj['peso'] || obj['weight'] || '',
         preco:     obj['preco'] || obj['preo'] || obj['price'] || '',
+        // Tamanhos P / M / G — colunas opcionais na planilha
+        preco_p:   obj['preco_p'] || obj['preco_pequeno'] || obj['p'] || '',
+        preco_m:   obj['preco_m'] || obj['preco_medio'] || obj['m'] || '',
+        preco_g:   obj['preco_g'] || obj['preco_grande'] || obj['g'] || '',
         foto:      obj['foto'] || obj['imagem'] || obj['image'] || ''
       };
     }).filter(p => p.nome && p.nome.trim() !== '');
