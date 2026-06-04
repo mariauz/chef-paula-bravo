@@ -95,8 +95,16 @@
 
     /* ── Produtos destaque ── */
     .produtos-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 2rem; margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .produtos-grid .card {
+      flex: 0 1 calc(33.333% - 1.5rem);
+      max-width: 360px;
+      min-width: 260px;
     }
     .card-img {
       width: 100%;
@@ -146,11 +154,12 @@
       .hero-img-col::after { background: linear-gradient(to bottom, transparent 60%, var(--creme) 100%); }
       .hero-content { padding: 3rem 5%; }
       .diferenciais-grid { grid-template-columns: 1fr 1fr; }
-      .produtos-grid { grid-template-columns: 1fr 1fr; }
+      .produtos-grid .card { flex: 0 1 calc(50% - 1rem); }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     }
     @media (max-width: 600px) {
-      .diferenciais-grid, .produtos-grid { grid-template-columns: 1fr; }
+      .diferenciais-grid { grid-template-columns: 1fr; }
+      .produtos-grid .card { flex: 0 1 100%; max-width: 100%; }
     }
   </style>
 </head>
